@@ -7,19 +7,29 @@ const Navbar = (props: Props) => {
 
   return <nav>
       <div
-        className={`${flexBetween} fixed top-0 z-30 w-full py-6 bg-navbarColor`}
+        className={`${flexBetween} font-bold fixed top-0 z-30 w-full py-6 bg-navbarColor`}
       >SwiftFetch
+
+          <div className={`${flexBetween} w-3`}>
+            SearchBar
+          </div>
         <div 
-        className={`${flexBetween} mx-auto w-5/6`}
+        className={`${flexBetween} w-5/12`}
         >
+          <div className={`${flexBetween} w-full gap-16`}>
+            Home
+          </div>
+          <div className={`${flexBetween} w-full gap-16`}>
+            Chat
+          </div>
+          <div className={`${flexBetween} w-full gap-16`}>
+            History
+          </div>
+          <div>
+            Hi
+          </div>
           <div>
             
-          </div>
-          <div>
-
-          </div>
-          <div>
-
           </div>
           </div>
       </div>

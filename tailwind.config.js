@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         "navbarColor": "#2278C8", // All colornya mesti diganti berdasarkan website kita ku add ini dari vid gara gara masih belum ngerti gimana pakenya jadi sementara
-        "pageColor": "#EEE9D5",
+        "pageColor": "#FFFFFF",
         "gray-100": "#DFCCCC",
         "navbarTextColor": "#FFFFFF",
         "primary-100": "#FFE1E0",
