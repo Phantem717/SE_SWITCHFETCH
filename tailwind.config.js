@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "gray-20": "#F8F4EB", // All colornya mesti diganti berdasarkan website kita ku add ini dari vid gara gara masih belum ngerti gimana pakenya jadi sementara
-        "gray-50": "#EFE6E6",
+        "navbarColor": "#2278C8", // All colornya mesti diganti berdasarkan website kita ku add ini dari vid gara gara masih belum ngerti gimana pakenya jadi sementara
+        "pageColor": "#EEE9D5",
         "gray-100": "#DFCCCC",
-        "gray-500": "#5E0000",
+        "navbarTextColor": "#FFFFFF",
         "primary-100": "#FFE1E0",
         "primary-300": "#FFA6A3",
         "primary-500": "#FF6B66",
