@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Search from "@/components/searchBar";
 
 type Props = {};
 
@@ -8,10 +9,10 @@ const Navbar = (props: Props) => {
   return <nav>
       <div
         className={`${flexBetween} font-bold fixed top-0 z-30 w-full py-6 bg-navbarColor`}
-      >SwiftFetch
-
-          <div className={`${flexBetween} w-3`}>
-            SearchBar
+      >
+          <div className={`${flexBetween} ml-4`}>SwiftFetch</div>
+          <div className={`${flexBetween}`}>
+            <Search />
           </div>
         <div 
         className={`${flexBetween} w-5/12`}
@@ -25,7 +26,7 @@ const Navbar = (props: Props) => {
           <div className={`${flexBetween} w-full gap-16`}>
             History
           </div>
-          <div>
+          <div className={`${flexBetween} mr-4`}>
             Hi
           </div>
           <div>

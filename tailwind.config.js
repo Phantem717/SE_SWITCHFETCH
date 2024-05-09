@@ -9,7 +9,7 @@ export default {
       colors: {
         "navbarColor": "#2278C8", // All colornya mesti diganti berdasarkan website kita ku add ini dari vid gara gara masih belum ngerti gimana pakenya jadi sementara
         "pageColor": "#FFFFFF",
-        "gray-100": "#DFCCCC",
+        "searchTxtColor": "#000000",
         "navbarTextColor": "#FFFFFF",
         "primary-100": "#FFE1E0",
         "primary-300": "#FFA6A3",
