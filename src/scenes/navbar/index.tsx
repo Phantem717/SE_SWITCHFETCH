@@ -17,16 +17,18 @@ const Navbar = (props: Props) => {
         <div 
         className={`${flexBetween} w-5/12`}
         >
-          <div className={`${flexBetween} w-full gap-16`}>
-            Home
+          <div className={`${flexBetween} w-8/12 gap-16`}>
+              <div>
+                Recommendation
+              </div>
+              <div>
+                Chat
+              </div>
+              <div>
+                History
+              </div>
           </div>
-          <div className={`${flexBetween} w-full gap-16`}>
-            Chat
-          </div>
-          <div className={`${flexBetween} w-full gap-16`}>
-            History
-          </div>
-          <div className={`${flexBetween} mr-4`}>
+          <div className={`${flexBetween} w-auto`}>
             Hi
           </div>
           <div>
