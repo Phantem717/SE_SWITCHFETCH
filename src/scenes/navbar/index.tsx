@@ -8,24 +8,24 @@ const Navbar = (props: Props) => {
 
   return <nav>
       <div
-        className={`${flexBetween} font-bold fixed top-0 z-30 w-full py-6 bg-navbarColor`}
+        className={`${flexBetween} fixed top-0 z-30 w-full py-6 bg-gradient-to-r from-navGrad1 to-navGrad2 `}
       >
-          <div className={`${flexBetween} ml-4`}>SwiftFetch</div>
+          <div className={`${flexBetween} ml-4 font-bold`}>SwiftFetch</div>
           <div className={`${flexBetween}`}>
             <Search />
           </div>
         <div 
         className={`${flexBetween} w-5/12`}
         >
-          <div className={`${flexBetween} w-8/12 gap-16`}>
+          <div className={`${flexBetween} w-8/12 gap-16 font-semibold` }>
               <div>
-                Recommendation
+                <a href="">Recommendation</a>
               </div>
               <div>
-                Chat
+                <a href="">Chat</a>
               </div>
               <div>
-                History
+                <a href="">History</a>
               </div>
           </div>
           <div className={`${flexBetween} w-auto`}>
