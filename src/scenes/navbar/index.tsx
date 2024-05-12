@@ -8,7 +8,7 @@ const Navbar = (props: Props) => {
 
   return <nav>
       <div
-        className={`${flexBetween} fixed top-0 z-30 w-full py-6 bg-gradient-to-r from-navGrad1 to-navGrad2 `}
+        className={`${flexBetween} fixed top-0 z-30 w-full py-6 bg-gradient-to-r from-navGrad1 to-navGrad2 text-white`}
       >
           <div className={`${flexBetween} ml-4 font-bold`}>SwiftFetch</div>
           <div className={`${flexBetween}`}>
