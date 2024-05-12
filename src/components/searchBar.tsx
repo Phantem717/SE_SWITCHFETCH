@@ -10,7 +10,7 @@ const searchBar = () => {
                 value={text} onChange={e => setText(e.target.value)} 
                 style={{ fontSize : '1 rem'} }/>
             </div>
-            <div className={`flex text-xs text-white bg-navGrad1 rounded-tr-sm rounded-br-sm w-20 h-8 items-center justify-center`}>
+            <div className={`flex text-xs text-white bg-navGrad1 rounded-tr-sm rounded-br-sm w-20 h-8 items-center justify-center `}>
                 <button>Search</button>
             </div>
         </div>
