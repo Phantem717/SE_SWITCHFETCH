@@ -9,14 +9,16 @@ function App() {
 
     
     <div className='app bg-pageColor'>
-      <Navbar />
-      {/* <SignUp /> */}
+      {/* <Navbar />
+      <SignUp /> */}
       <Routes>
       <Route path = "/" element={<Navbar />}></Route>
-        <Route path = "/signup" element={<SignUp />}></Route>
+      <Route path = "/signup" element={<SignUp />}></Route>
+      
+       
         
       </Routes>
-      <SignUp />
+    
     </div>
     </Router>
   )
