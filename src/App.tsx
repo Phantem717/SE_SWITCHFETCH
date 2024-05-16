@@ -5,6 +5,7 @@ import DropDownCategory from "./components/DropDownCategory";
 
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 import SellProduct from "./components/SellProduct";
+import EditProfile from "./components/EditProfile";
 function App() {
 
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path = "/signup" element={<SignUp />}></Route>
       <Route path = "/sellproduct" element={<SellProduct />}></Route>
       <Route path="/DDCategory" element={<DropDownCategory />}> </Route>
+      <Route path="/editprofile" element={<EditProfile/>}> </Route>
       
        
         

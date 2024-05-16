@@ -6,7 +6,7 @@ import DropDownLocation from './DropDownLocation';
 
 const SellProduct = () => {
     const [textProd, setTextProd] = React.useState('');
-    const [text, setText] = React.useState('');
+    const [textDesc, setTextDesc] = React.useState('');
     const [textPrice, setTextPrice] = React.useState('');
   return (
     
@@ -18,7 +18,7 @@ const SellProduct = () => {
         Product Name
         </div>
 
-        <input type='text' className={`placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} placeholder='Enter Product Name' 
+        <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200 placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} placeholder='Enter Product Name' 
                 value={textProd} onChange={e => setTextProd(e.target.value)} 
                 style={{ fontSize : '1 rem'} }/>
         
@@ -30,7 +30,7 @@ const SellProduct = () => {
         Price
         </div>
 
-        <input type='text' className={`placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} placeholder='Enter Product Price' 
+        <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} placeholder='Enter Product Price' 
                 value={textPrice} onChange={e => setTextPrice(e.target.value)} 
                 style={{ fontSize : '1 rem'} }/>
         
@@ -63,8 +63,8 @@ const SellProduct = () => {
         Product Description
         </div>
 
-        <input type='text' className={`placeholder: pb-20 placeholder: px-4 pl-2 border-2 box-border border-black rounded-lg w-7/12 h-28`} placeholder='Cari Produk' 
-                value={text} onChange={e => setText(e.target.value)} 
+        <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: pb-20 placeholder: px-4 pl-2 border-2 box-border border-black rounded-lg w-7/12 h-28`} placeholder='Enter Product Description' 
+                value={textDesc} onChange={e => setTextDesc(e.target.value)} 
                 style={{ fontSize : '1 rem'} }/>
         
         
@@ -75,15 +75,15 @@ const SellProduct = () => {
         Add Product Picture
         </div>
 
-        <input type='file' className={`border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+        <input type='file' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  cursor-pointer border-2 box-border border-black rounded-lg w-7/12 h-8`} 
             
                />
         
         
     </div>
 
-    <div className='mt-12 ml-auto mr-44 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-center '>
-        <button>Add</button>
+    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  mt-12 ml-auto mr-44 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-center '>
+        <button className='w-full h-full'>Add</button>
     </div>
        
     </div>

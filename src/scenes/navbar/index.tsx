@@ -20,7 +20,7 @@ const Navbar = (props: Props) => {
         className={`${flexBetween} w-5/12`}
         >
           <div className={`${flexCent} w-8/12 gap-16 font-semibold ` }>
-              <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300`} >
+              <div className={`hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300 hover:w-max `} >
                 <a href="" >Recommendation</a>
               </div>
               <div>
