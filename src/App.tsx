@@ -1,7 +1,6 @@
-import Navbar from "@/scenes/navbar";
+// import Navbar from "@/scenes/navbar";
 import SignUp from "./components/signUp";
 import DropDownCategory from "./components/DropDownCategory";
-
 
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 import SellProduct from "./components/SellProduct";
@@ -25,7 +24,7 @@ function App() {
        
         
       </Routes>
-    
+
     </div>
     </Router>
   )
