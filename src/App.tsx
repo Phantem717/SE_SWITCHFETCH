@@ -1,12 +1,14 @@
-import Navbar from "@/scenes/navbar";
+// import Navbar from "@/scenes/navbar";
 import SignUp from "./components/signUp";
+import Register from "./components/register";
 
 function App() {
 
   return (
     <div className='app bg-pageColor'>
-      <Navbar />
+      {/* <Navbar /> */}
       <SignUp />
+      {/* <Register /> */}
     </div>
   )
 }
