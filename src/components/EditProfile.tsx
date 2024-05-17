@@ -8,14 +8,14 @@ const EditProfile = () => {
     const [textDesc, setTextDesc] = React.useState('');
     const [textEmail, setTextEmail] = React.useState('');
   return (
-    <div>
+    <div className='bg-blue-100'>
         <Navbar />
 <div className='  mt-12 flex flex-row justify-center align-middle items-center '>
         <div className='w-2/12 font-bold'>
         Add Profile Picture
         </div>
 
-        <input type='file' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+        <input type='file' className={`bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  border-2 box-border border-black rounded-lg w-7/12 h-8`} 
             
                />  
     </div>

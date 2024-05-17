@@ -10,7 +10,7 @@ const SellProduct = () => {
     const [textPrice, setTextPrice] = React.useState('');
   return (
     
-    <div>
+    <div className='bg-blue-100'>
           <Navbar />
 
     <div className='  mt-20 flex flex-row justify-center align-middle items-center '>
@@ -75,7 +75,7 @@ const SellProduct = () => {
         Add Product Picture
         </div>
 
-        <input type='file' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  cursor-pointer border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+        <input type='file' className={`bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  cursor-pointer border-2 box-border border-black rounded-lg w-7/12 h-8`} 
             
                />
         

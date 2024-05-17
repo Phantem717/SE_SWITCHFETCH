@@ -18,7 +18,7 @@ const DropDownLocation = () => {
   };
 
   return (
-    <div className={`border-2 box-border border-black rounded-lg w-7/12 h-8 z-10 ${isOpen ? 'rounded-bl-none rounded-br-none' : ''}`}>
+    <div className={`bg-white border-2 box-border border-black rounded-lg w-7/12 h-8 z-10 ${isOpen ? 'rounded-bl-none rounded-br-none' : ''}`}>
       <button onClick={toggleDropdown} className='hover:rounded-lg hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2  hover:bg-blue-200  w-full h-full flex justify-between items-center px-4 z-0'>
         <span>{selectedOption}</span>
         {isOpen && <FontAwesomeIcon icon={faCaretUp} />
