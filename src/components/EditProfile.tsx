@@ -76,7 +76,7 @@ const EditProfile = () => {
         
     </div>
     <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  mt-12 ml-auto mr-44 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-center '>
-        <button className='w-full h-full'>Add</button>
+        <button className='w-full h-full'>Save</button>
     </div>
 
     </div>
