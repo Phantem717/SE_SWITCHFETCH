@@ -1,10 +1,15 @@
 import { useState } from "react";
 import background from './LoginBackground.png';
 import logo from './Logo.png'
-
+import { useNavigate } from "react-router-dom";
 const signUp = () => {
   const flexCent = "flex items-center justify-center";
+  const navigate = useNavigate();
 
+  const handleLoginClick = (event: { preventDefault: () => void; }) => {
+    event.preventDefault(); 
+    navigate('/'); 
+  }
   return (
     <div className={'bg-cover h-screen bg-gradient-to-r from-logregGrad5 to-logregGrad6'} style= {{backgroundImage: `url(${background})`}}>
         <form action="" className={`${flexCent}  text-black h-svh`}>
@@ -22,7 +27,7 @@ const signUp = () => {
                 <input className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200    placeholder:text-gray-200 rounded-lg w-full h-8 text-xs bg-transparent border-solid border-2 border-white text-logregTxt pl-2 `} type="password" placeholder="password" required />
               </div>
 
-              <button className={`${flexCent} mt-5 text-xs h-8 w-full rounded-lg text-white bg-logregBtn cursor-pointer hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300 font-medium`} type="submit">Login</button>
+              <button className={`${flexCent} mt-5 text-xs h-8 w-full rounded-lg text-white bg-logregBtn cursor-pointer hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300 font-medium`} type="submit" onClick={handleLoginClick}>Login</button>
               
               <div className={`text-xs mt-28`}>
                 <p className={`${flexCent} text-logregyesAcc`}>No Account yet?</p>
