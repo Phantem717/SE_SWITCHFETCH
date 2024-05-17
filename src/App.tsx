@@ -1,4 +1,4 @@
-// import Navbar from "@/scenes/navbar";
+import Navbar from "@/scenes/navbar";
 import SignUp from "./components/signUp";
 import DropDownCategory from "./components/DropDownCategory";
 
@@ -12,8 +12,6 @@ function App() {
 
     
     <div className='app bg-pageColor'>
-      {/* <Navbar />
-      <SignUp /> */}
       <Routes>
       <Route path = "/" element={<Navbar />}></Route>
       <Route path = "/signup" element={<SignUp />}></Route>
