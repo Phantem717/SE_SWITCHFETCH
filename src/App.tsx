@@ -1,5 +1,5 @@
 import Navbar from "@/scenes/navbar";
-
+import SignUp from "./components/signUp";
 import DropDownCategory from "./components/DropDownCategory";
 import SignUp from "./components/signUp";
 import Register from "./components/register.tsx";
@@ -17,13 +17,10 @@ function App() {
 
     
     <div className='app bg-pageColor'>
-      {/* <Navbar />
-      <SignUp /> */}
       <Routes>
       <Route path = "/" element={<Navbar />}></Route>
       <Route path = "/signup" element={<SignUp />}></Route>
       <Route path = "/sellproduct" element={<SellProduct />}></Route>
-      <Route path="/DDCategory" element={<DropDownCategory />}> </Route>
       <Route path="/editprofile" element={<EditProfile/>}> </Route>
       <Route path="/signup" element={<SignUp/>}> </Route>
       <Route path="/ProdGall" element={<ProductDetGall/>}> </Route>
