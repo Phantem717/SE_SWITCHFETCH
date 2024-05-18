@@ -6,9 +6,9 @@ import QTYIncrement from './QTYIncrement'
 
 const ProductDetails = () => {
   return (
-    <div>
+    <div className=''>
       <Navbar />
-        <div className='flex flex-row items-center justify-center gap-32'>
+        <div className='flex flex-row justify-center  items-center align-middle gap-32 '>
         <ProductDetGall />
         <ProdInfoBox />
         </div>

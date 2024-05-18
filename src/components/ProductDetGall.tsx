@@ -15,7 +15,7 @@ const ProductDetGall = () => {
             <img src={ProdImg} alt="" />
             
         </div>
-        <div className='flex flex-row justify-center  items-center mt-8 w-WidthMain align-middle'>
+        <div className='flex flex-row justify-center  items-center align-middle mt-8 w-WidthMain '>
             <img src={ProdImg} alt="" className={`${optIMG}  `} />
             <img src={ProdImg} alt="" className={`${optIMG}  `}  />
             <img src={ProdImg} alt="" className={`${optIMG}  `}   />

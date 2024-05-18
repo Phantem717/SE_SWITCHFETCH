@@ -35,7 +35,8 @@ export default {
         "EditWidth" : "638px",
         "ProfWidth" : "73px",
         "QTYBTNWidth": "24px",
-        "QTYCONTWIDTH": "24px"
+        "QTYCONTWIDTH": "24px",
+        "DetWidth": "1421px"
         
         
       },
@@ -44,7 +45,8 @@ export default {
         "EditHeight" : "821px",
         "ProfHeight" : "73px",
         "GallHeight": "660px",
-        "QTYBTNHeight": "24px"
+        "QTYBTNHeight": "24px",
+        "DetHeight": "836px"
       },
       borderRadius:{
         "CircleProfPic" : "100%"

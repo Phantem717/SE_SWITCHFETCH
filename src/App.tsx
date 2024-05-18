@@ -1,7 +1,7 @@
 import Navbar from "@/scenes/navbar";
 import SignUp from "./components/signUp";
 import DropDownCategory from "./components/DropDownCategory";
-import SignUp from "./components/signUp";
+
 import Register from "./components/register.tsx";
 import ProductDetGall from "./components/ProductDetGall.tsx";
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
