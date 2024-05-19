@@ -31,8 +31,8 @@ export default {
         fontName: [""]
       },
       width: {
-        "WidthMain" : "660px",
-        "EditWidth" : "638px",
+        "WidthMain" : "560px",
+        "EditWidth" : "600px",
         "ProfWidth" : "73px",
         "QTYBTNWidth": "24px",
         "QTYCONTWIDTH": "24px",
@@ -45,8 +45,8 @@ export default {
         
       },
       height: {
-        "HeightMain" : "660px",
-        "EditHeight" : "821px",
+        "HeightMain" : "550px",
+        "EditHeight" : "800px",
         "ProfHeight" : "73px",
         "GallHeight": "660px",
         "QTYBTNHeight": "24px",
