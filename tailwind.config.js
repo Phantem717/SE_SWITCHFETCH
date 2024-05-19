@@ -36,8 +36,12 @@ export default {
         "ProfWidth" : "73px",
         "QTYBTNWidth": "24px",
         "QTYCONTWIDTH": "24px",
-        "DetWidth": "1421px"
-        
+        "DetWidth": "1421px",
+        "ScreenWidth": "1920px",
+        "AdWidth": "1000px",
+        "PCIMGWidth": "130px",
+        "PCONTWidth": "180px",
+        "PCONTWidth2": "230pxpx",
         
       },
       height: {
@@ -46,7 +50,12 @@ export default {
         "ProfHeight" : "73px",
         "GallHeight": "660px",
         "QTYBTNHeight": "24px",
-        "DetHeight": "836px"
+        "DetHeight": "836px",
+        "ScreenHeight": "1080px",
+        "AdHeight": "370px",
+        "PCIMGHeight": "130px",
+        "PCONTHeight": "180px",
+        "PCONTHeight2": "320px",
       },
       borderRadius:{
         "CircleProfPic" : "100%"
