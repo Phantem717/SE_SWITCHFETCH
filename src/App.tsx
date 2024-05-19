@@ -11,7 +11,7 @@ import ProductDetails from "./components/ProductDetails.tsx";
 import ProdInfoBox from "./components/ProdInfoBox.tsx";
 import QTYIncrement from "./components/QTYIncrement.tsx";
 import ProductContainer from "./components/ProductContainer.tsx";
-
+import SearchPage from "./components/SearchPage.tsx";
 function App() {
 
   return (
@@ -33,7 +33,7 @@ function App() {
       <Route path="/register" element={<Register/>}> </Route>
       <Route path="/QTYBTN" element={<QTYIncrement/>}> </Route>
       <Route path="/ProdCont" element={<ProductContainer/>}> </Route>
-
+      <Route path="/search" element={<SearchPage/>}> </Route>
         
       </Routes>
 

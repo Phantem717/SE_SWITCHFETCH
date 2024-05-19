@@ -4,7 +4,7 @@ import star from './star.png'
 const ProductContainer = () => {
   return (
     
-    <div className='w-PCONTWidth2 h-PCONTHeight2'>
+    <div className='w-PCONTWidth2 h-PCONTHeight2  hover:cursor-pointer transition-all duration-300'>
 
         {/* IMG */}
         <div className='mb-1 bg-yellow-100 w-PCONTWidth h-PCONTHeight flex align-middle content-center items-center justify-center rounded-md'>
