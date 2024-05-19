@@ -22,9 +22,9 @@ const IncrementDecrementBtn: React.FC<IncrementDecrementBtnProps> = ({ minValue 
 
   return (
     <div className='flex flex-row  align-middle content-center '>
-      <button onClick={handleDecrementCounter} className='text-white bg-black px-3 py-1 font-bold text-DescFont flex justify-center align-middle content-center'>-</button>
+      <button onClick={handleDecrementCounter} className='text-white bg-black w-8 h-8 rounded-sm  font-bold text-DescFont flex justify-center align-middle content-center'>-</button>
       <span className='font-medium ml-10 mr-10 text-ProfName w-QTYCONTWIDTH flex flex-row justify-center align-middle content-center'>{count}</span>
-      <button onClick={handleIncrementCounter} className='text-white  bg-black px-3 py-1 font-bold rounded-sm text-DescFont justify-center flex align-middle content-center'>+</button>
+      <button onClick={handleIncrementCounter} className='text-white  bg-black w-8 h-8 font-bold rounded-sm text-DescFont justify-center flex align-middle content-center'>+</button>
     </div>
   );
 };
