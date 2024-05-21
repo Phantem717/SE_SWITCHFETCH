@@ -10,6 +10,7 @@ export default {
         "navbarColor": "#2278C8", // All colornya mesti diganti berdasarkan website kita ku add ini dari vid gara gara masih belum ngerti gimana pakenya jadi sementara
         "navGrad1": "#53B0F4",
         "navGrad2" : "#0B3992",
+         
         "pageColor": "#FFFFFF",
         "searchTxtColor": "#000000",
         "navbarTextColor": "#FFFFFF",
@@ -23,10 +24,51 @@ export default {
         "logregnoAcc": "#EDAD09",
         "logregyesAcc": "#DDF25B",
         "logregTxt": "#373838",
+        "OrderBTNTop": "#53B0F4",
+        "OrderBTNBot": " #91DBF3"
       },
       fontFamily: {
         fontName: [""]
       },
+      width: {
+        "WidthMain" : "480px",
+        "EditWidth" : "470px",
+        "ProfWidth" : "50px",
+        "QTYBTNWidth": "24px",
+        "QTYCONTWIDTH": "24px",
+        "DetWidth": "1421px",
+        "ScreenWidth": "1920px",
+        "AdWidth": "1000px",
+        "PCIMGWidth": "130px",
+        "PCONTWidth": "180px",
+        "PCONTWidth2": "230pxpx",
+        
+      },
+      height: {
+        "HeightMain" : "430px",
+        "EditHeight" : "800px",
+        "ProfHeight" : "50px",
+        "GallHeight": "660px",
+        "QTYBTNHeight": "24px",
+        "DetHeight": "836px",
+        "ScreenHeight": "1080px",
+        "AdHeight": "370px",
+        "PCIMGHeight": "130px",
+        "PCONTHeight": "180px",
+        "PCONTHeight2": "320px",
+      },
+      borderRadius:{
+        "CircleProfPic" : "100%"
+      },
+      fontSize:{
+        "ProdName": "70px",
+        "ProfName" : "24px",
+        "Rating": "30px",
+        "ProdPrice": "50px",
+        "DescFont": "22px",
+        "TotalPrice": "30px"
+      },
+  
       // content: {
       //   evolvetext: ""
       // }
