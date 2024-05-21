@@ -1,6 +1,5 @@
 import Navbar from "@/scenes/navbar";
 import SignUp from "./components/signUp";
-import DropDownCategory from "./components/DropDownCategory";
 import Home from "./components/Home.tsx";
 import Register from "./components/register.tsx";
 import ProductDetGall from "./components/ProductDetGall.tsx";
@@ -21,7 +20,6 @@ function App() {
     <div className='app bg-pageColor'>
       <Routes>
       <Route path="/" element={<Home/>}> </Route>
-
       <Route path = "/NavBar" element={<Navbar />}></Route>
       <Route path = "/signup" element={<SignUp />}></Route>
       <Route path = "/sellproduct" element={<SellProduct />}></Route>
