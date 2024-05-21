@@ -16,7 +16,7 @@ const ProdInfoBox = () => {
             </div>
     
             <div className='font-bold text-2xl ml-5'>
-              Mak Kau
+              Prudus
             </div>
           </div>
     

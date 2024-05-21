@@ -1,7 +1,7 @@
 import Navbar from "@/scenes/navbar";
 import ProductContainer from "./ProductContainer";
 import ProdImg from './Rectangle64.png'
-import testIMG from './speencock.png'
+import testIMG from './se.jpeg'
 import React from 'react'
 
 const Home = () => {

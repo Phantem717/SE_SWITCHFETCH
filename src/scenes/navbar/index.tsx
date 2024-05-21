@@ -13,9 +13,9 @@ const Navbar = (props: Props) => {
         className={`${flexBetween} sticky z-30 top-0  w-full py-6 bg-gradient-to-r from-navGrad1 to-navGrad2 text-white`}
       >
           <div className={`${flexBetween} ml-4 font-bold`}>SwiftFetch</div>
-          <div className={`${flexBetween} `}>
+          {/* <div className={`${flexBetween} `}>
             <Search />
-          </div>
+          </div> */}
         <div 
         className={`${flexBetween} w-5/12`}
         >
@@ -30,8 +30,9 @@ const Navbar = (props: Props) => {
                 <a href="" className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300`}>History</a>
               </div>
           </div>
-          <div className={`${flexBetween} w-auto`}>
-            Hi
+          <div className={`${flexBetween} `}>
+            <p className={`ml-4`}>Balance:</p>
+            <p>lm </p>
           </div>
           <div>
             
