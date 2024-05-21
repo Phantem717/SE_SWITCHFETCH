@@ -8,7 +8,7 @@ const ProductDetails = () => {
   return (
     <div className=''>
       <Navbar />
-        <div className='flex justify-center gap-28 '>
+        <div className='z-0 flex justify-center gap-28 '>
         <ProductDetGall />
         <ProdInfoBox />
         </div>
