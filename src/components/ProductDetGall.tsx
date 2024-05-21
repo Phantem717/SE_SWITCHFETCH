@@ -8,7 +8,7 @@ const ProductDetGall = () => {
   return (
     
 
-    <div className='flex flex-col mt-12'>
+    <div className='z-0 flex flex-col mt-12'>
        
         <div className='flex flex-col'>
         <div className={`${mainImg}  `}>
