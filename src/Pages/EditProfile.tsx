@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
-import DropDownLocation from './DropDownLocation';
-import DropDownGender from './DropDownGender';
+import DropDownLocation from '../components/DropDownLocation';
+import DropDownGender from '../components/DropDownGender';
 
 const EditProfile = () => {
     const [textName, setTextName] = React.useState('');
@@ -64,7 +64,7 @@ const EditProfile = () => {
         
     </div>
 
-    <div className='  mt-12 flex flex-row justify-center align-middle items-center '>
+    <div className='  mt-12 flex flex-row justify-center align-middle  '>
         <div className='w-2/12 font-bold'>
         Profile Description
         </div>

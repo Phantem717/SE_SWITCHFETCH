@@ -1,6 +1,6 @@
 import React from 'react'
-import ProdIMG from './Rectangle64.png'
-import star from './star.png'
+import ProdIMG from '../assets/Rectangle64.png'
+import star from '../assets/star.png'
 const ProductContainer = () => {
   return (
     

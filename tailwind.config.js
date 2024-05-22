@@ -66,7 +66,8 @@ export default {
         "Rating": "30px",
         "ProdPrice": "50px",
         "DescFont": "22px",
-        "TotalPrice": "30px"
+        "TotalPrice": "30px",
+        "10Px": "5px"
       },
   
       // content: {

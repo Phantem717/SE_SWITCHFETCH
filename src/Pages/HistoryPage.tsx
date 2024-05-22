@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
-import HistoryBox from './HistoryBox'
+import HistoryBox from '../components/HistoryBox'
 const HistoryPage = () => {
   return (
     <div className='bg-gray-100'>

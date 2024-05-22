@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ProfIMG from './Elige Al Gaib.png'
-import star from './star.png'
+import ProfIMG from '../assets/Elige Al Gaib.png'
+import star from '../assets/star.png'
 import QTYIncrement from './QTYIncrement'
 const ProdInfoBox = () => {
   return (

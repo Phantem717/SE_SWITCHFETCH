@@ -1,7 +1,7 @@
 import React from 'react'
-import ProdImg from './Rectangle64.png'
-import ProfImg from './Elige Al Gaib.png'
-import star from './star.png'
+import ProdImg from '../assets/Rectangle64.png'
+import ProfImg from '../assets/Elige Al Gaib.png'
+import star from '../assets/star.png'
 const HistoryBox = () => {
   return (
     <div className=' flex  bg-white w-7/12 flex-col'>

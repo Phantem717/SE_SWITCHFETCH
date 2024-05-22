@@ -1,6 +1,6 @@
 import { useState } from "react";
-import background from './LoginBackground.png';
-import logo from './Logo.png'
+import background from '../assets/LoginBackground.png';
+import logo from '../assets/Logo.png'
 import { useNavigate } from "react-router-dom";
 const signUp = () => {
   const flexCent = "flex items-center justify-center";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Search from "@/components/searchBar";
-import logo from "@/components/Logo.png";
-import profilePic from "@/components/Elige Al Gaib.png";
+import logo from "@/assets/Logo.png";
+import profilePic from "@/assets/Elige Al Gaib.png";
 
 type Props = {};
 

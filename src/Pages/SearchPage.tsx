@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
-import ProductContainer from './ProductContainer'
+import ProductContainer from '../components/ProductContainer'
 
 const SearchPage = () => {
   return (

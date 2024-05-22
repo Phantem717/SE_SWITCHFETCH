@@ -33,7 +33,7 @@ const DropDownLocation = () => {
       {isOpen && 
         <div className='z-10 border-b-2 border-l-2 border-r-2 box-border border-black  w-full bg-white '>
           {list.map((country, index) => (
-            <div key={index} className='z-10 cursor-pointer transition-all duration-300  hover:bg-blue-200  mb-1' onClick={() => handleOptionClick(country.Country)}>
+            <div key={index} className='z-10 cursor-pointer transition-all duration-300  hover:bg-blue-200  mb-1 w-screen' onClick={() => handleOptionClick(country.Country)}>
               <h3>{country.Country}</h3>
             </div>
           ))}
