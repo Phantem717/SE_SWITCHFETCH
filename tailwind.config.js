@@ -25,7 +25,9 @@ export default {
         "logregyesAcc": "#DDF25B",
         "logregTxt": "#373838",
         "OrderBTNTop": "#53B0F4",
-        "OrderBTNBot": " #91DBF3"
+        "OrderBTNBot": " #91DBF3",
+        "Footer1": "#0F137E",
+        "Footer2": "#272844"
       },
       fontFamily: {
         fontName: [""]
