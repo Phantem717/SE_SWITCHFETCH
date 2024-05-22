@@ -11,6 +11,8 @@ import ProdInfoBox from "./components/ProdInfoBox.tsx";
 import QTYIncrement from "./components/QTYIncrement.tsx";
 import ProductContainer from "./components/ProductContainer.tsx";
 import SearchPage from "./components/SearchPage.tsx";
+import HistoryPage from "./components/HistoryPage.tsx";
+import HistoryBox from "./components/HistoryBox.tsx";
 function App() {
 
   return (
@@ -32,7 +34,9 @@ function App() {
       <Route path="/QTYBTN" element={<QTYIncrement/>}> </Route>
       <Route path="/ProdCont" element={<ProductContainer/>}> </Route>
       <Route path="/search" element={<SearchPage/>}> </Route>
-        
+      <Route path="/history" element={<HistoryPage/>}> </Route>
+      <Route path="/histbox" element={<HistoryBox/>}> </Route>
+
       </Routes>
 
     </div>

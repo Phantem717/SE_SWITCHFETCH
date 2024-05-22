@@ -23,16 +23,16 @@ const Navbar = (props: Props) => {
         >
           <div className={`${flexCent} w-8/12 gap-16 font-semibold ` }>
               <div className={`hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300 hover:w-max `} >
-                <a href="" >Home</a>
+                <a href="./" >Home</a>
               </div>
-              <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300`}>
+              {/* <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300`}>
                 <a href="" >Search</a>
+              </div> */}
+              <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300`}>
+                <a href="./search" >Product</a>
               </div>
               <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300`}>
-                <a href="" >Product</a>
-              </div>
-              <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300`}>
-                <a href="" >History</a>
+                <a href="./history" >History</a>
               </div>
           </div>
           <div className={`${flexBetween} ml-24`}>
