@@ -44,6 +44,7 @@ export default {
         "PCIMGWidth": "130px",
         "PCONTWidth": "180px",
         "PCONTWidth2": "230pxpx",
+        "TXTWIDTH": "350px"
         
       },
       height: {
@@ -58,6 +59,7 @@ export default {
         "PCIMGHeight": "130px",
         "PCONTHeight": "180px",
         "PCONTHeight2": "320px",
+        "PAYHEIGHT" : "450px"
       },
       borderRadius:{
         "CircleProfPic" : "100%"
@@ -71,6 +73,7 @@ export default {
         "TotalPrice": "30px",
         "10Px": "5px"
       },
+      
   
       // content: {
       //   evolvetext: ""

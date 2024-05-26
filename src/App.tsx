@@ -15,6 +15,7 @@ import HistoryPage from "./Pages/HistoryPage.tsx";
 import HistoryBox from "./components/HistoryBox.tsx";
 import FileUpload from "./components/FileUpload.tsx";
 import Footer from "./components/Footer.tsx";
+import TopUp from "./Pages/TopUp.tsx";
 function App() {
 
   return (
@@ -40,7 +41,7 @@ function App() {
       <Route path="/histbox" element={<HistoryBox/>}> </Route>
       <Route path="/fileupload" element={<FileUpload/>}> </Route>
       <Route path="/footer" element={<Footer/>}> </Route>
-
+      <Route path="/topup" element={<TopUp/>}> </Route>
       </Routes>
 
     </div>
