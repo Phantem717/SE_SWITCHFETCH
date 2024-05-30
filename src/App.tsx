@@ -16,6 +16,8 @@ import HistoryBox from "./components/HistoryBox.tsx";
 import FileUpload from "./components/FileUpload.tsx";
 import Footer from "./components/Footer.tsx";
 import TopUp from "./Pages/TopUp.tsx";
+import Cart from "./Pages/CartPage.tsx";
+import CartBox from "./components/CartBox.tsx";
 function App() {
 
   return (
@@ -42,6 +44,8 @@ function App() {
       <Route path="/fileupload" element={<FileUpload/>}> </Route>
       <Route path="/footer" element={<Footer/>}> </Route>
       <Route path="/topup" element={<TopUp/>}> </Route>
+      <Route path="/cart" element={<Cart/>}> </Route>
+      <Route path="/CartBox" element={<CartBox/>}> </Route>
       </Routes>
 
     </div>

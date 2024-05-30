@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '@/scenes/navbar'
 import DropDownCategory from '../components/DropDownCategory';
 import DropDownLocation from '../components/DropDownLocation';
-
+import Footer from '@/components/Footer';
 
 const SellProduct = () => {
     const [textProd, setTextProd] = React.useState('');
@@ -85,7 +85,7 @@ const SellProduct = () => {
     <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  mt-12 ml-auto mr-44 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-center '>
         <button className='w-full h-full'>Add</button>
     </div>
-       
+       <Footer/>
     </div>
     
   )

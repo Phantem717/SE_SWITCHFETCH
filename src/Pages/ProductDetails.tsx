@@ -3,7 +3,7 @@ import Navbar from '@/scenes/navbar'
 import ProductDetGall from '../components/ProductDetGall'
 import ProdInfoBox from '../components/ProdInfoBox'
 import QTYIncrement from '../components/QTYIncrement'
-
+import Footer from '@/components/Footer'
 const ProductDetails = () => {
   return (
     <div className=''>
@@ -14,7 +14,7 @@ const ProductDetails = () => {
         </div>
             
             
-        
+        <Footer/>
     </div>
   )
 }

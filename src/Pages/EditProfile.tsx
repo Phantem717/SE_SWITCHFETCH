@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '@/scenes/navbar'
 import DropDownLocation from '../components/DropDownLocation';
 import DropDownGender from '../components/DropDownGender';
-
+import Footer from '@/components/Footer';
 const EditProfile = () => {
     const [textName, setTextName] = React.useState('');
     const [textDesc, setTextDesc] = React.useState('');
@@ -81,7 +81,7 @@ const EditProfile = () => {
     </div>
     </div>
     
-
+<Footer/>
     </div>
   )
 }
