@@ -34,7 +34,7 @@ const Navbar = (props: Props) => {
     <nav className="sticky top-0 z-50">
       <div className={`${flexBetween} h-20 w-full py-6 bg-gradient-to-r from-navGrad1 to-navGrad2 text-white`}>
         <img src={logo} alt="logo" className={`${flexBetween} ml-4 w-14`} />
-        <div className={`${flexBetween} mr-52 font-bold`}>SwiftFetch</div>
+        <div className={`${flexBetween} mr-52 font-semibold`}>SwiftFetch</div>
         <div className={`${flexBetween} w-9/12`}>
           <div className={`${flexCent} w-8/12 gap-16 font-semibold`}>
             <div className={`hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-200 hover:text-black transition-all duration-300 hover:w-max`}>
