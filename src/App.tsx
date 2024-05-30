@@ -18,6 +18,7 @@ import Footer from "./components/Footer.tsx";
 import TopUp from "./Pages/TopUp.tsx";
 import Cart from "./Pages/CartPage.tsx";
 import CartBox from "./components/CartBox.tsx";
+import DropDownProf from "./components/DropDownProf.tsx";
 function App() {
 
   return (
@@ -46,6 +47,7 @@ function App() {
       <Route path="/topup" element={<TopUp/>}> </Route>
       <Route path="/cart" element={<Cart/>}> </Route>
       <Route path="/CartBox" element={<CartBox/>}> </Route>
+      <Route path="/DDProf" element={<DropDownProf/>}> </Route>
       </Routes>
 
     </div>
