@@ -4,7 +4,8 @@ import ProdImg from '../assets/Rectangle64.png'
 import testIMG from '../assets/se.jpeg'
 import React from 'react'
 import Footer from "@/components/Footer";
-const Home = () => {
+import axios, { Axios } from "axios";
+const Home = async() => {
   return (
     <div>
       
