@@ -27,7 +27,8 @@ function App() {
     
     <div className='app bg-pageColor'>
       <Routes>
-      <Route path="/" element={<Home/>}> </Route>
+      <Route path="/" element={<SignUp/>}> </Route>
+      <Route path="/Home" element={<Home/>}> </Route>
       <Route path = "/NavBar" element={<Navbar />}></Route>
       <Route path = "/signup" element={<SignUp />}></Route>
       <Route path = "/sellproduct" element={<SellProduct />}></Route>

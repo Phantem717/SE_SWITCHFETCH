@@ -4,10 +4,11 @@ import ProdImg from '../assets/Rectangle64.png'
 import testIMG from '../assets/se.jpeg'
 import React from 'react'
 import Footer from "@/components/Footer";
+
 const Home = () => {
   return (
     <div>
-      
+
       <Navbar />
       <div className="">
         {/* AD */}

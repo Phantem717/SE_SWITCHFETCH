@@ -38,7 +38,7 @@ const Navbar = (props: Props) => {
         <div className={`${flexBetween} w-9/12`}>
           <div className={`${flexCent} w-8/12 gap-16 font-semibold`}>
             <div className={`hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-200 hover:text-black transition-all duration-300 hover:w-max`}>
-              <a href="./">Home</a>
+              <a href="./Home">Home</a>
             </div>
             <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200 hover:text-black transition-all duration-300`}>
               <a href="./cart">Cart</a>
@@ -54,6 +54,9 @@ const Navbar = (props: Props) => {
             {/* <p className={`mr-3`}>Balance:</p>
             <p className={``}>50.000</p>
             <p className={`ml-1`}>Coins</p> */}
+          </div>
+          <div>
+
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
             <img
