@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 const signUp = () => {
   const flexCent = "flex items-center justify-center";
   const navigate = useNavigate();
-  let data = null;
+  let data : any;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const handleLoginClick = (event: { preventDefault: () => void; }) => {
@@ -42,8 +42,8 @@ const signUp = () => {
               text: data['message'],
             });
           } else if (data['error'] == 0) {
-            navigate('/Home');
             localStorage.setItem('account',JSON.stringify(data));
+            navigate('/Home');
           }
         })
         .catch(err => {
