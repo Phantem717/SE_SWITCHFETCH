@@ -1,9 +1,9 @@
 import Navbar from "@/scenes/navbar";
-import ProductContainer from "./ProductContainer";
-import ProdImg from './Rectangle64.png'
-import testIMG from './se.jpeg'
+import ProductContainer from "../components/ProductContainer";
+import ProdImg from '../assets/Rectangle64.png'
+import testIMG from '../assets/se.jpeg'
 import React from 'react'
-
+import Footer from "@/components/Footer";
 const Home = () => {
   return (
     <div>
@@ -74,6 +74,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer
+      />
     </div>
   )
 }

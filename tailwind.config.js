@@ -25,7 +25,9 @@ export default {
         "logregyesAcc": "#DDF25B",
         "logregTxt": "#373838",
         "OrderBTNTop": "#53B0F4",
-        "OrderBTNBot": " #91DBF3"
+        "OrderBTNBot": " #91DBF3",
+        "Footer1": "#0F137E",
+        "Footer2": "#272844"
       },
       fontFamily: {
         fontName: [""]
@@ -42,6 +44,7 @@ export default {
         "PCIMGWidth": "130px",
         "PCONTWidth": "180px",
         "PCONTWidth2": "230pxpx",
+        "TXTWIDTH": "350px"
         
       },
       height: {
@@ -56,6 +59,7 @@ export default {
         "PCIMGHeight": "130px",
         "PCONTHeight": "180px",
         "PCONTHeight2": "320px",
+        "PAYHEIGHT" : "450px"
       },
       borderRadius:{
         "CircleProfPic" : "100%"
@@ -66,8 +70,10 @@ export default {
         "Rating": "30px",
         "ProdPrice": "50px",
         "DescFont": "22px",
-        "TotalPrice": "30px"
+        "TotalPrice": "30px",
+        "10Px": "5px"
       },
+      
   
       // content: {
       //   evolvetext: ""

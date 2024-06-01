@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
-import ProdImg from './Rectangle64.png'
+import ProdImg from '../assets/Rectangle64.png'
 const ProductDetGall = () => {
 
   const mainImg = "bg-opacity-50 flex w-WidthMain h-HeightMain justify-center  items-center bg-yellow-100 rounded-lg  pt-8 pb-8 pl-20 pr-16 drop-shadow-lg";

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
-import ProductContainer from './ProductContainer'
-
+import ProductContainer from '../components/ProductContainer'
+import Footer from '@/components/Footer'
 const SearchPage = () => {
   return (
     <div>
@@ -30,6 +30,7 @@ const SearchPage = () => {
 
           </div>
         </div>
+        <Footer/>
     </div>
   )
 }

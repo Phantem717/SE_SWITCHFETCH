@@ -1,16 +1,24 @@
 import Navbar from "@/scenes/navbar";
-import SignUp from "./components/signUp";
-import Home from "./components/Home.tsx";
-import Register from "./components/register.tsx";
+import SignUp from "./Pages/signUp.tsx";
+import Home from "./Pages/Home.tsx";
+import Register from "./Pages/register.tsx";
 import ProductDetGall from "./components/ProductDetGall.tsx";
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
-import SellProduct from "./components/SellProduct";
-import EditProfile from "./components/EditProfile";
-import ProductDetails from "./components/ProductDetails.tsx";
+import SellProduct from "./Pages/SellProduct.tsx";
+import EditProfile from "./Pages/EditProfile.tsx";
+import ProductDetails from "./Pages/ProductDetails.tsx";
 import ProdInfoBox from "./components/ProdInfoBox.tsx";
 import QTYIncrement from "./components/QTYIncrement.tsx";
 import ProductContainer from "./components/ProductContainer.tsx";
-import SearchPage from "./components/SearchPage.tsx";
+import SearchPage from "./Pages/SearchPage.tsx";
+import HistoryPage from "./Pages/HistoryPage.tsx";
+import HistoryBox from "./components/HistoryBox.tsx";
+import FileUpload from "./components/FileUpload.tsx";
+import Footer from "./components/Footer.tsx";
+import TopUp from "./Pages/TopUp.tsx";
+import Cart from "./Pages/CartPage.tsx";
+import CartBox from "./components/CartBox.tsx";
+import DropDownProf from "./components/DropDownProf.tsx";
 function App() {
 
   return (
@@ -32,7 +40,14 @@ function App() {
       <Route path="/QTYBTN" element={<QTYIncrement/>}> </Route>
       <Route path="/ProdCont" element={<ProductContainer/>}> </Route>
       <Route path="/search" element={<SearchPage/>}> </Route>
-        
+      <Route path="/history" element={<HistoryPage/>}> </Route>
+      <Route path="/histbox" element={<HistoryBox/>}> </Route>
+      <Route path="/fileupload" element={<FileUpload/>}> </Route>
+      <Route path="/footer" element={<Footer/>}> </Route>
+      <Route path="/topup" element={<TopUp/>}> </Route>
+      <Route path="/cart" element={<Cart/>}> </Route>
+      <Route path="/CartBox" element={<CartBox/>}> </Route>
+      <Route path="/DDProf" element={<DropDownProf/>}> </Route>
       </Routes>
 
     </div>

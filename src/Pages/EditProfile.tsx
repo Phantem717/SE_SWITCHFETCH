@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
-import DropDownLocation from './DropDownLocation';
-import DropDownGender from './DropDownGender';
-
+import DropDownLocation from '../components/DropDownLocation';
+import DropDownGender from '../components/DropDownGender';
+import Footer from '@/components/Footer';
 const EditProfile = () => {
     const [textName, setTextName] = React.useState('');
     const [textDesc, setTextDesc] = React.useState('');
@@ -64,7 +64,7 @@ const EditProfile = () => {
         
     </div>
 
-    <div className='  mt-12 flex flex-row justify-center align-middle items-center '>
+    <div className='  mt-12 flex flex-row justify-center align-middle  '>
         <div className='w-2/12 font-bold'>
         Profile Description
         </div>
@@ -75,10 +75,13 @@ const EditProfile = () => {
         
         
     </div>
-    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  mt-12 ml-auto mr-44 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-center '>
+    <div className='flex justify-end ml-auto mr-44 mt-12'>
+    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  mt-1 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end  '>
         <button className='w-full h-full'>Save</button>
     </div>
-
+    </div>
+    
+<Footer/>
     </div>
   )
 }
