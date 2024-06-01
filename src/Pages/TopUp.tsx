@@ -46,7 +46,7 @@ const TopUp = () => {
 
             </div>
             <div className='flex flex-wrap  h-48 mt-36 w-6/12 justify-center'>
-            <div className='mb-4 mr-4  cursor-pointer items-center flex justify-center bg-white border-2 box-border rounded-lg border-gray-200 w-56 h-16'>
+            <div  className='mb-4 mr-4  cursor-pointer items-center flex justify-center bg-white border-2 box-border rounded-lg border-gray-200 w-56 h-16'>
                 <img src={spay} alt="" className='h-12 w-12' />
             </div>
             <div className=' mb-4  cursor-pointer items-center flex justify-center bg-white border-2 box-border rounded-lg border-gray-200 w-56 h-16'>

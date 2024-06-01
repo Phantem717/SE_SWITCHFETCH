@@ -4,11 +4,11 @@ import ProdImg from '../assets/Rectangle64.png'
 import testIMG from '../assets/se.jpeg'
 import React from 'react'
 import Footer from "@/components/Footer";
-import axios, { Axios } from "axios";
-const Home = async() => {
+
+const Home = () => {
   return (
     <div>
-      
+
       <Navbar />
       <div className="">
         {/* AD */}
