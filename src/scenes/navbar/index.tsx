@@ -29,7 +29,7 @@ const Navbar = (props: Props) => {
   const toggleDropdown = () => {
     setDDProf((prev) => !prev);
   };
-
+  const username = JSON.parse(localStorage.getItem('account'))['name'];
   return (
     <nav className="sticky top-0 z-50">
       <div className={`${flexBetween} h-20 w-full py-6 bg-gradient-to-r from-navGrad1 to-navGrad2 text-white`}>
@@ -57,6 +57,9 @@ const Navbar = (props: Props) => {
           </div>
           <div>
 
+          </div>
+          <div>
+            <p>{username}</p>
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
             <img
