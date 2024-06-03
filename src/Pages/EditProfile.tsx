@@ -38,13 +38,7 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-
-                if (typeof file === 'undefined') return;
-
-                const formData = new FormData();
-
-                formData.append('file', file);
-                formData.append('upload_preset', 'uploadPresetName')
+                
                 
 
                 console.log('Name', textName);
