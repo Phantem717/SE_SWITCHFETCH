@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import list from "./CategoryList.json";
 
-const DropDownCategory = () => {
+const DropDownCategory = (onCategorySelect) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Enter Category");
   const menuRef = useRef<HTMLDivElement>(null);
@@ -27,7 +27,8 @@ const DropDownCategory = () => {
 
   const handleOptionClick = (categoryName: string) => {
     setSelectedOption(categoryName); 
-    setIsOpen(false); 
+    setIsOpen(false);
+    onCategorySelect(categoryName); 
   };
 
   return (

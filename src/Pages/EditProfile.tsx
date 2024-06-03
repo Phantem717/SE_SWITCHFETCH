@@ -38,7 +38,7 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                
+
                 
 
                 console.log('Name', textName);
@@ -148,6 +148,7 @@ const EditProfile = () => {
                     </button>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };
