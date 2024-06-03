@@ -9,7 +9,10 @@ const HistoryBox = () => {
         <div className='flex flex-row items-center content-center gap-x-2 mb-2' >
             <img src={ProfImg}  alt="" className='rounded-CircleProfPic w-8 h-8 ' />
             <div className='font-semibold text-xs'>Nama Toko</div>
-            <button className='w-12 h-5 font-semibold text-xs rounded-full bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot'>Chat</button>
+            <button className='w-12 h-5 font-semibold text-xs rounded-full bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot'
+            >
+              Chat
+            </button>
 
         </div>
         <div className='flex flex-row content-center'>
@@ -46,7 +49,10 @@ const HistoryBox = () => {
           </div>
         </div>
 <div className='flex justify-end pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot '>Buy Again</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot '
+>
+  Buy Again
+</button>
 
 </div>
 

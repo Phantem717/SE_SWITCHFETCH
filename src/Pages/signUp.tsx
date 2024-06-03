@@ -75,14 +75,19 @@ const signUp = () => {
                        onChange={inputPassword}
                        required />
               </div>
-              <button className={`${flexCent} mt-5 text-xs h-8 w-full rounded-lg text-white bg-logregBtn cursor-pointer hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300 font-medium`} type="submit"
+              <button className={`${flexCent} mt-5 text-xs h-8 w-full rounded-lg text-white bg-logregBtn cursor-pointer hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-200  hover:text-black transition-all duration-300 font-medium`} 
+                      type="submit"
                       onClick={handleLoginClick}>Login</button>
 
 
 
               <div className={`text-xs mt-28`}>
                 <p className={`${flexCent} text-logregyesAcc`}>No Account yet?</p>
-                <a className={`${flexCent} text-logregyesAcc hover:underline font-bold transition-all duration-300`} href="./register">Register Here</a>
+                <a className={`${flexCent} text-logregyesAcc hover:underline font-bold transition-all duration-300`} 
+                href="./register"
+                  >
+                    Register Here
+                  </a>
               </div>
             </div>
           </form>

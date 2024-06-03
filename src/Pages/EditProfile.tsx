@@ -2,12 +2,36 @@ import React, { useRef, useState } from 'react';
 import Navbar from '@/scenes/navbar';
 import DropDownLocation from '../components/DropDownLocation';
 import DropDownGender from '../components/DropDownGender';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
     const [textName, setTextName] = useState('');
     const [textDesc, setTextDesc] = useState('');
     const [textEmail, setTextEmail] = useState('');
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
+    const handleOnSave = (event: { preventDefault: () => void; }) => {
+        event.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to save changes?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, save it!',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if(result.isConfirmed){
+                navigate('/');
+            }
+        });
+    }
+    
+    // const update = () =>{
+
+    // }
 
     return (
         <div className='bg-blue-100'>
@@ -80,7 +104,7 @@ const EditProfile = () => {
                     <button 
                         type='submit' 
                         className='w-full h-full' 
-                        onChange={(e) => handleOnSubmit(e, fileInputRef)}
+                        onClick={handleOnSave}
                     >
                         Save
                     </button>
