@@ -2,11 +2,11 @@ import React, { useRef, useState } from 'react';
 import Navbar from '@/scenes/navbar';
 import DropDownLocation from '../components/DropDownLocation';
 import DropDownGender from '../components/DropDownGender';
+import Footer from '@/components/Footer';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const EditProfile = () => {
-    const [file, setFile] = useState<File | undefined>();
     const [textName, setTextName] = useState('');
     const [textDesc, setTextDesc] = useState('');
     const [textGend, setGend] = useState('');
@@ -14,6 +14,8 @@ const EditProfile = () => {
     const [textAddr, setTextAddr] = useState('');
     const [textEmail, setTextEmail] = useState('');
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const [file, setFile] = useState<File | null>(null);
+
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
     };
@@ -26,6 +28,7 @@ const EditProfile = () => {
     const inputTextDesc = (event: any) => {
         setTextDesc(event.target.value);
     };
+
     const handleOnSave = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         Swal.fire({
@@ -38,24 +41,45 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
+                const formData = new FormData();
+                formData.append('name', textName);
+                formData.append('location', textLoc);
+                formData.append('gender', textGend);
+                formData.append('address', textAddr);
+                formData.append('email', textEmail);
+                formData.append('description', textDesc);
+                if (file) {
+                    formData.append('image', file);
+                }
 
-                
-
-                console.log('Name', textName);
-                console.log('Location', textLoc);
-                console.log('Gender', textGend);
-                console.log('Address', textAddr);
-                console.log('Email', textEmail);
-                console.log('Description', textDesc);
+                axios.post('profile image API', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    }
+                })
+                .then(res => {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Profile Updated",
+                        text: "Your profile has been updated successfully",
+                    });
+                })
+                .catch(err => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "There was an error updating your profile",
+                    });
+                    console.error(err);
+                });
             }
         });
     }
-    
-    function handleOnChange(e: React.FormEvent<HTMLInputElement>){
-        const target = e.target as HTMLInputElement & {
-            files: FileList;
+
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setFile(e.target.files[0]);
         }
-        setFile(target.files[0]);
     }
 
     return (
