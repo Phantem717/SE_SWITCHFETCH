@@ -14,6 +14,7 @@ const EditProfile = () => {
     const [textAddr, setTextAddr] = useState('');
     const [textEmail, setTextEmail] = useState('');
     const fileInputRef = useRef<HTMLInputElement>(null);
+    let data : any;
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
     };

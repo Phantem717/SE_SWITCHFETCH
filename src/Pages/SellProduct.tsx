@@ -10,9 +10,9 @@ const SellProduct = () => {
     const [textProd, setTextProd] = useState('');
     const [textDesc, setTextDesc] = useState('');
     const [textLoc, setLoc] = useState('');
-    const [textCat, setCat] = useState('');
     const [textPrice, setTextPrice] = useState('');
     const fileInputRef = useRef<HTMLInputElement>(null);
+    let data : any;
     const inputTextProd = (event: any) => {
         setTextProd(event.target.value);
     };
@@ -37,7 +37,6 @@ const SellProduct = () => {
 
                 console.log('Product Name', textProd);
                 console.log('Price', textPrice);
-                console.log('Category', textCat);
                 console.log('Location', textLoc);
                 console.log('Description', textDesc);
             }
