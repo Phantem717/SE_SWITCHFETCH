@@ -14,8 +14,6 @@ const EditProfile = () => {
     const [textAddr, setTextAddr] = useState('');
     const [textEmail, setTextEmail] = useState('');
     const fileInputRef = useRef<HTMLInputElement>(null);
-    const [file, setFile] = useState<File | null>(null);
-
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
     };
@@ -28,7 +26,6 @@ const EditProfile = () => {
     const inputTextDesc = (event: any) => {
         setTextDesc(event.target.value);
     };
-
     const handleOnSave = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         Swal.fire({
@@ -41,46 +38,25 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                const formData = new FormData();
-                formData.append('name', textName);
-                formData.append('location', textLoc);
-                formData.append('gender', textGend);
-                formData.append('address', textAddr);
-                formData.append('email', textEmail);
-                formData.append('description', textDesc);
-                if (file) {
-                    formData.append('image', file);
-                }
 
-                axios.post('profile image API', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    }
-                })
-                .then(res => {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Profile Updated",
-                        text: "Your profile has been updated successfully",
-                    });
-                })
-                .catch(err => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error",
-                        text: "There was an error updating your profile",
-                    });
-                    console.error(err);
-                });
+                
+
+                console.log('Name', textName);
+                console.log('Location', textLoc);
+                console.log('Gender', textGend);
+                console.log('Address', textAddr);
+                console.log('Email', textEmail);
+                console.log('Description', textDesc);
             }
         });
     }
-
-    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setFile(e.target.files[0]);
-        }
-    }
+    
+    // function handleOnChange(e: React.FormEvent<HTMLInputElement>){
+    //     const target = e.target as HTMLInputElement & {
+    //         files: FileList;
+    //     }
+    //     setFile(target.files[0]);        
+    // }
 
     return (
         <div className='bg-blue-100'>

@@ -12,9 +12,7 @@ const SellProduct = () => {
     const [textLoc, setLoc] = useState('');
     const [textCat, setCat] = useState('');
     const [textPrice, setTextPrice] = useState('');
-    const [file, setFile] = useState<File | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
-
     const inputTextProd = (event: any) => {
         setTextProd(event.target.value);
     };
@@ -24,13 +22,6 @@ const SellProduct = () => {
     const inputTextDesc = (event: any) => {
         setTextDesc(event.target.value);
     };
-
-    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setFile(e.target.files[0]);
-        }
-    };
-
     const handleOnSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         Swal.fire({
@@ -43,39 +34,22 @@ const SellProduct = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                const formData = new FormData();
-                formData.append('productName', textProd);
-                formData.append('price', textPrice);
-                formData.append('category', textCat);
-                formData.append('location', textLoc);
-                formData.append('description', textDesc);
-                if (file) {
-                    formData.append('image', file);
-                }
 
-                axios.post('product image API', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    }
-                })
-                .then(res => {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Product Added",
-                        text: "Your product has been added successfully",
-                    });
-                })
-                .catch(err => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error",
-                        text: "There was an error adding your product",
-                    });
-                    console.error(err);
-                });
+                console.log('Product Name', textProd);
+                console.log('Price', textPrice);
+                console.log('Category', textCat);
+                console.log('Location', textLoc);
+                console.log('Description', textDesc);
             }
         });
-    };
+
+        // function handleOnChange(e: React.FormEvent<HTMLInputElement>){
+        //     const target = e.target as HTMLInputElement & {
+        //         files: FileList;
+        //     }
+        //     setFile(target.files[0]);        
+        // }
+    }
   return (
     
     <div className='bg-blue-100'>
@@ -149,7 +123,7 @@ const SellProduct = () => {
             Add Product Picture
             </div>
 
-            <input
+            <input 
                 type='file' 
                 name="image" 
                 accept='image/png, image/jpg, image/jpeg'
