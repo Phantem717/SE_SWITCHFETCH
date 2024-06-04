@@ -42,14 +42,15 @@ const SellProduct = () => {
                 console.log('Description', textDesc);
             }
         });
-
-        // function handleOnChange(e: React.FormEvent<HTMLInputElement>){
-        //     const target = e.target as HTMLInputElement & {
-        //         files: FileList;
-        //     }
-        //     setFile(target.files[0]);        
-        // }
     }
+
+    function handleOnChange(e: React.FormEvent<HTMLInputElement>){
+        const target = e.target as HTMLInputElement & {
+            files: FileList;
+        }
+        setFile(target.files[0]);        
+    }
+
   return (
     
     <div className='bg-blue-100'>
@@ -79,17 +80,6 @@ const SellProduct = () => {
                     value={textPrice} 
                     onChange={inputTextPrice} 
                     style={{ fontSize : '1 rem'} }/>
-        
-        
-        </div>
-
-        <div className='  mt-12 flex flex-row justify-center align-middle items-center z-1'>
-            <div className='w-2/12 font-bold'>
-            Category
-            </div>
-
-        
-            <DropDownCategory onCategorySelect={setCat}/>
         
         
         </div>
