@@ -19,6 +19,9 @@ import TopUp from "./Pages/TopUp.tsx";
 import Cart from "./Pages/CartPage.tsx";
 import CartBox from "./components/CartBox.tsx";
 import DropDownProf from "./components/DropDownProf.tsx";
+import Test from "./Pages/Test.tsx";
+import SellerPage from "./components/SellerPage.tsx";
+import SellerBox from "./components/SellerBox.tsx";
 function App() {
 
   return (
@@ -27,6 +30,8 @@ function App() {
     
     <div className='app bg-pageColor'>
       <Routes>
+      <Route path="/test" element={<Test/>}> </Route>
+
       <Route path="/" element={<SignUp/>}> </Route>
       <Route path="/Home" element={<Home/>}> </Route>
       <Route path = "/NavBar" element={<Navbar />}></Route>
@@ -49,6 +54,9 @@ function App() {
       <Route path="/cart" element={<Cart/>}> </Route>
       <Route path="/CartBox" element={<CartBox/>}> </Route>
       <Route path="/DDProf" element={<DropDownProf/>}> </Route>
+      <Route path="/SellerPage" element={<SellerPage/>}> </Route>
+      <Route path="/SellerBox" element={<SellerBox/>}> </Route>
+
       </Routes>
 
     </div>
