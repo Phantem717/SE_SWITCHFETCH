@@ -2,13 +2,32 @@ import Navbar from "@/scenes/navbar";
 import ProductContainer from "../components/ProductContainer";
 import ProdImg from '../assets/Rectangle64.png'
 import testIMG from '../assets/se.jpeg'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Footer from "@/components/Footer";
-
+import axios from "axios";
 const Home = () => {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                axios.get('http://localhost:80/api/product/get-recommended-product')
+                    .then(res => {
+                        setData(res['data']);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        getData();
+    }, []);
+
+    console.log(data);
   return (
     <div>
-
       <Navbar />
       <div className="">
         {/* AD */}
@@ -26,13 +45,13 @@ const Home = () => {
             </div>
 
             <div className="flex flex-wrap gap-x-6">
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-          
-
+                {data ? (
+                    data.map(item => (
+                        <ProductContainer key={item.id} item={item} />
+                    ))
+                ) : (
+                    <div>No data available</div>
+                )}
             </div>
 
           </div>
@@ -45,12 +64,12 @@ const Home = () => {
             </div>
 
             <div className="flex flex-wrap gap-x-6">
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-          
+            {/*<ProductContainer />*/}
+            {/*<ProductContainer />*/}
+            {/*<ProductContainer />*/}
+            {/*<ProductContainer />*/}
+            {/*<ProductContainer />*/}
+
 
             </div>
 
@@ -64,11 +83,11 @@ const Home = () => {
             </div>
 
             <div className="flex flex-wrap gap-x-6">
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
-            <ProductContainer />
+            {/*<ProductContainer />*/}
+            {/*<ProductContainer />*/}
+            {/*<ProductContainer />*/}
+            {/*<ProductContainer />*/}
+            {/*<ProductContainer />*/}
 
             </div>
 
