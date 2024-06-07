@@ -1,10 +1,11 @@
-import React, { useRef, useState } from 'react';
-import Navbar from '@/scenes/navbar';
+import React, { useRef, useState } from 'react';;
+import Navbar from '@/scenes/navbar';;
 import DropDownLocation from '../components/DropDownLocation';
 import DropDownGender from '../components/DropDownGender';
 import Footer from '@/components/Footer';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+
 
 const EditProfile = () => {
     const [textName, setTextName] = useState('');
@@ -158,3 +159,5 @@ const EditProfile = () => {
 };
 
 export default EditProfile;
+
+

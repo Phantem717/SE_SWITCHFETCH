@@ -10,7 +10,7 @@ export default {
         "navbarColor": "#2278C8", // All colornya mesti diganti berdasarkan website kita ku add ini dari vid gara gara masih belum ngerti gimana pakenya jadi sementara
         "navGrad1": "#53B0F4",
         "navGrad2" : "#0B3992",
-         
+         "sellerMenu": "#294579",
         "pageColor": "#FFFFFF",
         "searchTxtColor": "#000000",
         "navbarTextColor": "#FFFFFF",
@@ -44,7 +44,8 @@ export default {
         "PCIMGWidth": "130px",
         "PCONTWidth": "180px",
         "PCONTWidth2": "230pxpx",
-        "TXTWIDTH": "350px"
+        "TXTWIDTH": "350px",
+        "SellerBox": "52%"
         
       },
       height: {
@@ -73,6 +74,9 @@ export default {
         "TotalPrice": "30px",
         "10Px": "5px"
       },
+      top:{
+        "SellerBox": "1000px"
+      }
       
   
       // content: {

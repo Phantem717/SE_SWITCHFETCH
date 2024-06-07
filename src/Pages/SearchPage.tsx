@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '@/scenes/navbar'
 import ProductContainer from '../components/ProductContainer'
 import Footer from '@/components/Footer'
-const SearchPage = () => {
+const SearchPage:React.FC = () => {
   return (
     <div>
         <Navbar />
