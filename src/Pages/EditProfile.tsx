@@ -13,16 +13,14 @@ const EditProfile = () => {
     const [textLoc, setLoc] = useState('');
     const [textAddr, setTextAddr] = useState('');
     const [textEmail, setTextEmail] = useState('');
-    // const [file, setFile] = useState('');
-    // const fileInputRef = useRef<HTMLInputElement>(null);
-    const [avatarURL, setAvatarURL] = useState('');
-    const fileUploadRef = useRef<HTMLInputElement>(null);
+    const [selectedImage, setSelectedImage] = useState('Firefly.jpeg')
     let data : any;
 
-    const handleImageUpload = (event) => {
-        event.preventDefault();
-        fileUploadRef.current.click();
+    const handleImageChange = (event) => {
+        setSelectedImage(event.target.value);
     }
+
+    const imageSrc = `/assets/ProfilePicture/${selectedImage}`;
 
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
@@ -37,9 +35,8 @@ const EditProfile = () => {
         setTextDesc(event.target.value);
     };
 
-    // const handleOnSave = (event: { preventDefault: () => void; }) => {
-    const handleOnSave = async () => {
-        // event.preventDefault();
+    const handleOnSave = (event: { preventDefault: () => void; }) => {
+        event.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
             text: "Do you want to save changes?",
@@ -50,12 +47,7 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                const uploadedFile = fileUploadRef.current.files[0];
-                const cachedURL = URL.createObjectURL(uploadedFile);
-                setAvatarURL(cachedURL);
-                const formData = new FormData();
-                formData.append("file", uploadedFile);
-                console.log('Image', cachedURL)
+                console.log('Image', imageSrc);
                 console.log('Name', textName);
                 console.log('Location', textLoc);
                 console.log('Gender', textGend);
@@ -65,38 +57,26 @@ const EditProfile = () => {
             }
         });
     }
-    
-    // function handleOnChange(e: React.FormEvent<HTMLInputElement>){
-    // function handleOnChange(e){
-    //     // const target = e.target as HTMLInputElement & {
-    //     //     files: FileList;
-    //     // }
-    //     // setFile(target.files[0]);       
-    //     console.log(e.target.files);
-    //     setFile(URL.createObjectURL(e.target.files[0]));
-    // }
 
     return (
         <div className='bg-blue-100'>
             <Navbar />
-            <form className='mt-12 flex flex-row justify-center align-middle items-center' >
+            <div className='mt-12 flex flex-row justify-center align-middle items-center' >
                 <div className='w-2/12 font-bold'>
                     Add Profile Picture
                 </div>
-                <input 
-                    type='file' 
-                    name="image" 
-                    accept='image/png, image/jpg, image/jpeg'
-                    // ref={fileInputRef}
-                    ref={fileUploadRef}
-                    className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8' 
-                    // onChange={handleOnChange}
-                    onChange={handleImageUpload}
-                /> 
-            </form>
+                <select value={selectedImage} onChange={handleImageChange}
+                className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8'
+                >
+                    <option value="Firefly.jpeg">Firefly</option>
+                    <option value="HuTao.jpeg">Hu Tao</option>
+                    <option value="Sparkle.jpeg">Sparkle</option>
+                </select>
+                
+            </div>
 
             <div className='mt-4 flex justify-center'>
-                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
+                <img src={imageSrc} alt="Selected Image" className={`flex items-center justify-center h-48`}/>
             </div>
 
             <div className='mt-20 flex flex-row justify-center align-middle items-center'>
