@@ -13,8 +13,17 @@ const EditProfile = () => {
     const [textLoc, setLoc] = useState('');
     const [textAddr, setTextAddr] = useState('');
     const [textEmail, setTextEmail] = useState('');
-    const fileInputRef = useRef<HTMLInputElement>(null);
+    // const [file, setFile] = useState('');
+    // const fileInputRef = useRef<HTMLInputElement>(null);
+    const [avatarURL, setAvatarURL] = useState('');
+    const fileUploadRef = useRef<HTMLInputElement>(null);
     let data : any;
+
+    const handleImageUpload = (event) => {
+        event.preventDefault();
+        fileUploadRef.current.click();
+    }
+
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
     };
@@ -27,8 +36,10 @@ const EditProfile = () => {
     const inputTextDesc = (event: any) => {
         setTextDesc(event.target.value);
     };
-    const handleOnSave = (event: { preventDefault: () => void; }) => {
-        event.preventDefault();
+
+    // const handleOnSave = (event: { preventDefault: () => void; }) => {
+    const handleOnSave = async () => {
+        // event.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
             text: "Do you want to save changes?",
@@ -39,9 +50,12 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-
-                
-
+                const uploadedFile = fileUploadRef.current.files[0];
+                const cachedURL = URL.createObjectURL(uploadedFile);
+                setAvatarURL(cachedURL);
+                const formData = new FormData();
+                formData.append("file", uploadedFile);
+                console.log('Image', cachedURL)
                 console.log('Name', textName);
                 console.log('Location', textLoc);
                 console.log('Gender', textGend);
@@ -52,17 +66,20 @@ const EditProfile = () => {
         });
     }
     
-    function handleOnChange(e: React.FormEvent<HTMLInputElement>){
-        const target = e.target as HTMLInputElement & {
-            files: FileList;
-        }
-        setFile(target.files[0]);        
-    }
+    // function handleOnChange(e: React.FormEvent<HTMLInputElement>){
+    // function handleOnChange(e){
+    //     // const target = e.target as HTMLInputElement & {
+    //     //     files: FileList;
+    //     // }
+    //     // setFile(target.files[0]);       
+    //     console.log(e.target.files);
+    //     setFile(URL.createObjectURL(e.target.files[0]));
+    // }
 
     return (
         <div className='bg-blue-100'>
             <Navbar />
-            <div className='mt-12 flex flex-row justify-center align-middle items-center'>
+            <form className='mt-12 flex flex-row justify-center align-middle items-center' >
                 <div className='w-2/12 font-bold'>
                     Add Profile Picture
                 </div>
@@ -70,10 +87,16 @@ const EditProfile = () => {
                     type='file' 
                     name="image" 
                     accept='image/png, image/jpg, image/jpeg'
-                    ref={fileInputRef}
+                    // ref={fileInputRef}
+                    ref={fileUploadRef}
                     className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8' 
-                    onChange={handleOnChange}
-                />  
+                    // onChange={handleOnChange}
+                    onChange={handleImageUpload}
+                /> 
+            </form>
+
+            <div className='mt-4 flex justify-center'>
+                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
             </div>
 
             <div className='mt-20 flex flex-row justify-center align-middle items-center'>
