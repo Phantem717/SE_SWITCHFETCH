@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import axios from "axios";
 const Home = () => {
     const [data, setData] = useState(null);
-
+    const userData = JSON.parse(localStorage.getItem('account'));
     useEffect(() => {
         const getData = async () => {
             try {
@@ -52,25 +52,6 @@ const Home = () => {
                 ) : (
                     <div>No data available</div>
                 )}
-            </div>
-
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <div className="w-AdWidth">
-            <div className="flex justify-start font-semibold text-4xl mb-8">
-              Top Rated
-            </div>
-
-            <div className="flex flex-wrap gap-x-6">
-            {/*<ProductContainer />*/}
-            {/*<ProductContainer />*/}
-            {/*<ProductContainer />*/}
-            {/*<ProductContainer />*/}
-            {/*<ProductContainer />*/}
-
-
             </div>
 
           </div>
