@@ -4,7 +4,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 
-const DropDownGender= () => {
+const DropDownGender= ({onGenderSelect}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Select Gender");
   const menuRef = useRef<HTMLDivElement>(null);
@@ -25,7 +25,8 @@ const DropDownGender= () => {
   }, []);
   const handleOptionClick = (gender: React.SetStateAction<string>) => {
     setSelectedOption(gender); 
-    setIsOpen(false); 
+    setIsOpen(false);
+    onGenderSelect(gender); 
   };
   const genderOptions = ["Male", "Female"];
   return (

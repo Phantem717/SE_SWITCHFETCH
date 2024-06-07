@@ -2,7 +2,7 @@ import React from 'react'
 import ProdImg from '../assets/Rectangle64.png'
 import ProfImg from '../assets/Elige Al Gaib.png'
 import star from '../assets/star.png'
-const CartBox = () => {
+const CartBox = ({item}) => {
   return (
     <div className=' flex  bg-white w-7/12 flex-col justify-between'>
         <div className='flex flex-col ml-5 mt-3'>
@@ -18,10 +18,10 @@ const CartBox = () => {
         </div>
         <div className='flex flex-col ml-2'>
             <div className='font-medium text-xl mb-0.5'>
-              Nama Barang
+                {item.product_name}
             </div>
             <div className='font-medium text-sm mb-0.5'>
-              Quantity : 2
+              Quantity : {item.quantity}
             </div>
         
         </div>
@@ -30,7 +30,7 @@ const CartBox = () => {
 
         </div>
         <div className='font-semibold flex justify-end mr-5 text-lg'>
-              Rp. 49.230
+              Rp. {item.price}
             </div>
 
 
