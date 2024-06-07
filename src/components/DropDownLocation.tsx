@@ -4,7 +4,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import list from "./LocationList.json";
 
-const DropDownLocation = () => {
+const DropDownLocation = ({onLocationSelect}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Enter Location");
   const menuRef = useRef<HTMLDivElement>(null);
@@ -27,6 +27,7 @@ const DropDownLocation = () => {
   const handleOptionClick = (countryName: React.SetStateAction<string>) => {
     setSelectedOption(countryName); 
     setIsOpen(false); 
+    onLocationSelect(countryName);
   };
 
   return (

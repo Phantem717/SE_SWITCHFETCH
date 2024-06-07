@@ -66,7 +66,10 @@ const ProdInfoBox = () => {
     
     {/* Button */}
       <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  ml-auto flex-column flex text-white rounded-md w-full h-16 items-center justify-center '>
-            <button className='w-full h-full font-semibold text-2xl rounded-md bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot'>Order</button>
+            <button className='w-full h-full font-semibold text-2xl rounded-md bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot'
+            >
+              Order
+            </button>
         </div>
         </div>
     </div>

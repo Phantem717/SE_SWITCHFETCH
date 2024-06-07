@@ -27,7 +27,10 @@ const ProductContainer = () => {
             Rp49.000
             </div>
             <div className='  text-black  items-center justify-center '>
-        <button className='hover:font-bold hover:shadow-md hover:shadow-blue-400  hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  ml-10 w-16 h-8 font-semibold text-sm rounded-full bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot'>Find</button>
+        <button className='hover:font-bold hover:shadow-md hover:shadow-blue-400  hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  ml-10 w-16 h-8 font-semibold text-sm rounded-full bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot'
+            >
+                Find
+        </button>
     </div>
         </div>
 
