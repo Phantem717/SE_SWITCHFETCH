@@ -20,8 +20,11 @@ import Cart from "./Pages/CartPage.tsx";
 import CartBox from "./components/CartBox.tsx";
 import DropDownProf from "./components/DropDownProf.tsx";
 import Test from "./Pages/Test.tsx";
-import SellerPage from "./components/SellerPage.tsx";
+import SellerPage from "./Pages/SellerPage.tsx";
 import SellerBox from "./components/SellerBox.tsx";
+import TransactionDetails from "./Pages/TransactionDetails.tsx";
+import ItemPage from "./Pages/ItemPage.tsx";
+import SearchBar from "./components/SearchBar.tsx";
 function App() {
 
   return (
@@ -54,8 +57,11 @@ function App() {
       <Route path="/cart" element={<Cart/>}> </Route>
       <Route path="/CartBox" element={<CartBox/>}> </Route>
       <Route path="/DDProf" element={<DropDownProf/>}> </Route>
-      <Route path="/SellerPage" element={<SellerPage/>}> </Route>
+      <Route path="/seller" element={<SellerPage/>}> </Route>
       <Route path="/SellerBox" element={<SellerBox/>}> </Route>
+      <Route path="/TransactionDetails" element={<TransactionDetails/>}> </Route>
+      <Route path="/itempage" element={<ItemPage/>}> </Route>
+      <Route path="/searchbar" element={<SearchBar/>}> </Route>
 
       </Routes>
 

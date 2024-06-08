@@ -47,7 +47,8 @@ export default {
         "PCONTWidth": "180px",
         "PCONTWidth2": "230pxpx",
         "TXTWIDTH": "350px",
-        "SellerBox": "52%"
+        "SellerBox": "52%",
+        "AddressBox": "24%"
         
       },
       height: {
