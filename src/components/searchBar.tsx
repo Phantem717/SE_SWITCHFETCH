@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 const searchBar = () => {
     const [text, setText] = React.useState('');
-    const flexBetween = "flex items-center justify-between";
+    const flexBetween = "flex items-center ";
     return (
         <div className={`${flexBetween} flex items-center`}>
             <div className={`${flexBetween} text-black `}>

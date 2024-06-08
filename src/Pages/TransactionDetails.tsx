@@ -32,7 +32,7 @@ const TransactionDetails = () => {
     <div className='flex flex-row items-center content-center gap-x-2 mb-2' >
         <img src={ProfImg}  alt="" className='rounded-CircleProfPic w-8 h-8 ' />
         <div className='font-semibold text-xs'>Nama Toko</div>
-        <button className='w-12 h-5 font-semibold text-xs rounded-full bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot'>Chat</button>
+        <button className='w-12 h-5 font-semibold text-xs rounded-full bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300'>Chat</button>
 
     </div>
     <div className=' ml-0 flex justify-between mb-4'>
@@ -71,7 +71,7 @@ const TransactionDetails = () => {
         
       <div className=' flex flex-row justify-end'>
         <div className='flex pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:bg-red-600'>Cancel</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-red-400 hover:p-1 hover:bg-red-600  '>Cancel</button>
 
 </div>
 
@@ -165,7 +165,7 @@ border-gray-200 w-8/12 h-6/6 flex justify-center '>
     </div>
   </div>
   <div className='flex justify-end pr-5 mb-6 mr-2 mt-6'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot transition-all duration-300 hover:font-bold hover:text-white'
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot transition-all duration-300  hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white '
 >
   Checkout
 </button>

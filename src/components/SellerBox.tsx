@@ -46,11 +46,11 @@ const SellerBox = () => {
         
       <div className=' flex flex-row justify-end'>
         <div className='flex pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:bg-red-600'>Remove</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-red-400 hover:p-1 hover:bg-red-600  '>Remove</button>
 
 </div>
 <div className='flex  pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot transition-all duration-300 hover:text-white'>Processing</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white '>Processing</button>
 
 </div>
         </div>

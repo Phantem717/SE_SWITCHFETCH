@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import Search from "@/components/searchBar";
+import Search from "@/components/SearchBar";
 import logo from "@/assets/Logo.png";
 import profilePic from "@/assets/Elige Al Gaib.png";
 import DropDownProf from "@/components/DropDownProf";
@@ -66,7 +66,7 @@ const Navbar = (props: Props) => {
 
           </div>
           <div>
-             {/* <p>{userData['name']}</p> */}
+             <p>{userData['name']}</p>
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
             <img
