@@ -1,5 +1,5 @@
-import React, {useEffect, useRef, useState} from 'react';;
-import Navbar from '@/scenes/navbar';;
+import React, {useEffect, useRef, useState} from 'react';
+import Navbar from '@/scenes/navbar';
 import {useNavigate} from "react-router-dom";
 import DropDownLocation from '../components/DropDownLocation';
 import DropDownGender from '../components/DropDownGender';
@@ -13,31 +13,26 @@ const EditProfile = () => {
     const [textName, setTextName] = useState('');
     const [textDesc, setTextDesc] = useState('');
     const [textGend, setGend] = useState('');
-    const [textLoc, setLoc] = useState('');
+    // const [textLoc, setLoc] = useState('');
     const [textAddr, setTextAddr] = useState('');
-    const [textEmail, setTextEmail] = useState('');
-    // const [file, setFile] = useState('');
-    // const fileInputRef = useRef<HTMLInputElement>(null);
+    // const [textEmail, setTextEmail] = useState('');
     const [avatarURL, setAvatarURL] = useState('');
-    const fileUploadRef = useRef<HTMLInputElement>(null);
     let data : any;
-
-    const handleImageUpload = (event) => {
-        event.preventDefault();
-        fileUploadRef.current.click();
-    }
 
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
     };
-    const inputTextEmail = (event: any) => {
-        setTextEmail(event.target.value);
-    };
+    // const inputTextEmail = (event: any) => {
+    //     setTextEmail(event.target.value);
+    // };
     const inputTextAddr = (event: any) => {
         setTextAddr(event.target.value);
     };
     const inputTextDesc = (event: any) => {
         setTextDesc(event.target.value);
+    };
+    const inputAvatarURL = (event: any) => {
+        setAvatarURL(event.target.value);
     };
 
     const handleOnSave = (event: { preventDefault: () => void; }) => {
@@ -53,19 +48,15 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                const uploadedFile = fileUploadRef.current.files[0];
-                const cachedURL = URL.createObjectURL(uploadedFile);
-                setAvatarURL(cachedURL);
-                const formData = new FormData();
-                formData.append("file", uploadedFile);
-                console.log(avatarURL);
-                console.log('Image', cachedURL)
+                
+
                 console.log('Name', textName);
-                console.log('Location', textLoc);
+                // console.log('Location', textLoc);
                 console.log('Gender', textGend);
                 console.log('Address', textAddr);
-                console.log('Email', textEmail);
+                // console.log('Email', textEmail);
                 console.log('Description', textDesc);
+                console.log('Image', avatarURL);
 
             axios.post('http://localhost:80/api/profile/edit-profile',{
                 name: textName,
@@ -73,7 +64,7 @@ const EditProfile = () => {
                 address: textAddr,
                 description: textDesc,
                 id: userData['id'],
-                photo: cachedURL
+
             })
                 .then(res => {
                     if (res['data']['error'] == 1){
@@ -108,27 +99,8 @@ const EditProfile = () => {
     return (
         <div className='bg-blue-100'>
             <Navbar />
-            <div className='mt-12 flex flex-row justify-center align-middle items-center' >
-                <div className='w-2/12 font-bold'>
-                    Add Profile Picture
-                </div>
-                <input 
-                    type='file' 
-                    name="image" 
-                    accept='image/png, image/jpg, image/jpeg'
-                    // ref={fileInputRef}
-                    ref={fileUploadRef}
-                    className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8' 
-                    // onChange={handleOnChange}
-                    onChange={handleImageUpload}
-                /> 
-            </div>
 
-            <div className='mt-4 flex justify-center'>
-                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
-            </div>
-
-            <div className='mt-20 flex flex-row justify-center align-middle items-center'>
+            <div className='mt-12 flex flex-row justify-center align-middle items-center'>
                 <div className='w-2/12 font-bold'>
                     Name
                 </div>
@@ -188,6 +160,24 @@ const EditProfile = () => {
                     onChange={inputTextDesc} 
                     style={{ fontSize : '1 rem'} }
                     />
+            </div>
+
+            <div className='mt-12 flex flex-row justify-center align-middle items-center' >
+                <div className='w-2/12 font-bold'>
+                    Add Profile Picture
+                </div>
+                <input 
+                    type='text' 
+                    className='hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8' 
+                    placeholder='Enter Image Link'
+                    value={avatarURL}
+                    onChange={inputAvatarURL}
+                    style={{ fontSize : '1 rem'} }
+                /> 
+            </div>
+
+            <div className='mt-4 flex justify-center'>
+                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
             </div>
 
             <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
