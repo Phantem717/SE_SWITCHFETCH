@@ -166,17 +166,17 @@ const EditProfile = () => {
                     />
             </div>
 
-            <div className='mt-12 flex flex-row justify-center align-middle items-center'>
-                <div className='w-2/12 font-bold'>
-                    Email
-                </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`}
-                    placeholder='Enter Email'
-                    value={textEmail}
-                    onChange={inputTextEmail}
-                    style={{ fontSize : '1 rem'} }
-                    />
-            </div>
+            {/*<div className='mt-12 flex flex-row justify-center align-middle items-center'>*/}
+            {/*    <div className='w-2/12 font-bold'>*/}
+            {/*        Email*/}
+            {/*    </div>*/}
+            {/*    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`}*/}
+            {/*        placeholder='Enter Email'*/}
+            {/*        value={textEmail}*/}
+            {/*        onChange={inputTextEmail}*/}
+            {/*        style={{ fontSize : '1 rem'} }*/}
+            {/*        />*/}
+            {/*</div>*/}
 
             <div className='mt-12 flex flex-row justify-center align-middle'>
                 <div className='w-2/12 font-bold'>
