@@ -14,14 +14,16 @@ const EditProfile = () => {
     const [textLoc, setLoc] = useState('');
     const [textAddr, setTextAddr] = useState('');
     const [textEmail, setTextEmail] = useState('');
-    const [selectedImage, setSelectedImage] = useState('Firefly.jpeg')
+    // const [file, setFile] = useState('');
+    // const fileInputRef = useRef<HTMLInputElement>(null);
+    const [avatarURL, setAvatarURL] = useState('');
+    const fileUploadRef = useRef<HTMLInputElement>(null);
     let data : any;
 
-    const handleImageChange = (event) => {
-        setSelectedImage(event.target.value);
+    const handleImageUpload = (event) => {
+        event.preventDefault();
+        fileUploadRef.current.click();
     }
-
-    const imageSrc = `/assets/ProfilePicture/${selectedImage}`;
 
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
@@ -48,7 +50,13 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                console.log('Image', imageSrc);
+                const uploadedFile = fileUploadRef.current.files[0];
+                const cachedURL = URL.createObjectURL(uploadedFile);
+                setAvatarURL(cachedURL);
+                const formData = new FormData();
+                formData.append("file", uploadedFile);
+                console.log(avatarURL);
+                console.log('Image', cachedURL)
                 console.log('Name', textName);
                 console.log('Location', textLoc);
                 console.log('Gender', textGend);
@@ -66,18 +74,20 @@ const EditProfile = () => {
                 <div className='w-2/12 font-bold'>
                     Add Profile Picture
                 </div>
-                <select value={selectedImage} onChange={handleImageChange}
-                className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8'
-                >
-                    <option value="Firefly.jpeg">Firefly</option>
-                    <option value="HuTao.jpeg">Hu Tao</option>
-                    <option value="Sparkle.jpeg">Sparkle</option>
-                </select>
-                
+                <input 
+                    type='file' 
+                    name="image" 
+                    accept='image/png, image/jpg, image/jpeg'
+                    // ref={fileInputRef}
+                    ref={fileUploadRef}
+                    className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8' 
+                    // onChange={handleOnChange}
+                    onChange={handleImageUpload}
+                /> 
             </div>
 
             <div className='mt-4 flex justify-center'>
-                <img src={imageSrc} alt="Selected Image" className={`flex items-center justify-center h-48`}/>
+                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
             </div>
 
             <div className='mt-20 flex flex-row justify-center align-middle items-center'>
