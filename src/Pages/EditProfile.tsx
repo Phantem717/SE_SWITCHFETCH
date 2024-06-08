@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';;
+import React, {useEffect, useRef, useState} from 'react';;
 import Navbar from '@/scenes/navbar';;
+import {useNavigate} from "react-router-dom";
 import DropDownLocation from '../components/DropDownLocation';
 import DropDownGender from '../components/DropDownGender';
 import Footer from '@/components/Footer';
@@ -8,6 +9,7 @@ import Swal from 'sweetalert2';
 
 
 const EditProfile = () => {
+    const navigate = useNavigate();
     const [textName, setTextName] = useState('');
     const [textDesc, setTextDesc] = useState('');
     const [textGend, setGend] = useState('');
@@ -40,6 +42,7 @@ const EditProfile = () => {
 
     const handleOnSave = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
+        const userData = JSON.parse(localStorage.getItem('account'));
         Swal.fire({
             title: 'Are you sure?',
             text: "Do you want to save changes?",
@@ -63,6 +66,41 @@ const EditProfile = () => {
                 console.log('Address', textAddr);
                 console.log('Email', textEmail);
                 console.log('Description', textDesc);
+
+            axios.post('http://localhost:80/api/profile/edit-profile',{
+                name: textName,
+                gender: textGend,
+                address: textAddr,
+                description: textDesc,
+                id: userData['id'],
+                photo: cachedURL
+            })
+                .then(res => {
+                    if (res['data']['error'] == 1){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Failed to Save",
+                            text: res['data']['message'],
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: res['data']['message'],
+                        });
+
+                        axios.get(`http://localhost:80/api/profile/${userData['id']}`)
+                            .then(res =>{
+                                if (res['data']['error'] !== 1){
+                                    localStorage.setItem('account',JSON.stringify(res['data']));
+                                    navigate('/Home');
+                                }
+                            })
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                });
             }
         });
     }
@@ -102,12 +140,12 @@ const EditProfile = () => {
                     />
             </div>
 
-            <div className='mt-12 flex flex-row justify-center align-middle items-center z-10'>
-                <div className='w-2/12 font-bold'>
-                    Location
-                </div>
-                <DropDownLocation onLocationSelect={setLoc} />
-            </div>
+            {/*<div className='mt-12 flex flex-row justify-center align-middle items-center z-10'>*/}
+            {/*    <div className='w-2/12 font-bold'>*/}
+            {/*        Location*/}
+            {/*    </div>*/}
+            {/*    <DropDownLocation onLocationSelect={setLoc} />*/}
+            {/*</div>*/}
             
             <div className='mt-12 flex flex-row justify-center align-middle items-center z-0'>
                 <div className='w-2/12 font-bold'>
@@ -132,10 +170,10 @@ const EditProfile = () => {
                 <div className='w-2/12 font-bold'>
                     Email
                 </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                    placeholder='Enter Email' 
-                    value={textEmail} 
-                    onChange={inputTextEmail} 
+                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`}
+                    placeholder='Enter Email'
+                    value={textEmail}
+                    onChange={inputTextEmail}
                     style={{ fontSize : '1 rem'} }
                     />
             </div>

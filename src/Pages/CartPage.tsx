@@ -10,7 +10,7 @@ const CartPage = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                axios.get(`http://localhost:80/api/cart/${userData['user_id']}`)
+                axios.get(`http://localhost:80/api/cart/${userData['id']}`)
                     .then(res => {
                         setData(res['data']);
                     })
