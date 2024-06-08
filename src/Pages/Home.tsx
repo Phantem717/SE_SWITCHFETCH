@@ -1,7 +1,8 @@
 import Navbar from "@/scenes/navbar";
 import ProductContainer from "../components/ProductContainer";
 import ProdImg from '../assets/Rectangle64.png'
-import testIMG from '../assets/se.jpeg'
+// import testIMG from '../assets/se.jpeg'
+import testIMG from '../assets/adversitement.jpg'
 import React, {useEffect, useState} from 'react'
 import Footer from "@/components/Footer";
 import axios from "axios";
