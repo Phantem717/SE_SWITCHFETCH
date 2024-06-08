@@ -24,7 +24,7 @@ import SellerPage from "./Pages/SellerPage.tsx";
 import SellerBox from "./components/SellerBox.tsx";
 import TransactionDetails from "./Pages/TransactionDetails.tsx";
 import ItemPage from "./Pages/ItemPage.tsx";
-import SearchBar from "./components/SearchBar.tsx";
+import SearchBar from "./components/searchBar.tsx";
 function App() {
 
   return (

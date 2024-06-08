@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
 import Footer from '@/components/Footer'
-import SearchBar from '@/components/SearchBar'
+import SearchBar from '../components/searchBar.tsx'
 import ProdImg from '../assets/Rectangle64.png'
 import ProfImg from '../assets/Elige Al Gaib.png'
 const ItemPage = () => {

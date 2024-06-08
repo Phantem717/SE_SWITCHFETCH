@@ -11,7 +11,7 @@ const SellProduct = () => {
     const [textDesc, setTextDesc] = useState('');
     const [textLoc, setLoc] = useState('');
     const [textPrice, setTextPrice] = useState('');
-    const fileInputRef = useRef<HTMLInputElement>(null);
+    const [avatarURL, setAvatarURL] = useState('');
     let data : any;
     const inputTextProd = (event: any) => {
         setTextProd(event.target.value);
@@ -22,6 +22,10 @@ const SellProduct = () => {
     const inputTextDesc = (event: any) => {
         setTextDesc(event.target.value);
     };
+    const inputAvatarURL = (event: any) => {
+        setAvatarURL(event.target.value);
+    };
+
     const handleOnSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         Swal.fire({
@@ -34,20 +38,14 @@ const SellProduct = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-
+                
                 console.log('Product Name', textProd);
                 console.log('Price', textPrice);
                 console.log('Location', textLoc);
                 console.log('Description', textDesc);
+                console.log('Image', avatarURL);
             }
         });
-    }
-
-    function handleOnChange(e: React.FormEvent<HTMLInputElement>){
-        const target = e.target as HTMLInputElement & {
-            files: FileList;
-        }
-        setFile(target.files[0]);        
     }
 
   return (
@@ -107,22 +105,23 @@ const SellProduct = () => {
         
         </div>
 
-        <div className='  mt-12 flex flex-row justify-center align-middle items-center '>
-            <div className='w-2/12 font-bold'>
-            Add Product Picture
+        <div className='mt-12 flex flex-row justify-center align-middle items-center' >
+                <div className='w-2/12 font-bold'>
+                    Add Product Picture
+                </div>
+                <input 
+                    type='text' 
+                    className='hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8' 
+                    placeholder='Enter Image Link'
+                    value={avatarURL}
+                    onChange={inputAvatarURL}
+                    style={{ fontSize : '1 rem'} }
+                /> 
             </div>
 
-            <input 
-                type='file' 
-                name="image" 
-                accept='image/png, image/jpg, image/jpeg'
-                ref={fileInputRef}
-                className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8' 
-                onChange={handleOnChange}
-                />
-        
-        
-        </div>
+            <div className='mt-4 flex justify-center'>
+                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
+            </div>
 
         <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
                 <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
