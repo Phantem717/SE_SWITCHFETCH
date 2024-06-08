@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
 import ProductContainer from '../components/ProductContainer'
+import DropDownPrice from '@/components/DropDownPrice'
 import Footer from '@/components/Footer'
 const SearchPage:React.FC = () => {
   return (
@@ -10,6 +11,10 @@ const SearchPage:React.FC = () => {
           <div className="w-AdWidth">
             <div className="flex justify-start font-semibold text-4xl mb-8">
               Search Page
+            </div>
+
+            <div className='flex justify-end'>
+              <DropDownPrice/>
             </div>
 
             <div className="flex flex-wrap gap-x-6">
