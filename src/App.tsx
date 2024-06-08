@@ -42,10 +42,10 @@ function App() {
       <Route path="/signup" element={<SignUp/>}> </Route>
       <Route path="/ProdGall" element={<ProductDetGall/>}> </Route>
       <Route path="/ProdDet" element={<ProductDetails/>}> </Route>
-      {/* <Route path="/ProdInfo" element={<ProdInfoBox/>}> </Route> */}
+      <Route path="/ProdInfo" element={<ProdInfoBox/>}> </Route>
       <Route path="/register" element={<Register/>}> </Route>
       <Route path="/QTYBTN" element={<QTYIncrement/>}> </Route>
-      {/* <Route path="/ProdCont" element={<ProductContainer/>}> </Route> */}
+      <Route path="/ProdCont" element={<ProductContainer/>}> </Route>
       <Route path="/search" element={<SearchPage/>}> </Route>
       <Route path="/history" element={<HistoryPage/>}> </Route>
       <Route path="/histbox" element={<HistoryBox/>}> </Route>
@@ -53,7 +53,7 @@ function App() {
       <Route path="/footer" element={<Footer/>}> </Route>
       <Route path="/topup" element={<TopUp/>}> </Route>
       <Route path="/cart" element={<Cart/>}> </Route>
-      {/* <Route path="/CartBox" element={<CartBox/>}> </Route> */}
+      <Route path="/CartBox" element={<CartBox/>}> </Route>
       <Route path="/DDProf" element={<DropDownProf/>}> </Route>
       <Route path="/seller" element={<SellerPage/>}> </Route>
       <Route path="/SellerBox" element={<SellerBox/>}> </Route>

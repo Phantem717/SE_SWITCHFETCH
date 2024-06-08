@@ -29,7 +29,7 @@ const Navbar = (props: Props) => {
   const toggleDropdown = () => {
     setDDProf((prev) => !prev);
   };
-  // const userData = JSON.parse(localStorage.getItem('account'));
+  const userData = JSON.parse(localStorage.getItem('account'));
   return (
     <nav className="sticky top-0 z-50">
       <div className={`${flexBetween} h-20 w-full py-6 bg-gradient-to-r from-navGrad1 to-navGrad2 text-white`}>
