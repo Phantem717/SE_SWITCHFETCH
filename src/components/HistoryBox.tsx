@@ -38,16 +38,7 @@ const HistoryBox = () => {
         
 
         </div>
-        <div className='w-full flex content-center align-middle items-center justify-end pr-5 mb-1'>
-          
-          <div className='text-xs text-gray-400 mr-0.5'>
-            Total Price Including Delivery:  
-          </div>
-
-          <div className='text-lg font-semibold ml-0.5'>
-             Rp. 123.000
-          </div>
-        </div>
+        
 <div className='flex justify-end pr-5 mb-4'>
 <button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot '
 >

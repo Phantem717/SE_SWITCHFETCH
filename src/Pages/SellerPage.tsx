@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
-import Footer from './Footer'
-import SellerBox from './SellerBox'
+import Footer from '@/components/Footer'
+import SellerBox from '@/components/SellerBox'
 import DropDownSeller from '@/components/DropDownSeller'
 
 
