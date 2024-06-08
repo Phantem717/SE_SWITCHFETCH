@@ -49,6 +49,13 @@ const Navbar = (props: Props) => {
             <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200 hover:text-black transition-all duration-300`}>
               <a href="./history">History</a>
             </div>
+            <div>
+              {userData['is_seller'] == 1 && (
+                  <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200 hover:text-black transition-all duration-300`}>
+                    <a href="./seller">Seller</a>
+                  </div>
+              )}
+            </div>
           </div>
           <div className={`${flexBetween} ml-24`}>
             {/* <p className={`mr-3`}>Balance:</p>
@@ -63,7 +70,7 @@ const Navbar = (props: Props) => {
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
             <img
-              src={profilePic}
+              src={userData['photo']}
               alt="Profile"
               className="rounded-CircleProfPic w-12 h-12 before:ml-4 cursor-pointer"
               onClick={toggleDropdown}

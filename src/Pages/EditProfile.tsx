@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';;
+import React, {useEffect, useRef, useState} from 'react';;
 import Navbar from '@/scenes/navbar';;
+import {useNavigate} from "react-router-dom";
 import DropDownLocation from '../components/DropDownLocation';
 import DropDownGender from '../components/DropDownGender';
 import Footer from '@/components/Footer';
@@ -8,20 +9,23 @@ import Swal from 'sweetalert2';
 
 
 const EditProfile = () => {
+    const navigate = useNavigate();
     const [textName, setTextName] = useState('');
     const [textDesc, setTextDesc] = useState('');
     const [textGend, setGend] = useState('');
     const [textLoc, setLoc] = useState('');
     const [textAddr, setTextAddr] = useState('');
     const [textEmail, setTextEmail] = useState('');
-    const [selectedImage, setSelectedImage] = useState('Firefly.jpeg')
+    // const [file, setFile] = useState('');
+    // const fileInputRef = useRef<HTMLInputElement>(null);
+    const [avatarURL, setAvatarURL] = useState('');
+    const fileUploadRef = useRef<HTMLInputElement>(null);
     let data : any;
 
-    const handleImageChange = (event) => {
-        setSelectedImage(event.target.value);
+    const handleImageUpload = (event) => {
+        event.preventDefault();
+        fileUploadRef.current.click();
     }
-
-    const imageSrc = `/assets/ProfilePicture/${selectedImage}`;
 
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
@@ -38,6 +42,7 @@ const EditProfile = () => {
 
     const handleOnSave = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
+        const userData = JSON.parse(localStorage.getItem('account'));
         Swal.fire({
             title: 'Are you sure?',
             text: "Do you want to save changes?",
@@ -48,13 +53,54 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                console.log('Image', imageSrc);
+                const uploadedFile = fileUploadRef.current.files[0];
+                const cachedURL = URL.createObjectURL(uploadedFile);
+                setAvatarURL(cachedURL);
+                const formData = new FormData();
+                formData.append("file", uploadedFile);
+                console.log(avatarURL);
+                console.log('Image', cachedURL)
                 console.log('Name', textName);
                 console.log('Location', textLoc);
                 console.log('Gender', textGend);
                 console.log('Address', textAddr);
                 console.log('Email', textEmail);
                 console.log('Description', textDesc);
+
+            axios.post('http://localhost:80/api/profile/edit-profile',{
+                name: textName,
+                gender: textGend,
+                address: textAddr,
+                description: textDesc,
+                id: userData['id'],
+                photo: cachedURL
+            })
+                .then(res => {
+                    if (res['data']['error'] == 1){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Failed to Save",
+                            text: res['data']['message'],
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: res['data']['message'],
+                        });
+
+                        axios.get(`http://localhost:80/api/profile/${userData['id']}`)
+                            .then(res =>{
+                                if (res['data']['error'] !== 1){
+                                    localStorage.setItem('account',JSON.stringify(res['data']));
+                                    navigate('/Home');
+                                }
+                            })
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                });
             }
         });
     }
@@ -66,18 +112,20 @@ const EditProfile = () => {
                 <div className='w-2/12 font-bold'>
                     Add Profile Picture
                 </div>
-                <select value={selectedImage} onChange={handleImageChange}
-                className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8'
-                >
-                    <option value="Firefly.jpeg">Firefly</option>
-                    <option value="HuTao.jpeg">Hu Tao</option>
-                    <option value="Sparkle.jpeg">Sparkle</option>
-                </select>
-                
+                <input 
+                    type='file' 
+                    name="image" 
+                    accept='image/png, image/jpg, image/jpeg'
+                    // ref={fileInputRef}
+                    ref={fileUploadRef}
+                    className='bg-white hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500 hover:bg-blue-200 border-2 box-border border-black rounded-lg w-7/12 h-8' 
+                    // onChange={handleOnChange}
+                    onChange={handleImageUpload}
+                /> 
             </div>
 
             <div className='mt-4 flex justify-center'>
-                <img src={imageSrc} alt="Selected Image" className={`flex items-center justify-center h-48`}/>
+                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
             </div>
 
             <div className='mt-20 flex flex-row justify-center align-middle items-center'>
@@ -92,12 +140,12 @@ const EditProfile = () => {
                     />
             </div>
 
-            <div className='mt-12 flex flex-row justify-center align-middle items-center z-10'>
-                <div className='w-2/12 font-bold'>
-                    Location
-                </div>
-                <DropDownLocation onLocationSelect={setLoc} />
-            </div>
+            {/*<div className='mt-12 flex flex-row justify-center align-middle items-center z-10'>*/}
+            {/*    <div className='w-2/12 font-bold'>*/}
+            {/*        Location*/}
+            {/*    </div>*/}
+            {/*    <DropDownLocation onLocationSelect={setLoc} />*/}
+            {/*</div>*/}
             
             <div className='mt-12 flex flex-row justify-center align-middle items-center z-0'>
                 <div className='w-2/12 font-bold'>
@@ -118,17 +166,17 @@ const EditProfile = () => {
                     />
             </div>
 
-            <div className='mt-12 flex flex-row justify-center align-middle items-center'>
-                <div className='w-2/12 font-bold'>
-                    Email
-                </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                    placeholder='Enter Email' 
-                    value={textEmail} 
-                    onChange={inputTextEmail} 
-                    style={{ fontSize : '1 rem'} }
-                    />
-            </div>
+            {/*<div className='mt-12 flex flex-row justify-center align-middle items-center'>*/}
+            {/*    <div className='w-2/12 font-bold'>*/}
+            {/*        Email*/}
+            {/*    </div>*/}
+            {/*    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`}*/}
+            {/*        placeholder='Enter Email'*/}
+            {/*        value={textEmail}*/}
+            {/*        onChange={inputTextEmail}*/}
+            {/*        style={{ fontSize : '1 rem'} }*/}
+            {/*        />*/}
+            {/*</div>*/}
 
             <div className='mt-12 flex flex-row justify-center align-middle'>
                 <div className='w-2/12 font-bold'>
