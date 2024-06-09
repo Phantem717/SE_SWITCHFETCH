@@ -37,20 +37,20 @@ const ChangePassword = () => {
                 console.log('Old Password', oldPass);
                 console.log('New Password', newPass);
                 console.log('Confirm New Password', conNewPass);
-                // if(oldPass != ['data']){
-                //     Swal.fire({
-                //         icon: 'error',
-                //         title: 'Your is not correct',
-                //         confirmButtonColor: '#3085d6',
-                //     })
-                // }
-                // if(['data'] == newPass){
-                //     Swal.fire({
-                //         icon: 'error',
-                //         title: 'Your new password is the same with your old password',
-                //         confirmButtonColor: '#3085d6',
-                //     })
-                // }
+                if(oldPass != data['password']){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Your is not correct',
+                        confirmButtonColor: '#3085d6',
+                    })
+                }
+                if(data['password'] == newPass){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Your new password is the same with your old password',
+                        confirmButtonColor: '#3085d6',
+                    })
+                }
                 if(newPass != conNewPass){
                     Swal.fire({
                         icon: 'error',
