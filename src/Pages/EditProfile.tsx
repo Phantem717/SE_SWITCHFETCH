@@ -35,6 +35,11 @@ const EditProfile = () => {
         setAvatarURL(event.target.value);
     };
 
+    const handleChangePass = (event: { preventDefault: () => void; }) => {
+        event.preventDefault();
+        navigate('/changePassword');
+    }
+
     const handleOnSave = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         const userData = JSON.parse(localStorage.getItem('account'));
@@ -181,15 +186,26 @@ const EditProfile = () => {
             </div>
 
             <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
-                <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
-                    <button 
-                        type='submit' 
-                        className='w-full h-full' 
-                        onClick={handleOnSave}
-                    >
-                        Save
-                    </button>
+                <div>
+                    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-96 flex-column flex text-black bg-navGrad1 rounded-md w-44 h-10 items-center justify-end'>
+                        <button 
+                            type='submit' 
+                            className='w-full h-full' 
+                            onClick={handleChangePass}
+                        >
+                            Change Password
+                        </button>
                 </div>
+                </div>
+                    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
+                        <button 
+                            type='submit' 
+                            className='w-full h-full' 
+                            onClick={handleOnSave}
+                        >
+                            Save
+                        </button>
+                    </div>
             </div>
             <Footer/>
         </div>
