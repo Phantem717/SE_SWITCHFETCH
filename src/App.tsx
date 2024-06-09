@@ -25,6 +25,7 @@ import SellerBox from "./components/SellerBox.tsx";
 import TransactionDetails from "./Pages/TransactionDetails.tsx";
 import ItemPage from "./Pages/ItemPage.tsx";
 import SearchBar from "./components/searchBar.tsx";
+import ChangePass from "./Pages/ChangePassword.tsx";
 import DropDownPrice from "./components/DropDownPrice.tsx";
 import DropDownSeller from "./components/DropDownSeller.tsx";
 function App() {
@@ -64,6 +65,7 @@ function App() {
       <Route path="/TransactionDetails" element={<TransactionDetails/>}> </Route>
       <Route path="/itempage" element={<ItemPage/>}> </Route>
       <Route path="/searchbar" element={<SearchBar/>}> </Route>
+      <Route path="/changePassword" element={<ChangePass/>}> </Route>
       <Route path="/DDPrice" element={<DropDownPrice/>}> </Route>
       <Route path="/DDSell" element={<DropDownSeller/>}> </Route>
 

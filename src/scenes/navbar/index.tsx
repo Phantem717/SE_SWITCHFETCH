@@ -66,7 +66,7 @@ const Navbar = (props: Props) => {
 
           </div>
           <div>
-             {/* <p>{userData['name']}</p> */}
+             <p>{userData['name']}</p>
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
             <img
