@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import axios from "axios";
 const Home = () => {
     const [data, setData] = useState(null);
-    const userData = JSON.parse(localStorage.getItem('account'));
+    // const userData = JSON.parse(localStorage.getItem('account'));
     useEffect(() => {
         const getData = async () => {
             try {
