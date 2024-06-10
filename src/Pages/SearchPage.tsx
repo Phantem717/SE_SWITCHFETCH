@@ -7,8 +7,6 @@ import Footer from '@/components/Footer'
 import HistoryBox from '@/components/HistoryBox.tsx';
 import axios from "axios";
 import searchBar from "../components/searchBar.tsx";
-const SearchPage:React.FC = () => {
-
 
 const SearchPage: React.FC = () => {
   const [data, setData] = useState(null);
