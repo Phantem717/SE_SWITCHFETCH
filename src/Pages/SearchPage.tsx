@@ -22,7 +22,6 @@ const SearchPage:React.FC = () => {
 
             <div className="flex flex-wrap gap-x-6">
               
-            {/* <ProductContainer />
             <ProductContainer />
             <ProductContainer />
             <ProductContainer />
@@ -33,7 +32,8 @@ const SearchPage:React.FC = () => {
             <ProductContainer />
             <ProductContainer />
             <ProductContainer />
-            <ProductContainer /> */}
+            <ProductContainer />
+            <ProductContainer />
             
             </div>
 

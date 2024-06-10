@@ -30,7 +30,7 @@ const Navbar = (props: Props) => {
   const toggleDropdown = () => {
     setDDProf((prev) => !prev);
   };
-  // const userData = JSON.parse(localStorage.getItem('account'));
+  const userData = JSON.parse(localStorage.getItem('account'));
   return (
     <nav className="sticky top-0 z-50">
       <div className={`${flexBetween} h-20 w-full py-6 bg-gradient-to-r from-navGrad1 to-navGrad2 text-white`}>
@@ -51,11 +51,11 @@ const Navbar = (props: Props) => {
               <a href="./history">History</a>
             </div>
             <div>
-              {/* {userData['is_seller'] == 1 && (
+              {userData['is_seller'] == 1 && (
                   <div className={`hover:shadow-md hover:shadow-blue-400 hover:w-max hover:rounded-md hover:p-1 hover:bg-blue-200 hover:text-black transition-all duration-300`}>
                     <a href="./seller">Seller</a>
                   </div>
-              )} */}
+              )}
             </div>
           </div>
           <div>
@@ -64,15 +64,15 @@ const Navbar = (props: Props) => {
           <div className="flex justify-end ml-0 items-center">
           <div className="mr-4 text-lg">
          
-             {/* <p>{userData['name']}</p> */}
+             <p>{userData['name']}</p>
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
-            {/* <img
+            <img
               src={userData['image']}
               alt="Profile"
               className="rounded-CircleProfPic w-12 h-12 before:ml-4 cursor-pointer"
               onClick={toggleDropdown}
-            /> */}
+            />
           
           </div>
           </div>
