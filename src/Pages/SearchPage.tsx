@@ -5,9 +5,10 @@ import SearchBar from "../components/searchBar.tsx";
 import DropDownPrice from '@/components/DropDownPrice'
 import Footer from '@/components/Footer'
 import HistoryBox from '@/components/HistoryBox.tsx';
-const SearchPage:React.FC = () => {
 import axios from "axios";
 import searchBar from "../components/searchBar.tsx";
+const SearchPage:React.FC = () => {
+
 
 const SearchPage: React.FC = () => {
   const [data, setData] = useState(null);
