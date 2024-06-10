@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import Navbar from '@/scenes/navbar'
-import CartBox from '@/components/CartBox'
-import Footer from '@/components/Footer'
-import axios from "axios";
-import ProductContainer from "@/components/ProductContainer";
+import React, { useEffect, useState } from 'react';
+import Navbar from '@/scenes/navbar';
+import CartBox from '@/components/CartBox';
+import Footer from '@/components/Footer';
+import axios from 'axios';
+
 const CartPage = () => {
     const userData = JSON.parse(localStorage.getItem('account'));
     const [data, setData] = useState(null);
+
     useEffect(() => {
         const getData = async () => {
             try {
@@ -24,27 +25,22 @@ const CartPage = () => {
         getData();
     }, []);
 
-  return (
-    <div className='bg-gray-100 '>
-        <Navbar/>
-        <div className='flex justify-center align-middle content-center flex-wrap gap-y-7 mt-10 flex-col'>
-            {data ? (
-                data.map(item => (
-                    <CartBox key={item.id} item={item} />
-                ))
-            ) : (
-                <div>No data available</div>
-            )}
-
-<div className='flex flex-row bg-white w-7/12 justify-center align-middle items-center mb-20'>
-
-
-</div>
-
+    return (
+        <div className="flex flex-col min-h-screen bg-gray-100">
+            <Navbar />
+            <main className="flex-grow flex flex-col justify-center items-center gap-y-7 mt-10">
+                {data ? (
+                    data.map(item => (
+                        <CartBox key={item.id} item={item} />
+                    ))
+                ) : (
+                    <div>No data available</div>
+                )}
+                <div className="flex flex-row bg-white w-7/12 justify-center items-center mb-20"></div>
+            </main>
+            <Footer />
         </div>
-        <Footer/>
-    </div>
-  )
-}
+    );
+};
 
-export default CartPage
+export default CartPage;

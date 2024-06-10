@@ -3,6 +3,7 @@ import Search from "@/components/SearchBar";
 import logo from "@/assets/Logo.png";
 import profilePic from "@/assets/Elige Al Gaib.png";
 import DropDownProf from "@/components/DropDownProf";
+import { profile } from "console";
 
 type Props = {};
 
@@ -60,7 +61,9 @@ const Navbar = (props: Props) => {
           <div>
 
           </div>
-          <div>
+          <div className="flex justify-end ml-0 items-center">
+          <div className="mr-4 text-lg">
+         
              <p>{userData['name']}</p>
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
@@ -70,8 +73,10 @@ const Navbar = (props: Props) => {
               className="rounded-CircleProfPic w-12 h-12 before:ml-4 cursor-pointer"
               onClick={toggleDropdown}
             />
-            {DDProf && <DropDownProf />}
+          
           </div>
+          </div>
+         
         </div>
       </div>
     </nav>
