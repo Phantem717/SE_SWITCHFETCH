@@ -30,7 +30,9 @@ const Home = () => {
     useEffect(() => {
         const getUnderPrice = async () => {
             try {
-                axios.get('http://localhost:80/api/product/get-product-under')
+                axios.post('http://localhost:80/api/product/get-price-under',{
+                    price: '100000'
+                })
                     .then(res => {
                         setUnderPrice(res['data']);
                     })
@@ -83,11 +85,13 @@ const Home = () => {
             </div>
 
             <div className="flex flex-wrap gap-x-6">
-            {/*<ProductContainer />*/}
-            {/*<ProductContainer />*/}
-            {/*<ProductContainer />*/}
-            {/*<ProductContainer />*/}
-            {/*<ProductContainer />*/}
+                {underPrice ? (
+                    underPrice.map(item => (
+                        <ProductContainer key={item.id} item={item} />
+                    ))
+                ) : (
+                    <div>No data available</div>
+                )}
 
             </div>
 

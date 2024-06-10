@@ -53,15 +53,6 @@ const EditProfile = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                
-
-                console.log('Name', textName);
-                // console.log('Location', textLoc);
-                console.log('Gender', textGend);
-                console.log('Address', textAddr);
-                // console.log('Email', textEmail);
-                console.log('Description', textDesc);
-                console.log('Image', avatarURL);
 
             axios.post('http://localhost:80/api/profile/edit-profile',{
                 name: textName,
