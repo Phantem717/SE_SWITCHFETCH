@@ -7,7 +7,7 @@ const HistoryPage = () => {
     <div className='bg-gray-100'>
         <Navbar />
 
-        <div className='flex justify-center align-middle content-center flex-wrap gap-y-7 mt-10 mb-24'>
+        <div className='flex justify-center align-middle content-center flex-wrap gap-y-7 mt-10 mb-24 min-h-screen'>
           <HistoryBox/>
           <HistoryBox/>
           <HistoryBox/>

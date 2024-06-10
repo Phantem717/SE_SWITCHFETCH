@@ -50,7 +50,7 @@ const SellProduct = () => {
 
   return (
     
-    <div className='bg-blue-100'>
+    <div className='bg-blue-100 min-h-screen'>
           <Navbar />
 
         <div className='  mt-20 flex flex-row justify-center align-middle items-center '>

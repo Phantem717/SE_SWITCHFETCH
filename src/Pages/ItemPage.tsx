@@ -6,7 +6,7 @@ import ProdImg from '../assets/Rectangle64.png'
 import ProfImg from '../assets/Elige Al Gaib.png'
 const ItemPage = () => {
   return (
-    <div>
+    <div className='min-h-screen'>
         <Navbar/>
 <div className='bg-gray-200 flex justify-center flex-col '>
     <div className='mt-8  flex justify-center'>

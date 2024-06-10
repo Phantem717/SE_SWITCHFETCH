@@ -32,7 +32,7 @@ const TopUp: React.FC = () => {
     const blueClasses = "border-blue-700 text-blue-700 font-bold";
 
     return (
-        <div className='bg-gray-200'>
+        <div className='bg-gray-200 min-h-screen'>
             <Navbar />
             <div className='flex justify-center mt-16 mb-16'>
                 <div className='rounded-md bg-white w-9/12 h-PAYHEIGHT flex flex-row align-middle content-center justify-center'>

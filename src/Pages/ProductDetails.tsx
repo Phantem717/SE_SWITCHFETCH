@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get('id');
   return (
-    <div className=''>
+    <div className='min-h-screen'>
       <Navbar />
         <div className='z-0 flex justify-center gap-28 '>
         <ProductDetGall id={id} />

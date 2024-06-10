@@ -52,7 +52,7 @@ const signUp = () => {
   }
 
   return (
-    <div className={'bg-cover h-screen bg-gradient-to-r from-logregGrad5 to-logregGrad6'} style= {{backgroundImage: `url(${background})`}}>
+    <div className={'bg-cover h-screen bg-gradient-to-r from-logregGrad5 to-logregGrad6 min-h-screen'} style= {{backgroundImage: `url(${background})`}}>
         <form action="" className={`${flexCent}  text-black h-svh`}>
         <div className={`${flexCent} shadow-xl bg-gradient-to-r from-logregGrad1/50 from-25% via-logregGrad1.5/50 via-50% to-logregGrad2/50 to-77% bg-transparent rounded-tl-lg rounded-bl-lg h-4/6 w-4/12`}>
           <img src={logo} alt="" className={`h-3/4`}/>

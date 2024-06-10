@@ -14,7 +14,7 @@ const SellerPage = () => {
   
   return (
     
-    <div>
+    <div className='min-h-screen'>
         <Navbar/>
         <div className='flex flex-col justify-center items-center bg-gray-200' >
         <div className='flex bg-sellerMenu flex-col w-SellerBox py-7 px-8 mt-12 '>

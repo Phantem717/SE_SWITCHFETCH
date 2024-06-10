@@ -48,7 +48,7 @@ const Home = () => {
 
     console.log(data);
   return (
-    <div>
+    <div className="min-h-screen">
       <Navbar />
       <div className="">
         {/* AD */}

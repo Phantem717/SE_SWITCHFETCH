@@ -94,7 +94,7 @@ const EditProfile = () => {
     }
 
     return (
-        <div className='bg-blue-100'>
+        <div className='bg-blue-100 min-h-screen'>
             <Navbar />
 
             <div className='mt-12 flex flex-row justify-center align-middle items-center'>
@@ -165,7 +165,7 @@ const EditProfile = () => {
                 <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
             </div>
 
-            <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
+            <div className='flex justify-end ml-auto mr-44 pb-12'>
                 <div>
                     <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-96 flex-column flex text-black bg-navGrad1 rounded-md w-44 h-10 items-center justify-end'>
                         <button 

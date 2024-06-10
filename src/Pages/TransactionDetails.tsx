@@ -21,7 +21,7 @@ const TransactionDetails = () => {
     setSelectedIndex(index);
   };
   return (
-    <div>
+    <div className='min-h-screen'>
         <Navbar/>
         <div className='bg-gray-200 items-center justify-center flex flex-col'>
         <div className=' flex  bg-white w-8/12 flex-col mt-12 mb-8'>
