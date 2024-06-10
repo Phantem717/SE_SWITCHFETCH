@@ -73,6 +73,7 @@ const Navbar = (props: Props) => {
               className="rounded-CircleProfPic w-12 h-12 before:ml-4 cursor-pointer"
               onClick={toggleDropdown}
             />
+            {DDProf && <DropDownProf/>}
           
           </div>
           </div>
