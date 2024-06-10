@@ -28,6 +28,8 @@ import SearchBar from "./components/searchBar.tsx";
 import ChangePass from "./Pages/ChangePassword.tsx";
 import DropDownPrice from "./components/DropDownPrice.tsx";
 import DropDownSeller from "./components/DropDownSeller.tsx";
+import RegisterSeller from "./Pages/RegisterSeller.tsx";
+import EditShopDet from "./Pages/EditShopDet.tsx";
 function App() {
 
   return (
@@ -68,6 +70,8 @@ function App() {
       <Route path="/changePassword" element={<ChangePass/>}> </Route>
       <Route path="/DDPrice" element={<DropDownPrice/>}> </Route>
       <Route path="/DDSell" element={<DropDownSeller/>}> </Route>
+      <Route path="/registerSeller" element={<RegisterSeller/>}> </Route>
+      <Route path="/editShopDet" element={<EditShopDet/>}> </Route>
 
       </Routes>
 
