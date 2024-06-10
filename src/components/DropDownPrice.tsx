@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-const opt = ["None","Lowest","Highest"]
+const opt = ["None","orderAsc","orderDesc"]
 
-const DropDownPrice = () => {
+const DropDownPrice = ({onSelect}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("");
   
@@ -24,8 +24,9 @@ const DropDownPrice = () => {
     const toggleDropdown = () => {
       setIsOpen((prev) => !prev);
     };
-    const handleOptionClick = (gender: React.SetStateAction<string>) => {
-      setSelectedOption(gender); 
+    const handleOptionClick = (order: React.SetStateAction<string>) => {
+      setSelectedOption(order);
+      onSelect(order);
       setIsOpen(false); 
     };
   return (
