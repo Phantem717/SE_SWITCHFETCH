@@ -134,7 +134,7 @@ border-gray-200 w-8/12 h-6/6 flex justify-center '>
     Delivery Fee
     </div>
     <div className='text-gray-500'>
-    Rp.24.000
+    Rp.14.000
     </div>
   </div>
 
@@ -143,7 +143,7 @@ border-gray-200 w-8/12 h-6/6 flex justify-center '>
     Service Fee
     </div>
     <div className='text-gray-500'>
-    Rp.24.000
+    Rp.5680
     </div>
   </div>
 
@@ -152,7 +152,7 @@ border-gray-200 w-8/12 h-6/6 flex justify-center '>
     Price
     </div>
     <div className='text-gray-500'>
-    Rp.24.000
+    Rp.49.320
     </div>
   </div>
 

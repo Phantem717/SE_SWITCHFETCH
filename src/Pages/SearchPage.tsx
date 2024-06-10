@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '@/scenes/navbar'
 import ProductContainer from '../components/ProductContainer'
+import SearchBar from "../components/searchBar.tsx";
 import DropDownPrice from '@/components/DropDownPrice'
 import Footer from '@/components/Footer'
 const SearchPage:React.FC = () => {
@@ -9,6 +10,7 @@ const SearchPage:React.FC = () => {
         <Navbar />
         <div className="flex flex-col items-center mt-8">
           <div className="w-AdWidth">
+            <SearchBar />
             <div className="flex justify-start font-semibold text-4xl mb-8">
               Search Page
             </div>
