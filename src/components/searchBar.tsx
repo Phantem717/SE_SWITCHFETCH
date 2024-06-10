@@ -31,7 +31,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             <div className={`${flexBetween} text-black`}>
                 <input
                     type='text'
-                    className={`hover:placeholder:text-black hover:rounded-tl-md hover:rounded-bl-md transition-all duration-100 hover:border-2 hover:border-black placeholder:px-4 rounded-tl-sm rounded-bl-sm w-96 h-8`}
+                    className={`border-2 border-black hover:placeholder:text-black transition-all duration-100 hover:border-2 hover:border-black placeholder:px-4 rounded-tl-sm rounded-bl-sm w-96 h-8`}
                     placeholder='Cari Produk'
                     value={text}
                     onChange={inputText}
