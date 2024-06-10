@@ -54,7 +54,7 @@ border-gray-200 w-full h-6/6 flex justify-centeralign-middle items-center'>
 <div className='text-xs flex flex-row items-center mr-5'>
             Total Price Including Delivery:  
             <div className='text-lg font-semibold  text-black ml-2'>
-             Rp. 123.000
+             -
           </div>
           </div>
 
