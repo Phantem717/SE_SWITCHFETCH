@@ -29,7 +29,8 @@ export default {
         "OrderBTNTop": "#53B0F4",
         "OrderBTNBot": " #91DBF3",
         "Footer1": "#0F137E",
-        "Footer2": "#272844"
+        "Footer2": "#272844",
+        "cancelBtn": "#cf142b"
       },
       fontFamily: {
         fontName: [""]

@@ -21,6 +21,11 @@ const ChangePassword = () => {
     const inputConNewPass = (event : any) => {
         setConNewPass(event.target.value);
     }
+    
+    const handleChangeCancel = (event: { preventDefault: () => void;}) => {
+        event.preventDefault();
+        navigate("/editProfile");
+    }
 
     const handleChangePass = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
@@ -99,14 +104,29 @@ const ChangePassword = () => {
                         />
                 </div>
                 <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
-                    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
-                        <button 
-                            type='submit' 
-                            className='w-full h-full' 
-                            onClick={handleChangePass}
-                        >
-                            Save
-                        </button>
+
+                    <div>
+                        <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-24 flex-column flex text-black bg-cancelBtn rounded-md w-24 h-10 items-center justify-end'>
+                            <button 
+                                type='submit' 
+                                className='w-full h-full' 
+                                onClick={handleChangeCancel}
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
+                            <button 
+                                type='submit' 
+                                className='w-full h-full' 
+                                onClick={handleChangePass}
+                            >
+                                Save
+                            </button>
+                        </div>
                     </div>
             </div>
             <Footer/>
