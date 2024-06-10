@@ -1,13 +1,14 @@
 import Navbar from "@/scenes/navbar";
 import ProductContainer from "../components/ProductContainer";
 import ProdImg from '../assets/Rectangle64.png'
-import testIMG from '../assets/se.jpeg'
-// import testIMG from '../assets/adversitement.jpg'
+// import testIMG from '../assets/se.jpeg'
+import testIMG from '../assets/adversitement.jpg'
 import React, {useEffect, useState} from 'react'
 import Footer from "@/components/Footer";
 import axios from "axios";
 const Home = () => {
     const [data, setData] = useState(null);
+    const [underPrice, setUnderPrice] = useState(null);
     // const userData = JSON.parse(localStorage.getItem('account'));
     useEffect(() => {
         const getData = async () => {
@@ -24,6 +25,23 @@ const Home = () => {
             }
         };
         getData();
+    }, []);
+
+    useEffect(() => {
+        const getUnderPrice = async () => {
+            try {
+                axios.get('http://localhost:80/api/product/get-product-under')
+                    .then(res => {
+                        setUnderPrice(res['data']);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        getUnderPrice();
     }, []);
 
     console.log(data);

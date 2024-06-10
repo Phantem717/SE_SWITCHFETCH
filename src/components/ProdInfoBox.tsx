@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ProfIMG from '../assets/Elige Al Gaib.png'
-import star from '../assets/star.png'
 import QTYIncrement from './QTYIncrement'
 import axios from "axios";
 const ProdInfoBox = ({ id }) => {
     const [product, setData] = useState(null);
+    const [shop, setShop] = useState(null);
 
     useEffect(() => {
         const getData = async () => {
@@ -23,21 +21,34 @@ const ProdInfoBox = ({ id }) => {
         };
         getData();
     }, [id]);
-console.log(product);
+    useEffect(() => {
+        if (product) {
+            const getShopData = async () => {
+                try {
+                    const res = await axios.get(`http://localhost:80/api/shop/get-shop-info/${product.shop_id}`);
+                    setShop(res.data[0]);
+                } catch (err) {
+                    console.error(err);
+                }
+            };
+            getShopData();
+        }
+    }, [product]);
+
     return (
         <div>
-            {product && (
+            {product && shop && (
                 <div className='w-EditWidth h-EditHeight flex justify-center mt-12'>
                     <div className=''>
 
                         {/* Profile Pic */}
                         <div className='flex flex-row justify-start content-center items-center'>
                             <div>
-                                <img src={ProfIMG} alt="" className='rounded-CircleProfPic w-ProfWidth h-ProfHeight ' />
+                                <img src={shop.image} alt="" className='rounded-CircleProfPic w-ProfWidth h-ProfHeight ' />
                             </div>
 
                             <div className='font-bold text-2xl ml-5'>
-                                Prodoh
+                                {shop.shop_name}
                             </div>
                         </div>
 

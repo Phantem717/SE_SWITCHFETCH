@@ -13,7 +13,7 @@ const ProductDetails = () => {
     <div className=''>
       <Navbar />
         <div className='z-0 flex justify-center gap-28 '>
-        <ProductDetGall />
+        <ProductDetGall id={id} />
         <ProdInfoBox id={id} />
         </div>
             

@@ -8,7 +8,7 @@ const ProductContainer = ({item}) => {
 
                     {/* IMG */}
                     <div className='mb-1 bg-yellow-100 w-PCONTWidth h-PCONTHeight flex align-middle content-center items-center justify-center rounded-md'>
-                        <img src={item.ProdIMG} alt="" className='w-PCIMGWidth h-PCIMGHeight'/>
+                        <img src={item.image} alt="" className='w-PCIMGWidth h-PCIMGHeight'/>
                     </div>
 
                     {/* Details */}

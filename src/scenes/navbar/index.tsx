@@ -57,11 +57,6 @@ const Navbar = (props: Props) => {
               )}
             </div>
           </div>
-          <div className={`${flexBetween} ml-24`}>
-            {/* <p className={`mr-3`}>Balance:</p>
-            <p className={``}>50.000</p>
-            <p className={`ml-1`}>Coins</p> */}
-          </div>
           <div>
 
           </div>
@@ -70,7 +65,7 @@ const Navbar = (props: Props) => {
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
             <img
-              src={userData['photo']}
+              src={userData['image']}
               alt="Profile"
               className="rounded-CircleProfPic w-12 h-12 before:ml-4 cursor-pointer"
               onClick={toggleDropdown}
