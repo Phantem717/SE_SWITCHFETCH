@@ -68,7 +68,7 @@ const Navbar = (props: Props) => {
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
             <img
-              src={userData['image']}
+              src={userData['photo']}
               alt="Profile"
               className="rounded-CircleProfPic w-12 h-12 before:ml-4 cursor-pointer"
               onClick={toggleDropdown}
