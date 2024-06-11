@@ -30,11 +30,11 @@ const signUp = () => {
       });
       return;
     }
-
-
+    Swal.showLoading(); 
     axios.post('http://localhost:80/api/auth/login', {email, password})
         .then(res => {
           data = res['data'];
+         
           if (data['error'] == 1){
             Swal.fire({
               icon: "error",
@@ -42,6 +42,7 @@ const signUp = () => {
               text: data['message'],
             });
           } else if (data['error'] == 0) {
+            Swal.close();
             localStorage.setItem('account',JSON.stringify(data));
             navigate('/Home');
           }
