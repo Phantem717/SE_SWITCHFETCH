@@ -175,8 +175,9 @@ const EditProfile = () => {
                         >
                             Change Password
                         </button>
+                    </div>
                 </div>
-                </div>
+                <div>
                     <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
                         <button 
                             type='submit' 
@@ -186,6 +187,7 @@ const EditProfile = () => {
                             Save
                         </button>
                     </div>
+                </div>      
             </div>
             <Footer/>
         </div>
