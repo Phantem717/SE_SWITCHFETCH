@@ -88,7 +88,39 @@ const TransactionDetails = ({id}) => {
   const handleClick = (index: number) => {
     setSelectedIndex(index);
   };
-  return (
+
+  const pay = () => {
+      Swal.showLoading();
+      axios.post(`http://localhost:80/api/transaction/make-transaction`,
+          {
+              product_id:productId,
+              quantity:quantity,
+              user_id: userData['id'],
+              payment: bill['grand_total']
+          })
+          .then(res => {
+            if(res['data']['error'] == 1){
+                Swal.fire({
+                    icon: "error",
+                    title: "Something Went Wrong",
+                    text: res['data']['message'],
+                });
+                return;
+            } else {
+                Swal.fire({
+                    icon: "success",
+                    title: "Transaction is successfully made",
+                    text: res['data']['message'],
+                });
+                navigate(`/Home`);
+                return;
+            }
+          })
+          .catch(err => {
+              console.error(err);
+          });
+  }
+   return (
     <div className='min-h-screen'>
         <Navbar/>
 
@@ -232,6 +264,7 @@ border-gray-200 w-8/12 h-6/6 flex justify-center '>
   </div>
   <div className='flex justify-end pr-5 mb-6 mr-2 mt-6'>
 <button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot transition-all duration-300  hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white '
+onClick={pay}
 >
   Checkout
 </button>

@@ -29,7 +29,7 @@ const CartPage = () => {
         <div className="flex flex-col min-h-screen bg-gray-100">
             <Navbar />
             <main className="flex-grow flex flex-col justify-center items-center gap-y-7 mt-10">
-                {data ? (
+                {data && data.length > 0 ? (
                     data.map(item => (
                         <CartBox key={item.id} item={item} />
                     ))

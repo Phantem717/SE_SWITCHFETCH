@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import ProdImg from '../assets/Rectangle64.png'
-import ProfImg from '../assets/Elige Al Gaib.png'
 import axios from "axios";
+import Swal from "sweetalert2";
+import {useNavigate} from "react-router-dom";
 const CartBox = ({item}) => {
-    console.log(item);
     const [shop, setShop] = useState(null);
+    const navigate = useNavigate();
     useEffect(() => {
         if (item) {
             const getShopData = async () => {
@@ -18,7 +18,47 @@ const CartBox = ({item}) => {
             getShopData();
         }
     }, [item]);
+    const goToPayment = () => {
+        navigate(`/TransactionDetails?product_id=${item.product_id}&quantity=${item.quantity}`);
+    };
+    const removeCart = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you wish to remove this cart?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if(result.isConfirmed){
 
+                axios.post('http://localhost:80/api/cart/delete-cart',{
+                    cart_id: item.id,
+                    from: 'cart'
+                })
+                    .then(res => {
+                        if (res['data']['error'] == 1){
+                            Swal.fire({
+                                icon: "error",
+                                title: "Failed to Save",
+                                text: res['data']['message'],
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: res['data']['message'],
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+            }
+        });
+    };
     return (
         shop && (
     <div className=' flex  bg-white w-7/12 flex-col justify-between'>
@@ -56,11 +96,18 @@ const CartBox = ({item}) => {
 
             <div className=' flex flex-row justify-end'>
             <div className='flex pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:bg-red-600'>Remove</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:bg-red-600'
 
+onClick={removeCart}
+>Remove</button>
 </div>
 <div className='flex  pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot transition-all duration-300 hover:text-white'>Checkout</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b from-OrderBTNTop
+ to-OrderBTNBot transition-all duration-300 hover:text-white'
+
+onClick={goToPayment}>
+
+    Checkout</button>
 
 </div>
             </div>

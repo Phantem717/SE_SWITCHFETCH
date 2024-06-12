@@ -4,26 +4,31 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import {useNavigate} from "react-router-dom";
 const ProdInfoBox: React.FC = ({ id }) => {
+    const userData = JSON.parse(localStorage.getItem('account'));
     const [product, setData] = useState(null);
     const [shop, setShop] = useState(null);
+    const [apiCalled, setApiCalled] = useState(false);
     const navigate = useNavigate();
     useEffect(() => {
         Swal.showLoading();
-        const getData = async () => {
-            try {
-                axios.get(`http://localhost:80/api/product/${id}`)
-                    .then(res => {
-                        setData(res['data']);
-                    })
-                    .catch(err => {
-                        console.error(err);
-                    });
-            } catch (err) {
-                console.error(err);
-            }
-        };
-        getData();
-    }, [id]);
+        if (!apiCalled) {
+            const getData = async () => {
+                try {
+                    axios.get(`http://localhost:80/api/product/${id}`)
+                        .then(res => {
+                            setData(res['data']);
+                            setApiCalled(true)
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                } catch (err) {
+                    console.error(err);
+                }
+            };
+            getData();
+        }
+    }, [id, apiCalled]);
     useEffect(() => {
         if (product) {
             const getShopData = async () => {
@@ -58,6 +63,54 @@ const ProdInfoBox: React.FC = ({ id }) => {
 
         navigate(`/TransactionDetails?product_id=${product.id}&quantity=${count}`);
     };
+
+    const addToCart = () => {
+        try {
+            if(count === 0){
+                Swal.fire({
+                    icon: "error",
+                    title: "Something Went Wrong",
+                    text: "Please add quantity",
+                });
+                return;
+            }
+
+            axios.post(`http://localhost:80/api/cart/create-cart`,
+                {
+                    product_id:product.id,
+                    quantity:count,
+                    user_id: userData['id']
+                })
+                .then(res => {
+                    if(res['data']['error'] === 1){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Something Went Wrong",
+                            text: res['data']['message'],
+                        });
+                        return;
+                    } else {
+                        Swal.fire({
+                            title: 'Success',
+                            text: res['data']['message'],
+                            icon: 'success',
+                            confirmButtonText: 'Ok',
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                        }).then((result) => {
+                            if(result.isConfirmed) {
+                                navigate(`/Home`);
+                            }
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
 
 
@@ -123,9 +176,11 @@ const ProdInfoBox: React.FC = ({ id }) => {
                         </div>
 
                         {/* Button */}
-                        <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  ml-auto flex-column flex text-white rounded-md w-full h-16 items-center justify-center '>
-                            <button className='w-full h-full font-semibold text-2xl rounded-md bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot'
+                        <div className=' ml-auto flex-column flex text-white rounded-md w-full h-16 items-center justify-center '>
+                            <button className=' hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  mr-2 w-full h-full font-semibold text-2xl rounded-md bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot'
                             onClick={goToPayment}>Order</button>
+                            <button className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600  hover:text-white transition-all duration-300  w-full h-full font-semibold text-2xl rounded-md bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot'
+                            onClick={addToCart}>Add to cart</button>
                         </div>
                     </div>
                 </div>
