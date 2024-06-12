@@ -37,7 +37,7 @@ const HistoryPage = () => {
                     <CartBox key={item.id} item={item} />
                 ))
             ) : (
-                <div>No Cart available</div>
+                <div>No Transaction History available</div>
             )}
         </div>
         <Footer/>
