@@ -34,7 +34,7 @@ const CartPage = () => {
                         <CartBox key={item.id} item={item} />
                     ))
                 ) : (
-                    <div>No data available</div>
+                    <div>No Cart available</div>
                 )}
                 <div className="flex flex-row bg-white w-7/12 justify-center items-center mb-20"></div>
             </main>

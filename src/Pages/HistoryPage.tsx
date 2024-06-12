@@ -4,6 +4,7 @@ import HistoryBox from '../components/HistoryBox'
 import Footer from '@/components/Footer'
 import ProductContainer from "@/components/ProductContainer";
 import axios from "axios";
+import CartBox from "@/components/CartBox";
 const HistoryPage = () => {
     const userData = JSON.parse(localStorage.getItem('account'));
     const [data, setData] = useState(null);
@@ -26,17 +27,17 @@ const HistoryPage = () => {
 
 
     return (
-        data && (
-    <div className='bg-gray-100'>
+    data && (
+        <div className='bg-gray-100'>
         <Navbar />
 
-        <div className='flex justify-center align-middle flex-wrap gap-y-7 mt-10 min-h-screen'>
-            {data['error'] !== 1 ? (
+        <div className='flex justify-center align-middle content-center flex-wrap gap-y-7 mt-10 mb-24 min-h-screen'>
+            {data && data.length > 0 ? (
                 data.map(item => (
-                    <HistoryBox key={item.id} item={item} />
+                    <CartBox key={item.id} item={item} />
                 ))
             ) : (
-                <div>{data['message']}</div>
+                <div>No Cart available</div>
             )}
         </div>
         <Footer/>
