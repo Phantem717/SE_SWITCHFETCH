@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-const opt = ["None","orderAsc","orderDesc"]
+const opt = ["None","Lowest","Highest"]
 
 const DropDownPrice = ({onSelect}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,9 +25,15 @@ const DropDownPrice = ({onSelect}) => {
       setIsOpen((prev) => !prev);
     };
     const handleOptionClick = (order: React.SetStateAction<string>) => {
-      setSelectedOption(order);
+        setSelectedOption(order);
+        if(order === 'Lowest') {
+            order = 'orderAsc';
+        } else if (order === 'Highest') {
+            order = 'orderDesc';
+        }
+
       onSelect(order);
-      setIsOpen(false); 
+      setIsOpen(false);
     };
   return (
     <div ref={menuRef}>
