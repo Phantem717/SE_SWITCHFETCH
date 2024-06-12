@@ -34,7 +34,7 @@ const HistoryPage = () => {
         <div className='flex justify-center align-middle content-center flex-wrap gap-y-7 mt-10 mb-24 min-h-screen'>
             {data && data.length > 0 ? (
                 data.map(item => (
-                    <CartBox key={item.id} item={item} />
+                    <HistoryBox key={item.id} item={item} />
                 ))
             ) : (
                 <div>No Transaction History available</div>
