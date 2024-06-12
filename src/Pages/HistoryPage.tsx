@@ -30,7 +30,7 @@ const HistoryPage = () => {
     <div className='bg-gray-100'>
         <Navbar />
 
-        <div className='flex justify-center align-middle content-center flex-wrap gap-y-7 mt-10 mb-24 min-h-screen'>
+        <div className='flex justify-center align-middle flex-wrap gap-y-7 mt-10 min-h-screen'>
             {data['error'] !== 1 ? (
                 data.map(item => (
                     <HistoryBox key={item.id} item={item} />

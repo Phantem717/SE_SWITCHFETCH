@@ -3,7 +3,7 @@ const opt = ["None","orderAsc","orderDesc"]
 
 const DropDownPrice = ({onSelect}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState("");
+    const [selectedOption, setSelectedOption] = useState("None");
   
     const menuRef = useRef<HTMLDivElement>(null);
   
