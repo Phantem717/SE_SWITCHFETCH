@@ -20,12 +20,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         onSearch(text);
     };
 
-    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        event.preventDefault();
-        if (event.key === 'Enter') {
-            onSearch(text);
-        }
-    };
 
     return (
         <div className={`${flexBetween} flex items-center`}>

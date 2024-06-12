@@ -9,7 +9,6 @@ import axios from "axios";
 const Home = () => {
     const [data, setData] = useState(null);
     const [underPrice, setUnderPrice] = useState(null);
-    // const userData = JSON.parse(localStorage.getItem('account'));
     const userData = JSON.parse(localStorage.getItem('account'));
 
     useEffect(() => {
