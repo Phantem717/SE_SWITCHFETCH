@@ -10,8 +10,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     const inputText = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
-        setText(event.target.value);
-        onSearch(text);
+        const value = event.target.value;
+        setText(value);
+        onSearch(value);
     };
 
     const handleOnSearch = (event: React.FormEvent<HTMLButtonElement>) => {

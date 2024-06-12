@@ -14,6 +14,7 @@ const SearchPage: React.FC = () => {
   const [order, setOrder] = useState('');
 
   const handleSearchText = (text: string) => {
+    console.log(text);
     setSearchText(text);
   };
   const handleOrder = (text: string) => {
