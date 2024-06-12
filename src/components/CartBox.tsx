@@ -19,7 +19,7 @@ const CartBox = ({item}) => {
         }
     }, [item]);
     const goToPayment = () => {
-        navigate(`/TransactionDetails?product_id=${item.product_id}&quantity=${item.quantity}`);
+        navigate(`/TransactionDetails?product_id=${item.product_id}&quantity=${item.quantity}&mode=cart&cart_id=${item.id}`);
     };
     const removeCart = () => {
         Swal.fire({

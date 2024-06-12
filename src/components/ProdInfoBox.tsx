@@ -61,7 +61,7 @@ const ProdInfoBox: React.FC = ({ id }) => {
         }
 
 
-        navigate(`/TransactionDetails?product_id=${product.id}&quantity=${count}`);
+        navigate(`/TransactionDetails?product_id=${product.id}&quantity=${count}&mode=product`);
     };
 
     const addToCart = () => {

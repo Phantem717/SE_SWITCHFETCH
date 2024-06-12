@@ -17,7 +17,9 @@ const TransactionDetails = ({id}) => {
     const queryParams = new URLSearchParams(search);
     const productId = queryParams.get('product_id');
     const quantity = queryParams.get('quantity');
-
+    const mode = queryParams.get('mode');
+    const cart = queryParams.get('cart_id') ? queryParams.get('cart_id') : null;
+    console.log(mode);
   const options = ["My Wallet", "OVO", "Dana", "QRIS"];
   const widths = ["w-32", "w-20", "w-24", "w-20"];
 
@@ -36,7 +38,6 @@ const TransactionDetails = ({id}) => {
                 axios.get(`http://localhost:80/api/product/${productId}`)
                     .then(res => {
                         setData(res['data']);
-                        console.log(data);
                     })
                     .catch(err => {
                         console.error(err);
@@ -52,7 +53,6 @@ const TransactionDetails = ({id}) => {
                 try {
                     const res = await axios.get(`http://localhost:80/api/shop/get-shop-by-product/${productId}`);
                     setShop(res.data[0]);
-                    console.log(shop);
                     Swal.close();
                 } catch (err) {
                     console.error(err);
@@ -90,35 +90,68 @@ const TransactionDetails = ({id}) => {
   };
 
   const pay = () => {
-      Swal.showLoading();
-      axios.post(`http://localhost:80/api/transaction/make-transaction`,
-          {
-              product_id:productId,
-              quantity:quantity,
-              user_id: userData['id'],
-              payment: bill['grand_total']
-          })
-          .then(res => {
-            if(res['data']['error'] == 1){
-                Swal.fire({
-                    icon: "error",
-                    title: "Something Went Wrong",
-                    text: res['data']['message'],
-                });
-                return;
-            } else {
-                Swal.fire({
-                    icon: "success",
-                    title: "Transaction is successfully made",
-                    text: res['data']['message'],
-                });
-                navigate(`/Home`);
-                return;
-            }
-          })
-          .catch(err => {
-              console.error(err);
-          });
+      Swal.fire({
+          title: 'Are you sure?',
+          text: "Do you want to proceed this purchase?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No',
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+      }).then((result) => {
+          if(result.isConfirmed){
+              axios.post(`http://localhost:80/api/transaction/make-transaction`,
+                  {
+                      product_id:productId,
+                      quantity:quantity,
+                      user_id: userData['id'],
+                      payment: bill['grand_total']
+                  })
+                  .then(res => {
+                      if(res['data']['error'] == 1){
+                          Swal.fire({
+                              icon: "error",
+                              title: "Something Went Wrong",
+                              text: res['data']['message'],
+                          });
+                          return;
+                      } else {
+                          if (mode === 'cart') {
+                              axios.post(`http://localhost:80/api/cart/delete-cart`,
+                                  {
+                                      cart_id: cart,
+                                      from: mode
+                                  })
+                                  .then(res => {
+
+                                  })
+                                  .catch(err => {
+                                      console.error(err);
+                                  });
+                          }
+
+                          Swal.fire({
+                              title: 'Success',
+                              text: "Transaction is successfully made",
+                              icon: 'success',
+                              confirmButtonText: 'Ok',
+                              confirmButtonColor: '#3085d6',
+                              cancelButtonColor: '#d33',
+                          }).then((result) => {
+                              if(result.isConfirmed) {
+                                  navigate(`/Home`);
+                              }
+                          });
+
+                          return;
+                      }
+                  })
+                  .catch(err => {
+                      console.error(err);
+                  });
+          }
+      });
   }
    return (
     <div className='min-h-screen'>
