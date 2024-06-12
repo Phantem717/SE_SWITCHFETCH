@@ -30,7 +30,8 @@ export default {
         "OrderBTNBot": " #91DBF3",
         "Footer1": "#0F137E",
         "Footer2": "#272844",
-        "cancelBtn": "#cf142b"
+        "cancelBtn": "#cf142b",
+        'dark-blue': '#00008B'
       },
       fontFamily: {
         fontName: [""]

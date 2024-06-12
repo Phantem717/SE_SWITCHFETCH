@@ -51,6 +51,7 @@ const CartBox = ({item}) => {
                                 title: "Success",
                                 text: res['data']['message'],
                             });
+                            window.location.reload();
                         }
                     })
                     .catch(err => {
