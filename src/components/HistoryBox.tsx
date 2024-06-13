@@ -1,9 +1,54 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useNavigate} from "react-router-dom";
+import Swal from "sweetalert2";
+import axios from "axios";
 const HistoryBox = ({item}) => {
     const navigate = useNavigate();
     const toProduct =  () => {
         navigate(`/ProdDet?id=${item.product_id}`);
+    }
+    const submitOrder = () => {
+        try {
+           if (item.status === "On Delivery" && item.seller_done === 1) {
+               Swal.fire({
+                   title: 'Are you sure?',
+                   text: `Are you sure to done this transaction?`,
+                   icon: 'warning',
+                   showCancelButton: true,
+                   confirmButtonText: 'Save',
+                   confirmButtonColor: '#3085d6',
+                   cancelButtonColor: '#d33',
+               }).then((result) => {
+                   if (result.isConfirmed) {
+                       axios.post(`http://localhost:80/api/transaction/change-status`, {
+                           transaction_id: item.id,
+                           status: "Done",
+                           seller_done: 0
+                       })
+                           .then(res => {
+                               Swal.fire({
+                                   title: 'Success',
+                                   text: `${res['data']['message']}`,
+                                   icon: 'success',
+                                   confirmButtonText: 'Ok',
+                                   confirmButtonColor: '#3085d6',
+                               }).then((result) => {
+                                   if (result.isConfirmed) {
+                                       window.location.reload();
+                                   }
+                               })
+
+
+                           })
+                           .catch(err => {
+                               console.error(err);
+                           });
+                   }
+               });
+           }
+        } catch (err) {
+            console.error(err);
+        }
     }
     return (
     <div className=' flex  bg-white w-8/12 flex-col  mb-8'>
@@ -33,20 +78,20 @@ const HistoryBox = ({item}) => {
 
 </div>
 
-<div className='font-semibold flex flex-col items-end mr-5 text-lg'><div
-    className={`font-medium text-xl mb-2 ${
+<div className='font-semibold flex flex-col items-end mr-5 text-lg ' onClick={submitOrder}><div
+    className={`font-medium text-xl mb-2 hover:underline ${
         item.status === 'Pending'
             ? 'text-red-500'
             : item.status === 'Processing'
                 ? 'text-orange-500'
-                : item.status === 'On Delivery'
+                : item.status === 'On Delivery' && item.seller_done === 0
                     ? 'text-yellow-500'
                     : item.status === 'Done'
                         ? 'text-green-500'
-                        : ''
+                        : item.seller_done === 1 ? 'text-green-500' : ''
     }`}
 >
-    {item.status}
+    {item.seller_done === 0 ? item.status : 'Done'}
 </div>
     <div className="mb-0.5">
         Rp. {item.payment}
