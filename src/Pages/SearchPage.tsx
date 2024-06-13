@@ -47,14 +47,17 @@ const SearchPage: React.FC = () => {
         <Navbar />
         <div className="flex flex-col items-center mt-8  min-h-screen">
           <div className="w-AdWidth">
-            <SearchBar onSearch={handleSearchText} />
-            <div className="flex justify-start font-semibold text-4xl mb-8">Search Page</div>
+            <div className='flex items-center justify-center'>
+                <SearchBar onSearch={handleSearchText} />
+            </div>
+
+            <div className="flex justify-start font-semibold text-4xl mt-4 mb-8">Search Page</div>
 
             <div className="flex justify-end">
               <DropDownPrice onSelect={handleOrder}/>
             </div>
 
-            <div className="flex flex-wrap gap-x-6">
+            <div className="flex flex-wrap gap-x-6 mt-6">
               {data !== null ? (
                   data.map((item) => <ProductContainer key={item.id} item={item} />)
               ) : (
