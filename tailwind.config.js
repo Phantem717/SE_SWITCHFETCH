@@ -46,7 +46,7 @@ export default {
         "ScreenWidth": "1920px",
         "AdWidth": "1000px",
         "SearchWidth": "600px",
-        "PCIMGWidth": "130px",
+        "PCIMGWidth": "150px",
         "PCONTWidth": "180px",
         "PCONTWidth2": "230pxpx",
         "TXTWIDTH": "350px",
@@ -63,7 +63,7 @@ export default {
         "DetHeight": "836px",
         "ScreenHeight": "1080px",
         "AdHeight": "370px",
-        "PCIMGHeight": "130px",
+        "PCIMGHeight": "150px",
         "PCONTHeight": "180px",
         "PCONTHeight2": "320px",
         "PAYHEIGHT" : "450px"
