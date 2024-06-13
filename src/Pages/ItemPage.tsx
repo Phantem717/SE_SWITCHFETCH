@@ -1,14 +1,31 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '@/scenes/navbar'
 import Footer from '@/components/Footer'
 import SearchBar from '../components/searchBar.tsx'
 import ProdImg from '../assets/Rectangle64.png'
 import ProfImg from '../assets/Elige Al Gaib.png'
 import {useLocation} from "react-router-dom";
+import axios from "axios";
 const ItemPage = () => {
+    const [shop, setShop] = useState(null);
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get('id');
+
+    useEffect(() => {
+
+        const getShopData = async () => {
+            try {
+                const res = await axios.get(`http://localhost:80/api/shop/${id}`);
+                setShop(res.data);
+                console.log(shop);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        getShopData();
+
+    }, []);
 
   return (
     <div className='min-h-screen'>
@@ -25,6 +42,7 @@ const ItemPage = () => {
 </button>
 
 </div>
+
 <div className=' flex  bg-white w-8/12 flex-col mt-6 mb-12'>
 
     <div className='flex flex-col ml-5 mt-6'>
@@ -50,10 +68,6 @@ const ItemPage = () => {
           Rp. 49.230
         </div>
     </div>
-
-
-
-
 
     </div>
 
