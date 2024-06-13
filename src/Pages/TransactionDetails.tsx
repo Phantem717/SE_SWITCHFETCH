@@ -106,7 +106,8 @@ const TransactionDetails = ({id}) => {
                       product_id:productId,
                       quantity:quantity,
                       user_id: userData['id'],
-                      payment: bill['grand_total']
+                      payment: bill['grand_total'],
+                      real_price: bill['price']
                   })
                   .then(res => {
                       if(res['data']['error'] == 1){
@@ -140,7 +141,7 @@ const TransactionDetails = ({id}) => {
                               cancelButtonColor: '#d33',
                           }).then((result) => {
                               if(result.isConfirmed) {
-                                  navigate(`/Home`);
+                                  navigate(`/history`);
                               }
                           });
 

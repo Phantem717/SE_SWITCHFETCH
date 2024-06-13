@@ -1,7 +1,5 @@
 import React from 'react'
-import ProdImg from '../assets/Rectangle64.png'
-import ProfImg from '../assets/Elige Al Gaib.png'
-import star from '../assets/star.png'
+
 const SellerBox = ({item}) => {
   return (
     <div className=' flex  bg-white w-full flex-col mb-4'>
