@@ -11,7 +11,7 @@ const HistoryBox = ({item}) => {
 
     
 <div className='flex flex-col ml-5 mt-3'>
-<div className='flex flex-row items-center content-center gap-x-2 mb-2' >
+<div className='flex flex-row items-center content-center gap-x-2 mb-2 ' >
     <img src={item.shop_image}  alt="" className='rounded-CircleProfPic w-8 h-8 ' />
     <div className='font-semibold text-xs'>{item.shop_name}</div>
     <button className='w-12 h-5 font-semibold text-xs rounded-full bg-gradient-to-t from-OrderBTNTop to-OrderBTNBot hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300'>Chat</button>

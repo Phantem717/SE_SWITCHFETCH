@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Navbar from '@/scenes/navbar'
 import Footer from '@/components/Footer'
 import SearchBar from '../components/searchBar.tsx'
-
+import ItemBox from '@/components/ItemBox.tsx'
 import ProdImg from '../assets/Rectangle64.png'
 import ProfImg from '../assets/Elige Al Gaib.png'
 import {useLocation} from "react-router-dom";
@@ -44,6 +44,8 @@ const ItemPage = () => {
 </button>
 
 </div>
+
+{/* <ItemBox/> */}
 
 
 
