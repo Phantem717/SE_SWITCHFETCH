@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 const opt = ["None","Lowest","Highest"]
 
-const DropDownPrice = () => {
+const DropDownPrice = ({onSelect}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState("");
+    const [selectedOption, setSelectedOption] = useState("None");
   
     const menuRef = useRef<HTMLDivElement>(null);
   
@@ -24,9 +24,16 @@ const DropDownPrice = () => {
     const toggleDropdown = () => {
       setIsOpen((prev) => !prev);
     };
-    const handleOptionClick = (gender: React.SetStateAction<string>) => {
-      setSelectedOption(gender); 
-      setIsOpen(false); 
+    const handleOptionClick = (order: React.SetStateAction<string>) => {
+        setSelectedOption(order);
+        if(order === 'Lowest') {
+            order = 'orderAsc';
+        } else if (order === 'Highest') {
+            order = 'orderDesc';
+        }
+
+      onSelect(order);
+      setIsOpen(false);
     };
   return (
     <div ref={menuRef}>

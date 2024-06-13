@@ -64,15 +64,16 @@ const Navbar = (props: Props) => {
           <div className="flex justify-end ml-0 items-center">
           <div className="mr-4 text-lg">
          
-             <p>{userData['name']}</p>
+              <p>{userData['name']}</p>
           </div>
           <div className="flex justify-end mr-4 transition-all duration-300" ref={menuRef}>
             <img
-              src={userData['image']}
+              src={userData['photo']}
               alt="Profile"
               className="rounded-CircleProfPic w-12 h-12 before:ml-4 cursor-pointer"
               onClick={toggleDropdown}
             />
+            {DDProf && <DropDownProf/>}
           
           </div>
           </div>

@@ -28,7 +28,31 @@ import SearchBar from "./components/searchBar.tsx";
 import ChangePass from "./Pages/ChangePassword.tsx";
 import DropDownPrice from "./components/DropDownPrice.tsx";
 import DropDownSeller from "./components/DropDownSeller.tsx";
+import RegisterSeller from "./Pages/RegisterSeller.tsx";
+import EditShopDet from "./Pages/EditShopDet.tsx";
+import axios from "axios";
+import {useEffect} from "react";
+import Swal from "sweetalert2";
 function App() {
+  const userData = JSON.parse(localStorage.getItem('account'));
+  useEffect(() => {
+    if (userData) {
+      const getShopData = async () => {
+        try {
+          axios.get(`http://localhost:80/api/profile/${userData['id']}`)
+              .then(res =>{
+                if (res['data']['error'] !== 1){
+                  localStorage.setItem('account',JSON.stringify(res['data']));
+                }
+              })
+        } catch (err) {
+          console.error(err);
+        }
+      };
+      getShopData();
+    }
+  }, [userData]);
+
 
   return (
     <Router>
@@ -68,6 +92,8 @@ function App() {
       <Route path="/changePassword" element={<ChangePass/>}> </Route>
       <Route path="/DDPrice" element={<DropDownPrice/>}> </Route>
       <Route path="/DDSell" element={<DropDownSeller/>}> </Route>
+      <Route path="/registerSeller" element={<RegisterSeller/>}> </Route>
+      <Route path="/editShopDet" element={<EditShopDet/>}> </Route>
 
       </Routes>
 
