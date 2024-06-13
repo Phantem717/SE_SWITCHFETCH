@@ -45,6 +45,7 @@ export default {
         "DetWidth": "1421px",
         "ScreenWidth": "1920px",
         "AdWidth": "1000px",
+        "SearchWidth": "600px",
         "PCIMGWidth": "130px",
         "PCONTWidth": "180px",
         "PCONTWidth2": "230pxpx",
