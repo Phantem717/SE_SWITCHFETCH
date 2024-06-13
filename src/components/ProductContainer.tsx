@@ -1,4 +1,5 @@
 import React from 'react'
+import image from '../assets/Elige Al Gaib.png'
 import { Link } from 'react-router-dom';
 const ProductContainer = ({item}) => {
     return (
