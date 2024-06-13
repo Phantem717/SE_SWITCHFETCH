@@ -4,7 +4,7 @@ import ProfImg from '../assets/Elige Al Gaib.png'
 import star from '../assets/star.png'
 const SellerBox = () => {
   return (
-    <div className=' flex  bg-white w-full flex-col'>
+    <div className=' flex  bg-white w-full flex-col mb-8'>
     <div className='flex flex-col ml-5 mt-3'>
     <div className='flex flex-row items-center content-center gap-x-2 mb-2' >
         <img src={ProfImg}  alt="" className='rounded-CircleProfPic w-8 h-8 ' />

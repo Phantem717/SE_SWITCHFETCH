@@ -80,6 +80,10 @@ const SellerPage = () => {
 
 <div className='w-SellerBox mb-16'>
 <SellerBox/>
+<SellerBox/>
+<SellerBox/>
+<SellerBox/>
+
 </div>
         
 
