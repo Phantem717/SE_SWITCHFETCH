@@ -30,6 +30,7 @@ import DropDownPrice from "./components/DropDownPrice.tsx";
 import DropDownSeller from "./components/DropDownSeller.tsx";
 import RegisterSeller from "./Pages/RegisterSeller.tsx";
 import EditShopDet from "./Pages/EditShopDet.tsx";
+import UpdateProduct from "./Pages/UpdateProduct.tsx";
 import axios from "axios";
 import {useEffect} from "react";
 import Swal from "sweetalert2";
@@ -94,6 +95,7 @@ function App() {
       <Route path="/DDSell" element={<DropDownSeller/>}> </Route>
       <Route path="/registerSeller" element={<RegisterSeller/>}> </Route>
       <Route path="/editShopDet" element={<EditShopDet/>}> </Route>
+      <Route path="/updateProduct" element={<UpdateProduct/>}> </Route>
 
       </Routes>
 

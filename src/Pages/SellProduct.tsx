@@ -11,7 +11,7 @@ const SellProduct = () => {
     const [textDesc, setTextDesc] = useState('');
     const [textLoc, setLoc] = useState('');
     const [textPrice, setTextPrice] = useState('');
-    const [avatarURL, setAvatarURL] = useState('');
+    const [imgURL, setImgURL] = useState('');
     let data : any;
     const inputTextProd = (event: any) => {
         setTextProd(event.target.value);
@@ -22,8 +22,8 @@ const SellProduct = () => {
     const inputTextDesc = (event: any) => {
         setTextDesc(event.target.value);
     };
-    const inputAvatarURL = (event: any) => {
-        setAvatarURL(event.target.value);
+    const inputImgURL = (event: any) => {
+        setImgURL(event.target.value);
     };
 
     const handleOnSubmit = (event: { preventDefault: () => void; }) => {
@@ -43,7 +43,7 @@ const SellProduct = () => {
                 console.log('Price', textPrice);
                 console.log('Location', textLoc);
                 console.log('Description', textDesc);
-                console.log('Image', avatarURL);
+                console.log('Image', imgURL);
             }
         });
     }
@@ -113,14 +113,14 @@ const SellProduct = () => {
                     type='text' 
                     className='hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8' 
                     placeholder='Enter Image Link'
-                    value={avatarURL}
-                    onChange={inputAvatarURL}
+                    value={imgURL}
+                    onChange={inputImgURL}
                     style={{ fontSize : '1 rem'} }
                 /> 
             </div>
 
             <div className='mt-4 flex justify-center'>
-                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
+                <img src={imgURL} className={`flex items-center justify-center h-48`} alt="" />
             </div>
 
         <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
