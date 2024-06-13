@@ -119,6 +119,7 @@ const SellerPage = () => {
         </div>
 
 <div className='w-SellerBox mb-16'>
+
     {shop && order && order['error'] !== 1? (
         order.map(item => (
             <SellerBox key={item.id} item={item} />

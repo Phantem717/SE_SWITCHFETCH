@@ -6,6 +6,7 @@ import ProductContainer from "@/components/ProductContainer";
 import axios from "axios";
 import CartBox from "@/components/CartBox";
 const HistoryPage = () => {
+
     const userData = JSON.parse(localStorage.getItem('account'));
     const [data, setData] = useState(null);
     useEffect(() => {
@@ -31,7 +32,7 @@ const HistoryPage = () => {
         <div className='bg-gray-100'>
         <Navbar />
 
-        <div className='flex justify-center align-middle content-center flex-wrap gap-y-7 mt-10 mb-24 min-h-screen'>
+        <div className='flex justify-center flex-wrap gap-y-7 mt-10 mb-24 min-h-screen'>
             {data && data.length > 0 ? (
                 data.map(item => (
                     <HistoryBox key={item.id} item={item} />

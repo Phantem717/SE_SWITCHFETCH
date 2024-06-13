@@ -100,6 +100,7 @@ const SellerBox = ({item}) => {
 
 
   return (
+
     <div className=' flex  bg-white w-full flex-col mb-4'>
     <div className='flex flex-col ml-5 mt-3'>
     <div className='flex flex-row items-center content-center gap-x-2 mb-2' >

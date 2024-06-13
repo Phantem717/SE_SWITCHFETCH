@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {useNavigate} from "react-router-dom";
 const HistoryBox = ({item}) => {
     const navigate = useNavigate();
@@ -7,6 +8,7 @@ const HistoryBox = ({item}) => {
     }
     return (
     <div className=' flex  bg-white w-8/12 flex-col  mb-8'>
+
     
 <div className='flex flex-col ml-5 mt-3'>
 <div className='flex flex-row items-center content-center gap-x-2 mb-2' >
