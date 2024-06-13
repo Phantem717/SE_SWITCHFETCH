@@ -20,13 +20,14 @@ const SearchPage: React.FC = () => {
   const handleOrder = (text: string) => {
     setOrder(text);
   };
-
+  const userData = JSON.parse(localStorage.getItem('account'));
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.post('http://localhost:80/api/product/get-random-product', {
           search: searchText,
-          sortBy: order
+          sortBy: order,
+          user_id: userData['id']
         });
        if(response.data['error'] == 1) {
          setData(null);

@@ -69,14 +69,20 @@ const HistoryBox = ({item}) => {
     
   <div className=' flex flex-row justify-end'>
   <div className='flex  pr-5 mb-4'>
-      <button
-          className={`w-36 h-10 font-normal text-sm transition-all duration-300 
+      {item && item.status === "Done" ? (
+
+
+          <button
+              className={`w-36 h-10 font-normal text-sm transition-all duration-300 
     ${item.remaining === 0 ? 'bg-dark-blue text-white cursor-not-allowed' : 'bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white'}`}
-          onClick={item.remaining === 0 ? null : toProduct}
-          disabled={item.remaining === 0}
-      >
-          Buy Again
-      </button>
+              onClick={item.remaining === 0 ? null : toProduct}
+              disabled={item.remaining === 0}
+          >
+              Buy Again
+          </button>
+      ) : (<div></div>)
+      }
+
 
 </div>
 

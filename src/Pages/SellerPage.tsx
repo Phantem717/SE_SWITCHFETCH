@@ -46,6 +46,10 @@ const SellerPage = () => {
             getShopOrder();
         }
     }, [shop]);
+
+    const goToMyItem = () => {
+        navigate(`/itempage?id=${shop.id}`);
+    }
   return (
     shop && (
     <div className='min-h-screen'>
@@ -63,7 +67,9 @@ const SellerPage = () => {
         </div>
         <div className='flex flex-row justify-center'>
             <div className='flex flex-col justify-center align-middle items-center mr-16 '>
-            <button className='bg-blue-400 rounded-md w-12 h-12 justify-center items-center flex hover:bg-blue-300 transition-all duration-300 hover:shadow-md hover:shadow-blue-400 hover:p-1'>
+            <button
+                onClick={goToMyItem}
+                className='bg-blue-400 rounded-md w-12 h-12 justify-center items-center flex hover:bg-blue-300 transition-all duration-300 hover:shadow-md hover:shadow-blue-400 hover:p-1'>
             <img src={item} alt="" className='w-9 h-9' />
 
             </button>            <div className='text-white text-sm'>My Item </div>
@@ -113,7 +119,7 @@ const SellerPage = () => {
         </div>
 
 <div className='w-SellerBox mb-16'>
-    {shop && order ? (
+    {shop && order && order['error'] !== 1? (
         order.map(item => (
             <SellerBox key={item.id} item={item} />
         ))

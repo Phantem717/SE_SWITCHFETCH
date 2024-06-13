@@ -14,7 +14,8 @@ const Home = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                axios.get('http://localhost:80/api/product/get-recommended-product')
+                axios.post('http://localhost:80/api/product/get-recommended-product',
+                    {user_id: userData['id']})
                     .then(res => {
                         setData(res['data']);
                     })
@@ -32,7 +33,8 @@ const Home = () => {
         const getUnderPrice = async () => {
             try {
                 axios.post('http://localhost:80/api/product/get-price-under',{
-                    price: '100000'
+                    price: '100000',
+                    user_id: userData['id']
                 })
                     .then(res => {
                         setUnderPrice(res['data']);
@@ -81,9 +83,10 @@ const Home = () => {
 
         <div className="flex flex-col items-center">
           <div className="w-AdWidth">
-            <div className="flex justify-start font-semibold text-4xl mb-8">
+              {underPrice && underPrice === [] ? ( <div className="flex justify-start font-semibold text-4xl mb-8">
              Under 100K
             </div>
+              ) : (<div></div>)}
 
             <div className="flex flex-wrap gap-x-6">
                 {underPrice ? (
@@ -91,7 +94,7 @@ const Home = () => {
                         <ProductContainer key={item.id} item={item} />
                     ))
                 ) : (
-                    <div>No data available</div>
+                    <div></div>
                 )}
 
             </div>
