@@ -2,11 +2,10 @@ import React, {useEffect, useState} from 'react'
 import Navbar from '@/scenes/navbar'
 import Footer from '@/components/Footer'
 import SearchBar from '../components/searchBar.tsx'
-
-import ProdImg from '../assets/Rectangle64.png'
-import ProfImg from '../assets/Elige Al Gaib.png'
 import {useLocation} from "react-router-dom";
 import axios from "axios";
+import ItemBox from "@/components/ItemBox";
+import CartBox from "@/components/CartBox";
 
 const ItemPage = () => {
     const [shop, setShop] = useState(null);
@@ -45,6 +44,13 @@ const ItemPage = () => {
 
 </div>
 
+       {shop && shop.length > 0 ? (
+           shop.map(item => (
+               <ItemBox key={item.id} item={item} />
+           ))
+       ) : (
+           <div>No Cart available</div>
+       )}
 
 
 

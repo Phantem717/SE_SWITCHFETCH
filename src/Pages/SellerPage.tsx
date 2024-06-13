@@ -11,7 +11,6 @@ import customer from '../assets/customer.png'
 import item from '../assets/product.png'
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import CartBox from "@/components/CartBox";
 
 const SellerPage = () => {
     const [shop, setShop] = useState(null);
@@ -19,7 +18,6 @@ const SellerPage = () => {
     const navigate = useNavigate();
     const userData = JSON.parse(localStorage.getItem('account'));
     useEffect(() => {
-
             const getShopData = async () => {
                 try {
                     const res = await axios.post(`http://localhost:80/api/shop/find-shop-by-id`,{

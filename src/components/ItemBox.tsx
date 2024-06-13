@@ -1,23 +1,71 @@
 import React from 'react'
-import ProdImg from '../assets/Rectangle64.png'
-import ProfImg from '../assets/Elige Al Gaib.png'
-const ItemBox = () => {
+import axios from "axios";
+import Swal from "sweetalert2";
+const ItemBox = ({item}) => {
+
+    const deleteProduct = () => {
+        try {
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you wish to delete this product?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post(`http://localhost:80/api/product/delete-product`,
+                        {product_id: item.id})
+                        .then(res => {
+                            if (res['data']['error'] == 1) {
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Failed to Delete",
+                                    text: res['data']['message'],
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: 'Success',
+                                    text: `${res['data']['message']}`,
+                                    icon: 'success',
+                                    confirmButtonText: 'Ok',
+                                    confirmButtonColor: '#3085d6',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.reload();
+                                    }
+                                })
+                            }
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                }
+            });
+                } catch (err) {
+            console.error(err);
+        }
+    }
+
   return (
-    <div className=' flex  bg-white w-8/12 flex-col mt-6 mb-12'>
+    <div className=' flex  bg-white w-8/12 flex-col mt-6 mb-2'>
     
     <div className='flex flex-col ml-5 mt-6'>
    
     <div className=' ml-0 flex justify-between mb-4'>
     <div className='flex flex-row content-center'>
     <div className='bg-yellow-100 flex justify-center items-center align-middle p-4 w-32 h-32 rounded-lg  bg-opacity-50'>
-        <img src={ProdImg} alt="" className='w-28 h-24' />
+        <img src={item.image} alt="" className='w-28 h-24' />
     </div>
     <div className='flex flex-col ml-2'>
         <div className='font-medium text-xl mb-0.5'>
-          Nama Barang
+            {item.product_name}
         </div>
         <div className='font-medium text-sm mb-0.5'>
-          Quantity : 2
+          Quantity : {item.remaining_stock}
         </div>
        
         
@@ -25,7 +73,7 @@ const ItemBox = () => {
     
     </div>
     <div className='font-semibold flex justify-end mr-5 text-lg items-center'>
-          Rp. 49.230
+          Rp. {item.price}
         </div>
     </div>
    
@@ -36,14 +84,15 @@ const ItemBox = () => {
     </div>
     
         <div>
-
         </div>
 
       <div className='flex justify-end'>
         
       <div className=' flex flex-row justify-end'>
         <div className='flex pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white  hover:text-black transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-red-400 hover:p-1 hover:bg-red-600  '>Remove</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white  hover:text-black transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-red-400 hover:p-1 hover:bg-red-600  '
+onClick={deleteProduct}
+>Remove</button>
 
 </div>
 <div className='flex  pr-5 mb-4'>
