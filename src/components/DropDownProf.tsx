@@ -29,7 +29,7 @@ const DropDownProf = () => {
                     localStorage.clear();
                     navigate('/');
                     Swal.close();
-                }, 2000);
+                }, 1500);
             }
         });
 

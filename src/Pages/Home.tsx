@@ -83,7 +83,7 @@ const Home = () => {
 
         <div className="flex flex-col items-center">
           <div className="w-AdWidth">
-              {underPrice && underPrice === [] ? ( <div className="flex justify-start font-semibold text-4xl mb-8">
+              {underPrice && underPrice.length > 0 ? ( <div className="flex justify-start font-semibold text-4xl mb-8">
              Under 100K
             </div>
               ) : (<div></div>)}
