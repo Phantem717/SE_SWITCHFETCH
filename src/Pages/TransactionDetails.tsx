@@ -163,6 +163,10 @@ const TransactionDetails = ({id}) => {
           }
       });
   }
+    const cancelPurchase = () => {
+        navigate('/Home');
+        window.location.reload();
+    }
    return (
     <div className='min-h-screen'>
         <Navbar/>
@@ -197,7 +201,7 @@ const TransactionDetails = ({id}) => {
     
     </div>
     <div className='font-semibold flex justify-end mr-5 text-lg items-center'>
-        {bill.price}
+        Rp. {bill.price}
         </div>
     </div>
    
@@ -212,7 +216,7 @@ const TransactionDetails = ({id}) => {
         
       <div className=' flex flex-row justify-end'>
         <div className='flex pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-red-400 hover:p-1 hover:bg-red-600  '>Cancel</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-red-400 hover:p-1 hover:bg-red-600  ' onClick={cancelPurchase}>Cancel</button>
 
 </div>
 
