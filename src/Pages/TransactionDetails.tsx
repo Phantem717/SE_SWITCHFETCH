@@ -255,10 +255,7 @@ border-gray-200 w-8/12 h-6/6 flex justify-center '>
 
 
 
-          <div className='flex justify-end pr-5 mb-5  mr-5'>
-<button className='w-36 h-10 font-normal text-sm border-2 box-border border-blue-500 transition-all duration-300 hover:bg-blue-400 hover:text-white hovver:font-bold'>Change Address</button>
 
-</div>
 </div>
 
 </div>
