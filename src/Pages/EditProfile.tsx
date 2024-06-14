@@ -13,18 +13,34 @@ const EditProfile = () => {
     const [textName, setTextName] = useState('');
     const [textDesc, setTextDesc] = useState('');
     const [textGend, setGend] = useState('');
+
     // const [textLoc, setLoc] = useState('');
     const [textAddr, setTextAddr] = useState('');
     // const [textEmail, setTextEmail] = useState('');
     const [avatarURL, setAvatarURL] = useState('');
     let data : any;
-
+    const userData = JSON.parse(localStorage.getItem('account'));
+    const [user, setUser] = useState('');
+    useEffect(() => {
+        if (userData) {
+            const getUser = async () => {
+                try {
+                    axios.get(`http://localhost:80/api/profile/${userData['id']}`)
+                        .then(res =>{
+                            if (res['data']['error'] !== 1) {
+                                setUser(res['data']);
+                            }
+                        })
+                } catch (err) {
+                    console.error(err);
+                }
+            };
+            getUser();
+        }
+    }, []);
     const inputTextName = (event: any) => {
         setTextName(event.target.value);
     };
-    // const inputTextEmail = (event: any) => {
-    //     setTextEmail(event.target.value);
-    // };
     const inputTextAddr = (event: any) => {
         setTextAddr(event.target.value);
     };
@@ -39,10 +55,16 @@ const EditProfile = () => {
         event.preventDefault();
         navigate('/changePassword');
     }
-
+    useEffect(() => {
+        if (user) {
+            setTextName(user.name || '');
+            setTextDesc(user.description || '');
+            setTextAddr( user.address || '');
+            setAvatarURL(user.photo || '');
+        }
+    }, [user]);
     const handleOnSave = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
-        const userData = JSON.parse(localStorage.getItem('account'));
         Swal.fire({
             title: 'Are you sure?',
             text: "Do you want to save changes?",
@@ -71,19 +93,24 @@ const EditProfile = () => {
                             text: res['data']['message'],
                         });
                     } else {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Success",
-                            text: res['data']['message'],
-                        });
-
                         axios.get(`http://localhost:80/api/profile/${userData['id']}`)
                             .then(res =>{
                                 if (res['data']['error'] !== 1){
                                     localStorage.setItem('account',JSON.stringify(res['data']));
-                                    navigate('/Home');
                                 }
                             })
+                        Swal.fire({
+                            title: 'Success',
+                            text: `${res['data']['message']}`,
+                            icon: 'success',
+                            confirmButtonText: 'Ok',
+                            confirmButtonColor: '#3085d6',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                navigate(`/Home`)
+                            }
+                        })
+
                     }
                 })
                 .catch(err => {

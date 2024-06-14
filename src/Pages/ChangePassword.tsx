@@ -10,6 +10,7 @@ const ChangePassword = () => {
     const [oldPass, setOldPass] = useState('');
     const [newPass, setNewPass] = useState('');
     const [conNewPass, setConNewPass] = useState('');
+    const userData = JSON.parse(localStorage.getItem('account'));
 
     let data : any;
     const inputOldPass = (event : any) => {
@@ -39,29 +40,55 @@ const ChangePassword = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                console.log('Old Password', oldPass);
-                console.log('New Password', newPass);
-                console.log('Confirm New Password', conNewPass);
-                if(oldPass != data['password']){
+                if(oldPass != userData['password']){
                     Swal.fire({
                         icon: 'error',
-                        title: 'Your is not correct',
+                        title: 'Your old password is not correct',
                         confirmButtonColor: '#3085d6',
                     })
                 }
-                if(data['password'] == newPass){
+                else if(userData['password'] == newPass){
                     Swal.fire({
                         icon: 'error',
                         title: 'Your new password is the same with your old password',
                         confirmButtonColor: '#3085d6',
                     })
                 }
-                if(newPass != conNewPass){
+                else if(newPass != conNewPass){
                     Swal.fire({
                         icon: 'error',
                         title: 'Your new password and confirm password do not match',
                         confirmButtonColor: '#3085d6',
                     })
+                } else {
+                    axios.post('http://localhost:80/api/auth/change-password',{
+                        'password': newPass,
+                        'user_id': userData['id']
+                    })
+                        .then(res => {
+                            if (res['data']['error'] == 1){
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Failed to Save",
+                                    text: res['data']['message'],
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: 'Success',
+                                    text: `${res['data']['message']}`,
+                                    icon: 'success',
+                                    confirmButtonText: 'Ok',
+                                    confirmButtonColor: '#3085d6',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        navigate(`/Home`)
+                                    }
+                                })
+                            }
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
                 }
             }
         })
@@ -83,7 +110,7 @@ const ChangePassword = () => {
                 </div>
                 <div className='mt-12 flex flex-row justify-center align-middle items-center'>
                     <div className='w-2/12 font-bold'>
-                        New Passowrd
+                        New Password
                     </div>
                     <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
                         placeholder='Enter Your New Password' 

@@ -8,12 +8,16 @@ import OVO from '@/assets/OVO.png';
 import DANA from '@/assets/Logo_dana_blue.svg.png';
 import Gopay from '@/assets/logo-gopay-vector.png';
 import spay from '@/assets/SPAY.png';
+import Swal from "sweetalert2";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const TopUp: React.FC = () => {
+    const navigate = useNavigate();
     const [textNominal, setTextNominal] = useState('');
     const [textEmail, setTextEmail] = useState('');
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
+    const userData = JSON.parse(localStorage.getItem('account'));
     const options = [
         { src: spay, alt: 'SPay', width: 'h-12 w-12' },
         { src: QRIS, alt: 'QRIS', width: 'h-24 w-36' },
@@ -31,6 +35,51 @@ const TopUp: React.FC = () => {
     const grayClasses = "border-gray-400 text-gray-400";
     const blueClasses = "border-blue-700 text-blue-700 font-bold";
 
+    const topUp = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to top up this amount?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if(result.isConfirmed){
+
+                axios.post('http://localhost:80/api/auth/top-up',{
+                   amount: textNominal,
+                    user_id:userData['id']
+                })
+                    .then(res => {
+                        if (res['data']['error'] == 1){
+                            Swal.fire({
+                                icon: "error",
+                                title: "Failed",
+                                text: res['data']['message'],
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Success',
+                                text: `${res['data']['message']}`,
+                                icon: 'success',
+                                confirmButtonText: 'Ok',
+                                confirmButtonColor: '#3085d6',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    navigate(`/Home`)
+                                    window.location.reload();
+                                }
+                            })
+
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+            }
+        });
+    }
     return (
         <div className='bg-gray-200 min-h-screen'>
             <Navbar />
@@ -39,9 +88,9 @@ const TopUp: React.FC = () => {
                     <div className='flex flex-col align-middle'>
                         <div className='text-xl font-medium mb-4 mt-6'>Top Up</div>
                         <div className='mb-8 flex flex-row items-center align-middle font-medium'>
-                            <img src={ProfIMG} alt="" className='rounded-full w-10 h-10 mr-2' />
+                            <img src={userData['photo']} alt="" className='rounded-full w-10 h-10 mr-2' />
                             <div>
-                                Pradah - Rp. 15.000
+                                {userData['name']} - Rp. {userData['balance']}
                             </div>
                         </div>
                         <div className='mb-4'>
@@ -82,7 +131,7 @@ const TopUp: React.FC = () => {
                             </div>
                         ))}
                         <div className='flex flex-col justify-end mr-12 ml-auto'>
-                            <button className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 w-32 h-8 font-semibold text-sm rounded-md bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot'>
+                            <button onClick={topUp}className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 w-32 h-8 font-semibold text-sm rounded-md bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot'>
                                 Top Up
                             </button>
                         </div>

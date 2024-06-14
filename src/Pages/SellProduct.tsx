@@ -5,12 +5,18 @@ import DropDownLocation from '../components/DropDownLocation';
 import Footer from '@/components/Footer';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import {useLocation, useNavigate} from "react-router-dom";
 
 const SellProduct = () => {
     const [textProd, setTextProd] = useState('');
     const [textDesc, setTextDesc] = useState('');
     const [textLoc, setLoc] = useState('');
     const [textPrice, setTextPrice] = useState('');
+    const [textStock, setTextStock] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const id = searchParams.get('id');
     const [imgURL, setImgURL] = useState('');
     let data : any;
     const inputTextProd = (event: any) => {
@@ -19,9 +25,13 @@ const SellProduct = () => {
     const inputTextPrice = (event: any) => {
         setTextPrice(event.target.value);
     };
+    const inputTextStock = (event: any) => {
+        setTextStock(event.target.value);
+    };
     const inputTextDesc = (event: any) => {
         setTextDesc(event.target.value);
     };
+
     const inputImgURL = (event: any) => {
         setImgURL(event.target.value);
     };
@@ -30,7 +40,7 @@ const SellProduct = () => {
         event.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
-            text: "Do you want to save changes?",
+            text: "Proceed to add product?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Add',
@@ -38,12 +48,39 @@ const SellProduct = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                
-                console.log('Product Name', textProd);
-                console.log('Price', textPrice);
-                console.log('Location', textLoc);
-                console.log('Description', textDesc);
-                console.log('Image', imgURL);
+                axios.post(`http://localhost:80/api/product/insert-product`,
+                    {
+                        product_name: textProd,
+                        price: textPrice,
+                        quantity:textStock,
+                        image: imgURL,
+                        detail: textDesc,
+                        origin: textLoc,
+                        shop_id: id})
+                    .then(res => {
+                        if (res['data']['error'] == 1) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Failed to Delete",
+                                text: res['data']['message'],
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Success',
+                                text: `${res['data']['message']}`,
+                                icon: 'success',
+                                confirmButtonText: 'Ok',
+                                confirmButtonColor: '#3085d6',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    navigate(`/itempage?id=${id}`)
+                                }
+                            })
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
             }
         });
     }
@@ -79,6 +116,19 @@ const SellProduct = () => {
                     style={{ fontSize : '1 rem'} }/>
         
         
+        </div>
+        <div className='  mt-12 flex flex-row justify-center align-middle items-center '>
+            <div className='w-2/12 font-bold'>
+                Stock
+            </div>
+
+            <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`}
+                   placeholder='Enter Product Stock'
+                   value={textStock}
+                   onChange={inputTextStock}
+                   style={{ fontSize : '1 rem'} }/>
+
+
         </div>
 
         <div className='  mt-12 flex flex-row justify-center align-middle items-center z-0'>

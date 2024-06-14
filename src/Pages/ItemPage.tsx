@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react'
 import Navbar from '@/scenes/navbar'
 import Footer from '@/components/Footer'
 import SearchBar from '../components/searchBar.tsx'
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import ItemBox from "@/components/ItemBox";
 import CartBox from "@/components/CartBox";
 
 const ItemPage = () => {
     const [shop, setShop] = useState(null);
+    const navigate = useNavigate();
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get('id');
@@ -27,7 +28,9 @@ const ItemPage = () => {
         getShopData();
 
     }, []);
-
+    const goToAdd = () => {
+        navigate(`/sellproduct?id=${id}`);
+    }
   return (
     <div className=''>
         <Navbar/>
@@ -38,7 +41,7 @@ const ItemPage = () => {
    <div className='flex flex-col justify-center items-center'>
    <div className='flex justify-start w-8/12 pr-5   mt-6'>
 <button className='w-36 h-10 font-bold text-sm bg-gradient-to-b to-OrderBTNTop from-OrderBTNBot transition-all duration-300  hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white '
->
+onClick={goToAdd}>
  Add Item
 </button>
 

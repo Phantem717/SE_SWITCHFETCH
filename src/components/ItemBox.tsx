@@ -53,7 +53,6 @@ const ItemBox = ({item}) => {
     const goToEdit = () => {
         navigate(`/updateProduct?id=${item.id}`);
     }
-
   return (
     <div className=' flex  bg-white w-8/12 flex-col mt-6 mb-2'>
     

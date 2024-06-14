@@ -7,6 +7,8 @@ import ProfImg from '../assets/Elige Al Gaib.png'
 import {useLocation, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import {Simulate} from "react-dom/test-utils";
+import change = Simulate.change;
 
 
 
@@ -29,9 +31,14 @@ const TransactionDetails = ({id}) => {
     const [bill, setBill] = useState(null);
     const [shop, setShop] = useState(null);
     const [data, setData] = useState(null);
+    const [address, setAddress] = useState(null);
     const navigate = useNavigate();
+    const changeAddress = (event: any) => {
+        setAddress(event.target.value);
+    };
 
     useEffect(() => {
+        setAddress(userData['address']);
         Swal.showLoading();
         const getData = async () => {
             try {
@@ -107,7 +114,8 @@ const TransactionDetails = ({id}) => {
                       quantity:quantity,
                       user_id: userData['id'],
                       payment: bill['grand_total'],
-                      real_price: bill['price']
+                      real_price: bill['price'],
+                      address: address
                   })
                   .then(res => {
                       if(res['data']['error'] == 1){
@@ -142,6 +150,7 @@ const TransactionDetails = ({id}) => {
                           }).then((result) => {
                               if(result.isConfirmed) {
                                   navigate(`/history`);
+                                  window.location.reload();
                               }
                           });
 
@@ -225,8 +234,12 @@ const TransactionDetails = ({id}) => {
         </div>
     <div className='box-border border-2
 border-gray-200 w-8/12 h-6/6 flex justify-center '>
-    <div className='font-normal  text-md  mb-6 ml-1 mt-1'>
-        {userData['address']}
+    <div className=''>
+        <input type='text' className={` box-border  w-11/12 h-8`}
+               placeholder='Enter Product Price'
+               value={address}
+               onChange={changeAddress}
+               style={{ fontSize : '1 rem'} }/>
     </div>
     </div>
     </div>

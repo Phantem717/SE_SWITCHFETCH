@@ -43,7 +43,6 @@ const DropDownProf = () => {
         </div>
         <ul className='flex justify-center flex-col items-center text-sm cursor-pointer'>
             <div className='box-border border-b-2 border-gray-200 pb-2 pt-2 w-full flex justify-center hover:shadow-blue-400 hover:rounded-md  hover:bg-blue-600  hover:text-white transition-all duration-300 '> <li ><a href="./editprofile">Edit Profile</a> </li> </div>
-           <div className='box-border border-b-2 border-gray-200 pb-2 pt-2 w-full flex justify-center hover:shadow-blue-400 hover:rounded-md hover:bg-blue-600  hover:text-white transition-all duration-300 '>  <li><a href="./sellproduct">Sell Product</a></li> </div>
           <div className='box-border border-b-2 border-gray-200 pb-2 pt-2 w-full flex justify-center hover:shadow-blue-400 hover:rounded-md  hover:bg-blue-600  hover:text-white transition-all duration-300 '>    <li ><a href="./topup">Top Up</a></li> </div>
         <div  className='text-white bg-red-500 pb-2 pt-2 w-full flex justify-center rounded-bl-md rounded-br-md hover:shadow-blue-400 hover:rounded-md  hover:bg-blue-600  hover:text-white transition-all duration-300 '>  <li ><a onClick={logout}>Sign Out</a></li> </div>
           
