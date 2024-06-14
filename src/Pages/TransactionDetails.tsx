@@ -235,7 +235,7 @@ const TransactionDetails = ({id}) => {
     <div className='box-border border-2
 border-gray-200 w-8/12 h-6/6 flex justify-center '>
     <div className=''>
-        <input type='text' className={` box-border  w-full h-8`}
+        <input type='text' className={` box-border w-full h-8`}
                placeholder='Enter Product Price'
                value={address}
                onChange={changeAddress}
