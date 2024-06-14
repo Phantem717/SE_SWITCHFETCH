@@ -51,7 +51,7 @@ const SearchPage: React.FC = () => {
                 <SearchBar onSearch={handleSearchText} />
             </div>
 
-            <div className="flex justify-start font-semibold text-4xl mt-4 mb-8">Search Page</div>
+            <div className="flex justify-start font-semibold text-4xl mt-4 mb-8"></div>
 
             <div className="flex justify-end">
               <DropDownPrice onSelect={handleOrder}/>
