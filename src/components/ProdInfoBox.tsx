@@ -154,7 +154,7 @@ const ProdInfoBox: React.FC = ({ id }) => {
                             </div>
 
                             <div className='text-black text-opacity-50 mb-5'>
-                                {product.description}
+                                {product.detail}
                             </div>
                         </div>
                         <div className='mb-5'>
@@ -167,7 +167,7 @@ const ProdInfoBox: React.FC = ({ id }) => {
                         {/* Total */}
                         <div className='flex items-center mb-5'>
                             <div className='text-black text-opacity-40 font-medium text-lg'>
-                                Total Price Including Delivery:
+                                Total Price:
                             </div>
 
                             <div className='font-semibold text-2xl ml-2'>
