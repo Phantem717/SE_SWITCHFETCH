@@ -248,9 +248,11 @@ const TransactionDetails = ({id}) => {
             {userData['name']}
         </div>
     <div className='box-border border-2
+
 border-gray-200 w-8/12 h-6/6 flex  '>
     <div className='w-full '>
         <input type='text' className={` w-full h-8`}
+
                placeholder=''
                value={address}
                onChange={changeAddress}
