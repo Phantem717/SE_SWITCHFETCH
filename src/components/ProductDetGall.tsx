@@ -28,7 +28,7 @@ const ProductDetGall = ({id}) => {
     return (
         product ? (
             <div className='z-0 flex flex-col mt-12'>
-                <div className='flex flex-col'>
+                <div className='flex flex-col '>
                     <div className={`${mainImg}`}>
                         <img src={product.image} alt=""/>
                     </div>
