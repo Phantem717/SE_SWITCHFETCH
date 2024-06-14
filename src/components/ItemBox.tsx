@@ -1,8 +1,9 @@
 import React from 'react'
 import axios from "axios";
 import Swal from "sweetalert2";
+import {useNavigate} from "react-router-dom";
 const ItemBox = ({item}) => {
-
+    const navigate = useNavigate();
     const deleteProduct = () => {
         try {
 
@@ -49,6 +50,9 @@ const ItemBox = ({item}) => {
             console.error(err);
         }
     }
+    const goToEdit = () => {
+        navigate(`/updateProduct?id=${item.id}`);
+    }
 
   return (
     <div className=' flex  bg-white w-8/12 flex-col mt-6 mb-2'>
@@ -65,10 +69,9 @@ const ItemBox = ({item}) => {
             {item.product_name}
         </div>
         <div className='font-medium text-sm mb-0.5'>
-          Quantity : {item.remaining_stock}
+          Stock : {item.remaining_stock}
         </div>
-       
-        
+
     </div>
     
     </div>
@@ -96,7 +99,9 @@ onClick={deleteProduct}
 
 </div>
 <div className='flex  pr-5 mb-4'>
-<button className='w-36 h-10 text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot  hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium'>Edit</button>
+<button
+    onClick={goToEdit}
+    className='w-36 h-10 text-sm bg-gradient-to-b from-OrderBTNTop to-OrderBTNBot  hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium'>Edit</button>
 
 </div>
         </div>
