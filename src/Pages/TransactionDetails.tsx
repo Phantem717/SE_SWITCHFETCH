@@ -108,6 +108,17 @@ const TransactionDetails = ({id}) => {
           cancelButtonColor: '#d33',
       }).then((result) => {
           if(result.isConfirmed){
+
+              if(address === ""){
+                  Swal.fire({
+                      icon: "error",
+                      title: "Something Went Wrong",
+                      text: "Please fill in the address",
+                  });
+                  return;
+              }
+
+
               axios.post(`http://localhost:80/api/transaction/make-transaction`,
                   {
                       product_id:productId,
