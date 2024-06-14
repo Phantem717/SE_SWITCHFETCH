@@ -108,6 +108,17 @@ const TransactionDetails = ({id}) => {
           cancelButtonColor: '#d33',
       }).then((result) => {
           if(result.isConfirmed){
+
+              if(address === ""){
+                  Swal.fire({
+                      icon: "error",
+                      title: "Something Went Wrong",
+                      text: "Please fill in the address",
+                  });
+                  return;
+              }
+
+
               axios.post(`http://localhost:80/api/transaction/make-transaction`,
                   {
                       product_id:productId,
@@ -163,6 +174,10 @@ const TransactionDetails = ({id}) => {
           }
       });
   }
+    const cancelPurchase = () => {
+        navigate('/Home');
+        window.location.reload();
+    }
    return (
     <div className='min-h-screen'>
         <Navbar/>
@@ -197,7 +212,7 @@ const TransactionDetails = ({id}) => {
     
     </div>
     <div className='font-semibold flex justify-end mr-5 text-lg items-center'>
-        {bill.price}
+        Rp. {bill.price}
         </div>
     </div>
    
@@ -212,7 +227,7 @@ const TransactionDetails = ({id}) => {
         
       <div className=' flex flex-row justify-end'>
         <div className='flex pr-5 mb-4'>
-<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-red-400 hover:p-1 hover:bg-red-600  '>Cancel</button>
+<button className='w-36 h-10 font-normal text-sm bg-gradient-to-b bg-red-500 text-white hover:text-black transition-all duration-300 hover:font-bold hover:shadow-md hover:shadow-red-400 hover:p-1 hover:bg-red-600  ' onClick={cancelPurchase}>Cancel</button>
 
 </div>
 
@@ -233,9 +248,11 @@ const TransactionDetails = ({id}) => {
             {userData['name']}
         </div>
     <div className='box-border border-2
-border-gray-200 w-8/12 h-6/6 flex justify-center '>
-    <div className='w-8/12 '>
-        <input type='text' className={` box-border px-2  h-8`}
+
+border-gray-200 w-8/12 h-6/6 flex  '>
+    <div className='w-full '>
+        <input type='text' className={` w-full h-8`}
+
                placeholder=''
                value={address}
                onChange={changeAddress}
