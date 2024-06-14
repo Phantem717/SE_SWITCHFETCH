@@ -55,7 +55,7 @@ export default {
         
       },
       height: {
-        "HeightMain" : "430px",
+        "HeightMain" : "400px",
         "EditHeight" : "800px",
         "ProfHeight" : "50px",
         "GallHeight": "660px",
