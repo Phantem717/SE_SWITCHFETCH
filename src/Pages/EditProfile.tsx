@@ -124,7 +124,7 @@ const EditProfile = () => {
         <div className='bg-blue-100 min-h-screen'>
             <Navbar />
 
-            <div className='mt-12 flex flex-row justify-center align-middle items-center'>
+            <div className='mt-20 flex flex-row justify-center align-middle items-center'>
                 <div className='w-2/12 font-bold'>
                     Name
                 </div>
