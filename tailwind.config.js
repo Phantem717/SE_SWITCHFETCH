@@ -38,6 +38,7 @@ export default {
       },
       width: {
         "WidthMain" : "480px",
+        "WMIMGWidth": "450px",
         "EditWidth" : "470px",
         "ProfWidth" : "50px",
         "QTYBTNWidth": "24px",
@@ -56,6 +57,7 @@ export default {
       },
       height: {
         "HeightMain" : "400px",
+        "HMIMGHeight" : "370px",
         "EditHeight" : "800px",
         "ProfHeight" : "50px",
         "GallHeight": "660px",

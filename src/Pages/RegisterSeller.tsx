@@ -99,70 +99,74 @@ const RegisterSeller = () => {
     }
 
     return (
-        <div className='bg-blue-100 min-h-screen'>
+        <div className='bg-blue-100'>
             <Navbar/>
-            <div className='mt-20 flex flex-row justify-center align-middle items-center'>
-                <div className='w-2/12 font-bold'>
-                    Shop Name
-                </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                    placeholder='Enter Shop Name' 
-                    value={shopName} 
-                    onChange={inputShopName} 
-                    style={{ fontSize : '1 rem'} }
-                    />
-            </div>
-             <div className='mt-20 flex flex-row justify-center align-middle items-center'>
-                            <div className='w-2/12 font-bold'>
-                                Shop Address
-                            </div>
-                            <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`}
-                                placeholder='Enter Shop Address'
-                                value={shopAddress}
-                                onChange={inputShopAddress}
-                                style={{ fontSize : '1 rem'} }
-                                />
-                        </div>
 
-            <div className='mt-12 flex flex-row justify-center align-middle items-center'>
-                <div className='w-2/12 font-bold'>
-                    Shop Description
+            <div className='min-h-screen'>
+                <div className='mt-20 flex flex-row justify-center align-middle items-center'>
+                    <div className='w-2/12 font-bold'>
+                        Shop Name
+                    </div>
+                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+                        placeholder='Enter Shop Name' 
+                        value={shopName} 
+                        onChange={inputShopName} 
+                        style={{ fontSize : '1 rem'} }
+                        />
                 </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: pb-20 placeholder: px-4 pl-2 border-2 box-border border-black rounded-lg w-7/12 h-28`} 
-                    placeholder='Enter Shop Description' 
-                    value={shopDesc} 
-                    onChange={inputShopDesc} 
-                    style={{ fontSize : '1 rem'} }
-                    />
-            </div>
 
-            <div className='mt-12 flex flex-row justify-center align-middle items-center' >
-                <div className='w-2/12 font-bold'>
-                    Add Shop Picture
+                <div className='mt-20 flex flex-row justify-center align-middle items-center'>
+                    <div className='w-2/12 font-bold'>
+                        Shop Address
+                    </div>
+                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`}
+                        placeholder='Enter Shop Address'
+                        value={shopAddress}
+                        onChange={inputShopAddress}
+                        style={{ fontSize : '1 rem'} }
+                        />
                 </div>
-                <input 
-                    type='text' 
-                    className='hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8' 
-                    placeholder='Enter Image Link'
-                    value={shopUrl}
-                    onChange={inputShopUrl}
-                    style={{ fontSize : '1 rem'} }
-                /> 
-            </div>
+
+                <div className='mt-12 flex flex-row justify-center align-middle items-center'>
+                    <div className='w-2/12 font-bold'>
+                        Shop Description
+                    </div>
+                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: pb-20 placeholder: px-4 pl-2 border-2 box-border border-black rounded-lg w-7/12 h-28`} 
+                        placeholder='Enter Shop Description' 
+                        value={shopDesc} 
+                        onChange={inputShopDesc} 
+                        style={{ fontSize : '1 rem'} }
+                        />
+                </div>
+
+                <div className='mt-12 flex flex-row justify-center align-middle items-center' >
+                    <div className='w-2/12 font-bold'>
+                        Add Shop Picture
+                    </div>
+                    <input 
+                        type='text' 
+                        className='hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8' 
+                        placeholder='Enter Image Link'
+                        value={shopUrl}
+                        onChange={inputShopUrl}
+                        style={{ fontSize : '1 rem'} }
+                    /> 
+                </div>
             
-            <div className='mt-4 flex justify-center'>
-                <img src={shopUrl} className={`flex items-center justify-center h-48`} alt="" />
-            </div>
+                <div className='mt-4 flex justify-center'>
+                    <img src={shopUrl} className={`flex items-center justify-center h-48`} alt="" />
+                </div>
 
-            <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
-                <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
-                    <button 
-                        type='submit' 
-                        className='w-full h-full' 
-                        onClick={handleOnSubmit}
-                    >
-                        Submit
-                    </button>
+                <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
+                    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
+                        <button 
+                            type='submit' 
+                            className='w-full h-full' 
+                            onClick={handleOnSubmit}
+                        >
+                            Submit
+                        </button>
+                    </div>
                 </div>
             </div>
 

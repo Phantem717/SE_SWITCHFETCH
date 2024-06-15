@@ -121,101 +121,97 @@ const EditProfile = () => {
     }
 
     return (
-        <div className='bg-blue-100 min-h-screen'>
+        <div className='bg-blue-100'>
             <Navbar />
-
-            <div className='mt-20 flex flex-row justify-center align-middle items-center'>
-                <div className='w-2/12 font-bold'>
-                    Name
-                </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                    placeholder='Enter Full Name' 
-                    value={textName} 
-                    onChange={inputTextName} 
-                    style={{ fontSize : '1 rem'} }
-                    />
-            </div>
-
-            {/*<div className='mt-12 flex flex-row justify-center align-middle items-center z-10'>*/}
-            {/*    <div className='w-2/12 font-bold'>*/}
-            {/*        Location*/}
-            {/*    </div>*/}
-            {/*    <DropDownLocation onLocationSelect={setLoc} />*/}
-            {/*</div>*/}
             
-            <div className='mt-12 flex flex-row justify-center align-middle items-center z-0'>
-                <div className='w-2/12 font-bold'>
-                    Gender
-                </div>
-                <DropDownGender onGenderSelect={setGend} />
-            </div>
-
-            <div className='mt-12 flex flex-row justify-center align-middle items-center'>
-                <div className='w-2/12 font-bold'>
-                    Address
-                </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                    placeholder='Enter Address' 
-                    value={textAddr} 
-                    onChange={inputTextAddr} 
-                    style={{ fontSize : '1 rem'} }
-                    />
-            </div>
-
-            <div className='mt-12 flex flex-row justify-center align-middle'>
-                <div className='w-2/12 font-bold'>
-                    Profile Description
-                </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: pb-20 placeholder: px-4 pl-2 border-2 box-border border-black rounded-lg w-7/12 h-28`} 
-                    placeholder='Enter Profile Description' 
-                    value={textDesc} 
-                    onChange={inputTextDesc} 
-                    style={{ fontSize : '1 rem'} }
-                    />
-            </div>
-
-            <div className='mt-12 flex flex-row justify-center align-middle items-center' >
-                <div className='w-2/12 font-bold'>
-                    Add Profile Picture
-                </div>
-                <input 
-                    type='text' 
-                    className='hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8' 
-                    placeholder='Enter Image Link'
-                    value={avatarURL}
-                    onChange={inputAvatarURL}
-                    style={{ fontSize : '1 rem'} }
-                /> 
-            </div>
-
-            <div className='mt-4 flex justify-center'>
-                <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
-            </div>
-
-            <div className='flex justify-end ml-auto mr-44 pb-12'>
-                <div>
-                    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-96 flex-column flex text-black bg-navGrad1 rounded-md w-44 h-10 items-center justify-end'>
-                        <button 
-                            type='submit' 
-                            className='w-full h-full' 
-                            onClick={handleChangePass}
-                        >
-                            Change Password
-                        </button>
+            <div className='min-h-screen'>
+                <div className='mt-20 flex flex-row justify-center align-middle items-center'>
+                    <div className='w-2/12 font-bold'>
+                        Name
                     </div>
+                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+                        placeholder='Enter Full Name' 
+                        value={textName} 
+                        onChange={inputTextName} 
+                        style={{ fontSize : '1 rem'} }
+                        />
                 </div>
-                <div>
-                    <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
-                        <button 
-                            type='submit' 
-                            className='w-full h-full' 
-                            onClick={handleOnSave}
-                        >
-                            Save
-                        </button>
+            
+                <div className='mt-12 flex flex-row justify-center align-middle items-center z-0'>
+                    <div className='w-2/12 font-bold'>
+                        Gender
                     </div>
-                </div>      
+                    <DropDownGender onGenderSelect={setGend} />
+                </div>
+
+                <div className='mt-12 flex flex-row justify-center align-middle items-center'>
+                    <div className='w-2/12 font-bold'>
+                        Address
+                    </div>
+                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+                        placeholder='Enter Address' 
+                        value={textAddr} 
+                        onChange={inputTextAddr} 
+                        style={{ fontSize : '1 rem'} }
+                        />
+                </div>
+
+                <div className='mt-12 flex flex-row justify-center align-middle'>
+                    <div className='w-2/12 font-bold'>
+                        Profile Description
+                    </div>
+                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: pb-20 placeholder: px-4 pl-2 border-2 box-border border-black rounded-lg w-7/12 h-28`} 
+                        placeholder='Enter Profile Description' 
+                        value={textDesc} 
+                        onChange={inputTextDesc} 
+                        style={{ fontSize : '1 rem'} }
+                        />
+                </div>
+
+                <div className='mt-12 flex flex-row justify-center align-middle items-center' >
+                    <div className='w-2/12 font-bold'>
+                        Add Profile Picture
+                    </div>
+                    <input 
+                        type='text' 
+                        className='hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8' 
+                        placeholder='Enter Image Link'
+                        value={avatarURL}
+                        onChange={inputAvatarURL}
+                        style={{ fontSize : '1 rem'} }
+                    /> 
+                </div>
+
+                <div className='mt-4 flex justify-center'>
+                    <img src={avatarURL} className={`flex items-center justify-center h-48`} alt="" />
+                </div>
+
+                <div className='flex justify-end ml-auto mr-44 pb-12'>
+                    <div>
+                        <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-96 flex-column flex text-black bg-navGrad1 rounded-md w-44 h-10 items-center justify-end'>
+                            <button 
+                                type='submit' 
+                                className='w-full h-full' 
+                                onClick={handleChangePass}
+                            >
+                                Change Password
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
+                            <button 
+                                type='submit' 
+                                className='w-full h-full' 
+                                onClick={handleOnSave}
+                            >
+                                Save
+                            </button>
+                        </div>
+                    </div>      
+                </div>
             </div>
+            
             <Footer/>
         </div>
     );
