@@ -95,67 +95,69 @@ const ChangePassword = () => {
     }
 
     return (
-        <div className='bg-blue-100 min-h-screen'>
+        <div className='bg-blue-100'>
             <Navbar />
+            <div className='flex flex-col min-h-screen'>
                 <div className='mt-20 flex flex-row justify-center align-middle items-center'>
-                    <div className='w-2/12 font-bold'>
-                        Old Password
-                    </div>
-                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                        placeholder='Enter Your Old Password' 
-                        value={oldPass} 
+                        <div className='w-2/12 font-bold'>
+                            Old Password
+                        </div>
+                        <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+                            placeholder='Enter Your Old Password' 
+                            value={oldPass} 
                         onChange={inputOldPass} 
-                        style={{ fontSize : '1 rem'} }
-                        />
-                </div>
-                <div className='mt-12 flex flex-row justify-center align-middle items-center'>
-                    <div className='w-2/12 font-bold'>
-                        New Password
+                            style={{ fontSize : '1 rem'} }
+                            />
                     </div>
-                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                        placeholder='Enter Your New Password' 
-                        value={newPass} 
-                        onChange={inputNewPass} 
-                        style={{ fontSize : '1 rem'} }
-                        />
-                </div>
-                <div className='mt-12 flex flex-row justify-center align-middle items-center'>
-                    <div className='w-2/12 font-bold'>
-                        Confirm New Password
-                    </div>
-                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                        placeholder='Confirm Your New Password' 
-                        value={conNewPass} 
-                        onChange={inputConNewPass} 
-                        style={{ fontSize : '1 rem'} }
-                        />
-                </div>
-                <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
-
-                    <div>
-                        <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-24 flex-column flex text-black bg-cancelBtn rounded-md w-24 h-10 items-center justify-end'>
-                            <button 
-                                type='submit' 
-                                className='w-full h-full' 
-                                onClick={handleChangeCancel}
-                            >
-                                Cancel
-                            </button>
+                    <div className='mt-12 flex flex-row justify-center align-middle items-center'>
+                        <div className='w-2/12 font-bold'>
+                            New Password
                         </div>
+                        <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+                            placeholder='Enter Your New Password' 
+                            value={newPass} 
+                            onChange={inputNewPass} 
+                            style={{ fontSize : '1 rem'} }
+                            />
                     </div>
-
-                    <div>
-                        <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
-                            <button 
-                                type='submit' 
-                                className='w-full h-full' 
-                                onClick={handleChangePass}
-                            >
-                                Save
-                            </button>
+                    <div className='mt-12 flex flex-row justify-center align-middle items-center'>
+                        <div className='w-2/12 font-bold'>
+                            Confirm New Password
                         </div>
+                        <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
+                            placeholder='Confirm Your New Password' 
+                            value={conNewPass} 
+                            onChange={inputConNewPass} 
+                            style={{ fontSize : '1 rem'} }
+                            />
                     </div>
-            </div>
+                    <div className='flex justify-end ml-auto mr-44 mt-12 pb-12'>
+
+                        <div>
+                            <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-24 flex-column flex text-black bg-cancelBtn rounded-md w-24 h-10 items-center justify-end'>
+                                <button 
+                                    type='submit' 
+                                    className='w-full h-full' 
+                                    onClick={handleChangeCancel}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className='hover:font-bold hover:shadow-md hover:shadow-blue-400 hover:rounded-md hover:p-1 hover:bg-blue-600 hover:text-white transition-all duration-300 mt-1 mr-3 flex-column flex text-black bg-navGrad1 rounded-md w-24 h-10 items-center justify-end'>
+                                <button 
+                                    type='submit' 
+                                    className='w-full h-full' 
+                                    onClick={handleChangePass}
+                                >
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                </div>
+            </div>               
             <Footer/>
             
         </div>
