@@ -8,15 +8,15 @@ import Swal from 'sweetalert2';
 const RegisterSeller = () => {
 
     const [shopName, setShopName] = useState('');
-    const [shopAddress, setShopAddress] = useState('');
+    const [shopDesc, setShopDesc] = useState('');
     const [shopUrl, setShopUrl] = useState('');
     let data : any;
 
     const inputShopName = (event: any) => {
         setShopName(event.target.value);
     }
-    const inputShopAddress = (event: any) => {
-        setShopAddress(event.target.value);
+    const inputShopDesc = (event: any) => {
+        setShopDesc(event.target.value);
     }
     const inputShopUrl = (event: any) => {
         setShopUrl(event.target.value);
@@ -35,7 +35,7 @@ const RegisterSeller = () => {
         }).then((result) => {
             if(result.isConfirmed){
                 console.log('Shop Name', shopName);
-                console.log('Shop Address', shopAddress);
+                console.log('Shop Address', shopDesc);
                 console.log('Shop Picture', shopUrl);
             }
         })
@@ -58,12 +58,12 @@ const RegisterSeller = () => {
 
             <div className='mt-12 flex flex-row justify-center align-middle items-center'>
                 <div className='w-2/12 font-bold'>
-                    Shop Address
+                    Shop Description
                 </div>
-                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`} 
-                    placeholder='Enter Shop Address' 
-                    value={shopAddress} 
-                    onChange={inputShopAddress} 
+                <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: pb-20 placeholder: px-4 pl-2 border-2 box-border border-black rounded-lg w-7/12 h-28`} 
+                    placeholder='Enter Shop Description' 
+                    value={shopDesc} 
+                    onChange={inputShopDesc} 
                     style={{ fontSize : '1 rem'} }
                     />
             </div>
