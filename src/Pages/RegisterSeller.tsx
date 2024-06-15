@@ -10,10 +10,16 @@ const RegisterSeller = () => {
     const [shopName, setShopName] = useState('');
     const [shopDesc, setShopDesc] = useState('');
     const [shopUrl, setShopUrl] = useState('');
+    const [shopAddress, setShopAddress] = useState('');
+    const navigate = useNavigate();
     let data : any;
+    const userData = JSON.parse(localStorage.getItem('account'));
 
     const inputShopName = (event: any) => {
         setShopName(event.target.value);
+    }
+    const inputShopAddress = (event: any) => {
+        setShopAddress(event.target.value);
     }
     const inputShopDesc = (event: any) => {
         setShopDesc(event.target.value);
@@ -25,8 +31,8 @@ const RegisterSeller = () => {
     const handleOnSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault;
         Swal.fire({
-            title: 'Create Seller Profile?',
-            text: 'Make Profile?',
+            title: 'Registration',
+            text: 'Proceed to register?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Yes',
@@ -34,9 +40,60 @@ const RegisterSeller = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if(result.isConfirmed){
-                console.log('Shop Name', shopName);
-                console.log('Shop Address', shopDesc);
-                console.log('Shop Picture', shopUrl);
+                axios.post(`http://localhost:80/api/shop/create-shop`,
+                    {
+                      user_id: userData['id'],
+                        shop_name: shopName,
+                        address: shopAddress,
+                        image: shopUrl,
+                        description: shopDesc
+                    })
+                    .then(res => {
+                        if(res['data']['error'] == 1){
+                            Swal.fire({
+                                icon: "error",
+                                title: "Something Went Wrong",
+                                text: res['data']['message'],
+                            });
+                            return;
+                        } else {
+                            axios.post(`http://localhost:80/api/seller/register-seller`,
+                                {
+                                    user_id: userData['id'],
+                                    subscribe: true
+                                })
+                                .then(res => {
+                                    if (res['data']['error'] == 1) {
+                                        Swal.fire({
+                                            icon: "error",
+                                            title: "Failed to Register",
+                                            text: res['data']['message'],
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Success',
+                                            text: `${res['data']['message']}`,
+                                            icon: 'success',
+                                            confirmButtonText: 'Ok',
+                                            confirmButtonColor: '#3085d6',
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                navigate(`/Home`);
+                                                window.location.reload();
+                                            }
+                                        })
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error(err);
+                                });
+
+                            return;
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
             }
         })
     }
@@ -54,6 +111,18 @@ const RegisterSeller = () => {
                         placeholder='Enter Shop Name' 
                         value={shopName} 
                         onChange={inputShopName} 
+                        style={{ fontSize : '1 rem'} }
+                        />
+                </div>
+
+                <div className='mt-20 flex flex-row justify-center align-middle items-center'>
+                    <div className='w-2/12 font-bold'>
+                        Shop Address
+                    </div>
+                    <input type='text' className={`hover:placeholder:font-normal hover:placeholder:text-black transition-all duration-300 hover:border-2 hover:border-blue-500  hover:bg-blue-200  placeholder: px-4 border-2 box-border border-black rounded-lg w-7/12 h-8`}
+                        placeholder='Enter Shop Address'
+                        value={shopAddress}
+                        onChange={inputShopAddress}
                         style={{ fontSize : '1 rem'} }
                         />
                 </div>
