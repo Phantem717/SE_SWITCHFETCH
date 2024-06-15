@@ -88,7 +88,7 @@ const HistoryBox = ({item}) => {
                     ? 'text-yellow-500'
                     : item.status === 'Done'
                         ? 'text-green-500'
-                        : item.seller_done === 1 ? 'text-green-500' : ''
+                        : item.seller_done === 1 ? 'text-yellow-300 border-4 w-full flex justify-center border-green-700 bg-green-700 hover:text-red-300' : ''
     }`}
 >
     {item.seller_done === 0 ? item.status : 'Done'}
